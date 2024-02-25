@@ -31,3 +31,5 @@ Ensure you have `sudo` privileges and the `perf` tool installed on your system.
 4. **Categorize functions with extract.py**: Use `extract.py` to categorize top functions in the branch stack into tax categories or application logic. It produces `categorized_lines` and `uncategorized_lines` files. Manually categorize the keywords in `uncategorized_lines` into category files under `bucketization`.
 
 Each line in the output represents a sample.
+
+5. **Plot CPU cycles**: Use the script `plot_cpu_cycles.py` to generate two PNG images: `cpu_cycles.png` and `cpu_cycles_percentage.png`, representing the raw values of CPU cycles and the percentage of CPU cycles for each tax category respectively.
