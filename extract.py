@@ -27,7 +27,7 @@ def process_file():
 
                     if index != -1:
                         # Write the function name to the file
-                        file.write(line[:index])
+                        file.write(line[:index] + " -")
 
                         # Pattern to match the CPU cycle value
                         pattern = r'\/-\/-\/(\d+)'   

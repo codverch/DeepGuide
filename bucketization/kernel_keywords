@@ -499,3 +499,9 @@ event_rpc__prog_mismatch                 #
 sched_clock_cpu
 __nanosleep
 epoll_wait
+get_timespec64 
+_raw_write_lock_irq
+enqueue_hrtimer
+__schedule
+rseq_get_rseq_cs.isra.0
+flush_tlb_one_kernel
