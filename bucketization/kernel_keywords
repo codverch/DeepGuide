@@ -505,3 +505,13 @@ enqueue_hrtimer
 __schedule
 rseq_get_rseq_cs.isra.0
 flush_tlb_one_kernel
+prepare_task_switch
+native_irq_return_iret
+exit_to_user_mode_prepare
+x86_pmu_enable
+__intel_pmu_enable_all.constprop.0
+set_pte_vaddr
+restore_fpregs_from_fpstate
+exc_nmi
+asm_sysvec_apic_timer_interrupt
+apei_read

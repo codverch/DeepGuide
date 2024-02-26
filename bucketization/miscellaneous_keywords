@@ -25,3 +25,5 @@ _ZN9grpc_core5TableIJNS_15metadata_detail5ValueINS_16HttpPathMetadataEvEENS2_INS
 0x7f76f4d737c0                           # 
 visit_groups_merge.constprop.0.isra.0
 native_apic_msr_write
+__perf_event_task_sched_out              # Perf keywords
+perf_swevent_add

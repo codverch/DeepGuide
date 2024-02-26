@@ -20,8 +20,10 @@ def process_file():
                 # Skip empty lines - These samples don't have branch stack
                 if not line.strip():
                     continue
-                # Process lines that do not start with '[' - These are unknown functions
-                if not line.startswith("["):
+                # Process lines that start with '[' as 'application_logic'
+                if line.startswith("["):
+                    file.write(line.strip() + " - application_logic\n")
+                else:
                     # Find the index of '+' to extract function name
                     index = line.find('+')
 
@@ -47,9 +49,7 @@ def process_file():
 
                     else:
                         file.write(line)
-                # Write comment for lines starting with '['
-                else:
-                    pass
+
 
 # ===========================================================================================================================
 
@@ -78,21 +78,39 @@ def bucketize_lines():
     with open('processed_branch_stack.txt', 'r') as file:
         lines = file.readlines()
         for line in lines:
-            # Split the line at the first space to exclude the CPU cycle value
-            line_processed = line.split(" ", 1)[0]
-            # Check if this processed line is present in any of the bucket files
-            found = False
-            for bucket_file in bucket_files:
-                # Check if the processed line is in the processed bucket file content
-                if line_processed in bucket_file_contents[bucket_file]:
-                    found = True
+            # Process lines that start with '[' as 'application_logic'
+            if line.startswith("["):
+                # For lines starting with "[unknown]", extract the CPU cycle value for the first function and write the formatted line
+                if line.startswith("[unknown]"):
+                    parts = line.split('/')
+                    if len(parts) > 5:
+                        cpu_cycle = parts[5].split()[0]
+                    else:
+                        cpu_cycle = "unknown"
                     with open(f"categorized_lines.txt", 'a') as file:
-                        file.write(f"{line.strip()} - {bucket_file}\n")
-                    break
-            # If the processed line is not found in any bucket file, write it to uncategorized
-            if not found:
-                with open(f"uncategorized_lines.txt", 'a') as file:
-                    file.write(f"{line.strip()}\n")
+                        file.write(f"[unknown] - {cpu_cycle} - application_logic\n")
+            else:
+                # Split the line at the first space to exclude the CPU cycle value
+                line_processed = line.split(" ", 1)[0]
+                # Check if this processed line is present in any of the bucket files
+                found = False
+                for bucket_file in bucket_files:
+                    # Check if the processed line is in the processed bucket file content
+                    if line_processed in bucket_file_contents[bucket_file]:
+                        found = True
+                        with open(f"categorized_lines.txt", 'a') as file:
+                            file.write(f"{line.strip()} - {bucket_file}\n")
+                        break
+                # If the processed line is not found in any bucket file, categorize as '[unknown] - cpu-cycle - application_logic'
+                if not found and line.startswith("[unknown]"):
+                    parts = line.split('/')
+                    if len(parts) > 5:
+                        cpu_cycle = parts[5].split()[0]
+                    else:
+                        cpu_cycle = "unknown"
+                    with open(f"categorized_lines.txt", 'a') as file:
+                        file.write(f"[unknown] - {cpu_cycle} - application_logic\n")
+
 # ===========================================================================================================================
 
 # Call the function to process the file
