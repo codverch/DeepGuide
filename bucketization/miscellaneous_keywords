@@ -27,3 +27,6 @@ visit_groups_merge.constprop.0.isra.0
 native_apic_msr_write
 __perf_event_task_sched_out              # Perf keywords
 perf_swevent_add
+perf_event_nmi_handler
+__perf_event_task_sched_in 
+perf_event_groups_first
