@@ -275,3 +275,8 @@ plot_icache_misses_percentage()
 # Call the function to plot the percentage graph and save it as a PNG image
 plot_application_vs_other_taxes_percentage()
 
+
+
+
+
+
