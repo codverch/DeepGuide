@@ -32,7 +32,7 @@ syscall_exit_to_user_mode - kernel_keywords
 fill_item_stats_automove - application_logic_keywords
 intel_bts_enable_local - kernel_keywords
 __vdso_clock_gettime - kernel_keywords
-[unknown] - application_logic
+[unknown] - application_logic_keywords
 dequeue_task_fair - kernel_keywords
 ep_poll - kernel_keywords
 event_base_loop@plt - sync_keywords
@@ -64,7 +64,7 @@ cpuacct_charge - kernel_keywords
 syscall_exit_to_user_mode - kernel_keywords
 asm_sysvec_apic_timer_interrupt - kernel_keywords
 evutil_gettime_monotonic_@plt - sync_keywords
-[unknown] - application_logic
+[unknown] - application_logic_keywords
 do_nanosleep - kernel_keywords
 assoc_start_expand - application_logic_keywords
 pthread_mutex_unlock@plt - sync_keywords
