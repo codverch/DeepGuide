@@ -1,0 +1,137 @@
+__perf_event_task_sched_in
+__perf_event_task_sched_in
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+perf_event_nmi_handler
+perf_event_nmi_handler
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+This line was empty in the branch stack
+perf_event_nmi_handler
+perf_event_nmi_handler
+native_sched_clock
+nmi_handle
+trigger_load_balance
+scheduler_tick
+update_rq_clock
+rcu_core_si
+pthread_mutex_lock@plt
+This line was empty in the branch stack
+exit_to_user_mode_prepare
+This line was empty in the branch stack
+rseq_ip_fixup
+__update_idle_core
+This line was empty in the branch stack
+dequeue_task_fair
+This line was empty in the branch stack
+usleep
+__schedule
+This line was empty in the branch stack
+pthread_mutex_lock@plt
+dequeue_task_fair
+This line was empty in the branch stack
+pthread_mutex_lock@plt
+dequeue_task_fair
+This line was empty in the branch stack
+STATS_LOCK
+newidle_balance
+This line was empty in the branch stack
+dequeue_task_fair
+This line was empty in the branch stack
+__schedule
+This line was empty in the branch stack
+__hrtimer_init
+This line was empty in the branch stack
+slab_automove_run
+This line was empty in the branch stack
+entry_SYSCALL_64_after_hwframe
+This line was empty in the branch stack
+syscall_exit_to_user_mode
+fill_item_stats_automove
+This line was empty in the branch stack
+intel_bts_enable_local
+__vdso_clock_gettime
+[unknown]
+dequeue_task_fair
+ep_poll
+event_base_loop@plt
+dequeue_task_fair
+epoll_wait
+_raw_spin_lock_irqsave
+perf_event_groups_first
+ktime_get_ts64
+__x64_sys_clock_nanosleep
+__secure_computing
+update_load_avg
+syscall_trace_enter.constprop.0
+__x64_sys_epoll_wait
+exit_to_user_mode_prepare
+__secure_computing
+__x64_sys_clock_nanosleep
+event_active_nolock_@plt
+__x64_sys_clock_nanosleep
+exit_to_user_mode_loop
+newidle_balance
+lru_maintainer_thread
+hrtick_update
+clock_nanosleep
+psi_group_change
+pthread_mutex_lock@plt
+_raw_spin_lock_irqsave
+_raw_write_lock_irq
+cpuacct_charge
+syscall_exit_to_user_mode
+asm_sysvec_apic_timer_interrupt
+evutil_gettime_monotonic_@plt
+[unknown]
+do_nanosleep
+assoc_start_expand
+pthread_mutex_unlock@plt
+event_assign@plt
+common_nsleep
+event_changelist_remove_all_@plt
+ktime_get_ts64
+__x64_sys_clock_nanosleep
+__schedule
+__fget_light
+newidle_balance
+hrtimer_start_range_ns
+syscall_trace_enter.constprop.0
+update_curr
+slabs_available_chunks
+dequeue_entity
+update_curr
+newidle_balance
+prepare_task_switch
+exit_to_user_mode_loop
+common_nsleep
+_raw_spin_lock_irqsave
+pthread_mutex_trylock@plt
+newidle_balance
+dequeue_entity

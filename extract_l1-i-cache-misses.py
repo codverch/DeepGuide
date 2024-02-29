@@ -1,32 +1,38 @@
 import re
 import os
 
+# Open the branch_stack.txt file for reading
+with open("branch_stack.txt", "r") as file:
+    # Read all lines from the file
+    lines = file.readlines()
 
-def extract_function_and_misses():
-    with open('branch_stack_merged.txt', 'r') as file1, open('branch_stack.txt', 'r') as file2:
-        # Read all lines from branch_stack.txt
-        functions = [line.strip() for line in file2.readlines()]
+# Open the extracted_to_addresses.txt file for writing
+with open("extracted_to_addresses.txt", "w") as file:
+    # Initialize a counter for the total number of i-cache-misses
+    total_ic_misses = 0
+    # Loop through each line in the file
+    for line in lines:
+        # Remove leading and trailing whitespace from the line
+        line = line.strip()
+        # Check if the line is empty
+        if not line:
+            # Write a message indicating the line was empty
+            file.write("This line was empty in the branch stack\n")
+        else:
+            # Split the line by "/" and extract the second function name
+            functions = line.split("/")
+            if len(functions) >= 2:
+                to_address_parts = functions[1].split("+")
+                to_address = to_address_parts[0]
+                # Write the "To" address to the file
+                file.write(to_address + "\n")
+                # Increment the total number of i-cache-misses
+                total_ic_misses += 1
 
-        with open('categorize_these.txt', 'w') as output_file:
-            # Iterate over each line in branch_stack_merged.txt
-            for line1 in file1:
-                # Use regular expression to find the L1-icache-load-misses value
-                match = re.search(r'\d+ L1-icache-load-misses:', line1)
-                if match:
-                    # Extract the value
-                    value = match.group().split()[0]
+# Print the total number of i-cache-misses
+print("Total number of i-cache-misses:", total_ic_misses)
 
-                    # Check if there are any functions left in the list from branch_stack.txt
-                    if functions:
-                        # Pop the first function from the list and split by '/'
-                        function_parts = functions.pop(0).split('/')
-                        if len(function_parts) > 1:
-                            function = function_parts[1].split('+')[0]
-                            # Print the function name and the L1-icache-load-misses value on the same line
-                            # print(f"{function} - {value}")
-                            # Write the function name and the L1-icache-load-misses value to the output file
-                            output_file.write(f"{function} - {value}\n")
-def categorize_functions():
+def bucketize_lines():
     # Path to the bucketization folder
     bucketization_folder = 'bucketization'
 
@@ -40,46 +46,38 @@ def categorize_functions():
     for bucket_keywords in bucket_files:
         with open(os.path.join(bucketization_folder, bucket_keywords), 'r') as file:
             bucket_file_contents[bucket_keywords] = [line.split("#")[0].strip() for line in file.readlines()]
+    
+    # Categorize the lines in the 'extracted_to_addresses.txt' file
+    with open('extracted_to_addresses.txt', 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            # Remove leading and trailing whitespace from the line
+            line = line.strip()
+            # Skip lines that indicate empty lines
+            if line == "This line was empty in the branch stack":
+                continue
+            # Check if the line starts with '[unknown]'
+            if line.startswith("[unknown]"):
+                with open(f"categorized_lines.txt", 'a') as file:
+                    file.write(f"{line} - application_logic_keywords\n")
+                continue
+            # Check if this processed line is present in any of the bucket files
+            found = False
+            for bucket_file in bucket_files:
+                # Check if the processed line is in the processed bucket file content
+                if line in bucket_file_contents[bucket_file]:
+                    found = True
+                    with open(f"categorized_lines.txt", 'a') as file:
+                        file.write(f"{line} - {bucket_file}\n")
+                    break
+            # If the processed line is not found in any bucket file, categorize as 'application_logic'
+            if not found:
+                with open(f"categorized_lines.txt", 'a') as file:
+                    file.write(f"{line} - application_logic\n")
 
-    # Read the functions from categorize_these.txt and categorize them
-    with open('categorize_these.txt', 'r') as file:
-        functions = file.readlines()
-
-    # Categorize each function
-    categorized_functions = []
-    for function in functions:
-        # Extract the function name
-        function_name = function.split(" - ")[0].strip()
-        # Check if this function is present in any of the bucket files
-        found = False
-        for bucket_file in bucket_files:
-            # Check if the function name is in the processed bucket file content
-            if function_name in bucket_file_contents[bucket_file]:
-                found = True
-                categorized_functions.append(f"{function.strip()} - {bucket_file}")
-                break
-        # If the function is not found in any bucket file and starts with '[unknown]', categorize as 'application_logic'
-        if not found and function_name.startswith('[unknown]'):
-            categorized_functions.append(f"{function.strip()} - application_logic")
-
-    # Write the categorized functions to a new file
-    with open('categorized_functions.txt', 'w') as file:
-        for line in categorized_functions:
-            file.write(f"{line}\n")
-
-
-# Call the function to categorize functions
-categorize_functions()
-
-
-# Call the function to extract the function name and L1-icache-load-misses
-extract_function_and_misses()
-
-# Call the function to categorize functions
-categorize_functions()
+# Call the function to categorize the lines
+bucketize_lines()
 
 
-
-# Call the function to categorize functions
-categorize_functions()
-
+# Call the function to categorize the lines
+bucketize_lines()
