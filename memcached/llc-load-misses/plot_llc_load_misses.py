@@ -11,8 +11,8 @@ def extract_to_addresses():
 
     # Open the extracted_to_addresses.txt file for writing
     with open("extracted_to_addresses.txt", "w") as file:
-        # Initialize a counter for the total number of branch-misses
-        total_branch_misses = 0
+        # Initialize a counter for the total number of llc-load-misses
+        total_llc_load_misses = 0
         # Loop through each line in the file
         for line in lines:
             # Remove leading and trailing whitespace from the line
@@ -20,7 +20,7 @@ def extract_to_addresses():
             # Check if the line is empty
             if not line:
                 # Write a message indicating the line was empty
-                file.write("This line was empty in the branch stack\n")
+                file.write("This line was empty in the  stack\n")
             else:
                 # Split the line by "/" and extract the second function name
                 functions = line.split("/")
@@ -29,11 +29,12 @@ def extract_to_addresses():
                     to_address = to_address_parts[0]
                     # Write the "To" address to the file
                     file.write(to_address + "\n")
-                    # Increment the total number of branch-misses
-                    total_branch_misses += 1
+                    # Increment the total number of llc-load-misses
+                    total_llc_load_misses += 1
 
-    # Print the total number of branch-misses
-    print("Total number of branch-misses:", total_branch_misses)
+    # Print the total number of llc-load-misses
+    print("Total number of llc-load-misses:", total_llc_load_misses)
+
 
 def bucketize_lines():
     # Path to the bucketization folder
@@ -78,7 +79,7 @@ def bucketize_lines():
                 with open("uncategorized.txt", 'a') as file:
                      file.write(f"{line}\n")
 
-def plot_branch_misses():
+def plot_llc_load_misses():
     # Read the categorized_lines.txt file
     with open('categorized_lines.txt', 'r') as file:
         lines = file.readlines()
@@ -108,7 +109,7 @@ def plot_branch_misses():
     plt.bar(categories, counts)
     plt.xlabel('Tax Categories')
     plt.ylabel('Count')
-    plt.title('Branch Misses by Tax Category')
+    plt.title('LLC Load Misses by Tax Category')
 
     # Annotate the bars with their respective counts
     for i, count in enumerate(counts):
@@ -116,8 +117,9 @@ def plot_branch_misses():
 
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig('branch_misses_by_category.png')
+    plt.savefig('llc_load_misses_by_category.png')
     plt.show()
+
 
 def plot_application_vs_other_taxes():
     # Read the categorized_lines.txt file
@@ -150,7 +152,7 @@ def plot_application_vs_other_taxes():
     plt.bar(categories, counts)
     plt.xlabel('Category')
     plt.ylabel('Count')
-    plt.title('Branch Misses: Application Logic vs Other Taxes')
+    plt.title('LLC Load Misses: Application Logic vs Other Taxes')
 
     # Annotate the bars with their respective counts
     for i, count in enumerate(counts):
@@ -160,7 +162,7 @@ def plot_application_vs_other_taxes():
     plt.savefig('application_vs_other_taxes.png')
     plt.show()
 
-def plot_branch_misses_percentage():
+def plot_llc_load_misses_percentage():
     # Read the categorized_lines.txt file
     with open('categorized_lines.txt', 'r') as file:
         lines = file.readlines()
@@ -179,11 +181,11 @@ def plot_branch_misses_percentage():
             category = 'application_logic'
         category_counts[category] += 1
 
-    # Calculate the total number of icache misses
-    total_branch_misses = sum(category_counts.values())
+    # Calculate the total number of llc-load misses
+    total_llc_load_misses = sum(category_counts.values())
 
-    # Calculate the percentage of icache misses for each category
-    percentage_by_category = {category: (count / total_branch_misses) * 100 for category, count in category_counts.items()}
+    # Calculate the percentage of llc-load misses for each category
+    percentage_by_category = {category: (count / total_llc_load_misses) * 100 for category, count in category_counts.items()}
 
     # Print the percentage for each category
     for category, percentage in percentage_by_category.items():
@@ -196,7 +198,7 @@ def plot_branch_misses_percentage():
     plt.bar(categories, percentages)
     plt.xlabel('Tax Categories')
     plt.ylabel('Percentage')
-    plt.title('Percentage of Branch Misses by Tax Category')
+    plt.title('Percentage of LLC Load Misses by Tax Category')
 
     # Annotate the bars with their respective percentages
     for i, percentage in enumerate(percentages):
@@ -204,7 +206,7 @@ def plot_branch_misses_percentage():
 
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig('branch_misses_percentage_by_category.png')
+    plt.savefig('llc_load_misses_percentage_by_category.png')
     plt.show()
 
 def plot_application_vs_other_taxes_percentage():
@@ -226,13 +228,13 @@ def plot_application_vs_other_taxes_percentage():
             category = 'application_logic'
         category_counts[category] += 1
 
-    # Calculate the total number of icache misses
-    total_branch_misses = sum(category_counts.values())
+    # Calculate the total number of llc-load misses
+    total_llc_load_misses = sum(category_counts.values())
 
-    # Calculate the percentage of icache misses for 'application_logic' and 'other_taxes'
-    application_logic_percentage = (category_counts['application_logic'] / total_branch_misses) * 100
+    # Calculate the percentage of llc-load misses for 'application_logic' and 'other_taxes'
+    application_logic_percentage = (category_counts['application_logic'] / total_llc_load_misses) * 100
     other_taxes_percentage = (category_counts['miscellaneous_keywords'] + category_counts['kernel_keywords'] + 
-                              category_counts['sync_keywords'] + category_counts['c_libraries_keywords']) / total_branch_misses * 100
+                              category_counts['sync_keywords'] + category_counts['c_libraries_keywords']) / total_llc_load_misses * 100
 
     # Print the percentages
     print(f"Application Logic: {application_logic_percentage:.2f}%")
@@ -246,7 +248,7 @@ def plot_application_vs_other_taxes_percentage():
     plt.bar(categories, percentages)
     plt.xlabel('Category')
     plt.ylabel('Percentage')
-    plt.title('Percentage of Branch Misses: Application Logic vs Other Taxes')
+    plt.title('Percentage of LLC Load Misses: Application Logic vs Other Taxes')
 
     # Annotate the bars with their respective percentages
     for i, percentage in enumerate(percentages):
@@ -256,7 +258,6 @@ def plot_application_vs_other_taxes_percentage():
     plt.savefig('application_vs_other_taxes_percentage.png')
     plt.show()
 
-
 # Call the function to extract "To" addresses
 extract_to_addresses()
 
@@ -264,19 +265,13 @@ extract_to_addresses()
 bucketize_lines()
 
 # Call the function to plot the graph and save it as a PNG image
-plot_branch_misses()
+plot_llc_load_misses()
 
 # Call the function to plot the graph and save it as a PNG image
 plot_application_vs_other_taxes()
 
 # Call the function to plot the percentage graph and save it as a PNG image
-plot_branch_misses_percentage()
+plot_llc_load_misses_percentage()
 
 # Call the function to plot the percentage graph and save it as a PNG image
 plot_application_vs_other_taxes_percentage()
-
-
-
-
-
-

@@ -73,10 +73,10 @@ def bucketize_lines():
                     with open(f"categorized_lines.txt", 'a') as file:
                         file.write(f"{line} - {bucket_file}\n")
                     break
-            # If the processed line is not found in any bucket file, categorize as 'application_logic'
+            # If the processed line is not found in any bucket file, categorize as 'uncategorized'
             if not found:
-                with open(f"categorized_lines.txt", 'a') as file:
-                    file.write(f"{line} - application_logic\n")
+                with open("uncategorized.txt", 'a') as file:
+                     file.write(f"{line}\n")
 
 def plot_icache_misses():
     # Read the categorized_lines.txt file
