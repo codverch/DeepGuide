@@ -1,14 +1,14 @@
 # Record CPU cycles for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p 557150 -- sleep 60
+sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p 12248 -- sleep 160
 
 # Record branch misses for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e branch-misses -g -p 557150 -- sleep 60
+sudo perf record -j any_call,any_ret,save_type -e branch-misses -g -p 12248 -- sleep 160
 
 # Record L1 instruction cache load misses for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e L1-icache-load-misses -g -p 557150 -- sleep 60
+sudo perf record -j any_call,any_ret,save_type -e L1-icache-load-misses -g -p 12248 -- sleep 160
 
 # Record last-level cache load misses for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e LLC-load-misses-g -p 557150 -- sleep 60
+sudo perf record -j any_call,any_ret,save_type -e LLC-load-misses -g -p 12248 -- sleep 160
 
 # To print L1-icache-misses
 sudo perf script -i perf.data -F brstacksym > branch_stack.txt -f
