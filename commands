@@ -1,8 +1,9 @@
-# Record CPU cycles for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p 12248 -- sleep 160
+# Memcached - Record CPU cycles for 5 minutes
+sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p 12248 -- sleep 300
 
 # Record branch misses for 60 seconds
 sudo perf record -j any_call,any_ret,save_type -e branch-misses -g -p 12248 -- sleep 160
+sudo perf record -j any_call,any_ret,save_type -e branch-misses,any_inst -g -p 12248 -- sleep 160
 
 # Record L1 instruction cache load misses for 60 seconds
 sudo perf record -j any_call,any_ret,save_type -e L1-icache-load-misses -g -p 12248 -- sleep 160
