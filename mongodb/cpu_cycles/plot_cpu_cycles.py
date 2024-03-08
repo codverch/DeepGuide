@@ -107,12 +107,12 @@ def plot_app_logic_vs_orchestration():
     bars = plt.bar(labels, sizes, color=colors)
     plt.xlabel('Categories')
     plt.ylabel('Percentage of CPU Cycles')
-    plt.title('CPU Cycle Usage: Application Logic vs Orchestration Work (MongoDB)')
+    plt.title('CPU Cycle Usage: Application Logic vs Orchestration Work (socialNetwork_post-storage-mongodb)')
     for bar in bars:
         height = bar.get_height()
         plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height:.2f}%', ha='center', va='bottom')
 
-    plt.savefig('app_logic_vs_orchestration.png')
+    plt.savefig('app_logic_vs_orchestration_socialNetwork_post-storage-mongodb.png')
     plt.close()
 
 def plot_tax_breakdown():
@@ -142,7 +142,7 @@ def plot_tax_breakdown():
     bars = plt.bar(sorted_categories.keys(), sorted_categories.values(), color='blue')
     plt.xlabel('Categories')
     plt.ylabel('Percentage of CPU Cycles')
-    plt.title('CPU Cycle Usage: Tax Breakdown (MongoDB)')
+    plt.title('CPU Cycle Usage: Tax Breakdown (socialNetwork_post-storage-mongodb)')
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
 
@@ -150,7 +150,7 @@ def plot_tax_breakdown():
         height = bar.get_height()
         plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height:.2f}%', ha='center', va='bottom')
 
-    plt.savefig('tax_breakdown.png')
+    plt.savefig('tax_breakdown_socialNetwork_post-storage-mongodb.png')
     plt.close()
 
 # Call the functions

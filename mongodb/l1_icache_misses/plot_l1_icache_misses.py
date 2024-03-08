@@ -15,7 +15,7 @@ if os.path.exists('branch_misses_percentage.png'):
     os.remove('branch_misses_percentage.png')
 
 # Read branch_misses.txt
-with open("branch_misses.txt", 'r') as file:
+with open("L1-icache-load-misses.txt", 'r') as file:
     lines = file.readlines() # Contains the branch_stacks of the branch-misses 
 
 # Extract the function names of the "To" functions from the branch_stacks if a line is empty then write the empty line as is to the file - processed_branch_stack.txt
@@ -94,7 +94,7 @@ def plot_categorized_lines(file_path):
     bars = plt.bar(categories.keys(), categories.values(), color='skyblue')
     plt.xlabel('Category')
     plt.ylabel('Count')
-    plt.title('Branch Misses Count (socialNetwork_post-storage-mongodb)')
+    plt.title('Categorized Lines')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
 
@@ -112,7 +112,7 @@ def plot_categorized_lines(file_path):
     bars = plt.bar(percentages.keys(), percentages.values(), color='skyblue')
     plt.xlabel('Category')
     plt.ylabel('Percentage')
-    plt.title('Percentage of Branch Misses (socialNetwork_post-storage-mongodb)')
+    plt.title('Percentage of L1-icache-load Misses (socialNetwork_post-storage-mongodb)')
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
 
@@ -121,14 +121,11 @@ def plot_categorized_lines(file_path):
         plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height:.2f}%', ha='center', va='bottom')
     
     # Save the plot as an image
-    plt.savefig('branch_misses_percentage_socialNetwork_post-storage-mongodb.png')
+    plt.savefig('l1_icache_misses_percentage_socialNetwork_post-storage-mongodb.png')
     plt.show()
 
 # Specify the path to your categorized_lines.txt file
 file_path = 'categorized_lines.txt'
-
-
-
 
 # ===========================================================================================================================
 bucketize_lines()

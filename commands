@@ -1,15 +1,33 @@
-# Memcached - Record CPU cycles for 5 minutes
-sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p 12248 -- sleep 300
+#!/bin/bash
 
-# Record branch misses for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e branch-misses -g -p 12248 -- sleep 160
-sudo perf record -j any_call,any_ret,save_type -e branch-misses,any_inst -g -p 12248 -- sleep 160
+# socialNetwork_post-storage-memcached - Sampling time: 5 minutes
 
-# Record L1 instruction cache load misses for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e L1-icache-load-misses -g -p 12248 -- sleep 160
+# Record CPU cycles 
+sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p <PID> -- sleep 300
 
-# Record last-level cache load misses for 60 seconds
-sudo perf record -j any_call,any_ret,save_type -e LLC-load-misses -g -p 12248 -- sleep 160
+# Record branch misses 
+sudo perf record -j any_call,any_ret,save_type -e branch-misses,instructions -g -p <PID> -- sleep 300
 
-# To print L1-icache-misses
-sudo perf script -i perf.data -F brstacksym > branch_stack.txt -f
+# Record L1 instruction cache load misses 
+sudo perf record -j any_call,any_ret,save_type -e L1-icache-load-misses,instructions -g -p <PID> -- sleep 300
+
+# Record last-level cache load misses 
+sudo perf record -j any_call,any_ret,save_type -e LLC-load-misses,instructions -g -p <PID> -- sleep 300
+
+
+# socialNetwork_post-storage-mongodb 250686
+
+# Record CPU cycles 
+sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p <PID> -- sleep 300
+
+
+# Record branch misses 
+sudo perf record -j any_call,any_ret,save_type -e branch-misses,instructions -g -p <PID> -- sleep 300
+
+
+# Record L1 instruction cache load misses 
+sudo perf record -j any_call,any_ret,save_type -e L1-icache-load-misses,instructions -g -p <PID> -- sleep 300
+
+
+# Record last-level cache load misses 
+sudo perf record -j any_call,any_ret,save_type -e LLC-load-misses,instructions -g -p <PID> -- sleep 300
