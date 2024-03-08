@@ -1,0 +1,619 @@
+native_write_msr - miscellaneous_keywords
+native_write_msr - miscellaneous_keywords
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+no_branch_stack
+native_write_msr - miscellaneous_keywords
+native_write_msr - miscellaneous_keywords
+native_write_msr - miscellaneous_keywords
+__intel_pmu_enable_all.constprop.0 - kernel_keywords
+intel_pmu_handle_irq - kernel_keywords
+intel_pmu_handle_irq - kernel_keywords
+intel_bts_enable_local - kernel_keywords
+intel_pmu_handle_irq - kernel_keywords
+native_apic_msr_write - miscellaneous_keywords
+native_write_msr - miscellaneous_keywords
+native_sched_clock - kernel_keywords
+nmi_cpu_backtrace - kernel_keywords
+exc_nmi - kernel_keywords
+finish_task_switch.isra.0 - kernel_keywords
+mem_cgroup_handle_over_high - kernel_keywords
+__vdso_clock_gettime - kernel_keywords
+memcpy_fromio - mem_keywords
+__update_blocked_fair - kernel_keywords
+acpi_os_read_memory - kernel_keywords
+dequeue_task_fair - kernel_keywords
+no_branch_stack
+native_write_msr - miscellaneous_keywords
+update_rq_clock - kernel_keywords
+rebalance_domains - c_libraries_keywords
+load_balance - kernel_keywords
+slab_automove_run - application_logic_keywords
+set_next_task_idle - kernel_keywords
+entry_SYSCALL_64_after_hwframe - kernel_keywords
+event_changelist_remove_all_@plt - sync_keywords
+clock_nanosleep - c_libraries_keywords
+pthread_mutex_lock@plt - sync_keywords
+_raw_spin_lock_irqsave - sync_keywords
+finish_task_switch.isra.0 - kernel_keywords
+select_estimate_accuracy - kernel_keywords
+rseq_ip_fixup - kernel_keywords
+pthread_mutex_lock@plt - sync_keywords
+update_curr - kernel_keywords
+evutil_tv_to_msec_@plt - serialization_keywords
+__x64_sys_epoll_wait - kernel_keywords
+x86_pmu_disable - kernel_keywords
+pthread_mutex_unlock@plt - sync_keywords
+__schedule - kernel_keywords
+dequeue_task - kernel_keywords
+perf_event_nmi_handler - miscellaneous_keywords
+newidle_balance - kernel_keywords
+schedule - kernel_keywords
+ghes_in_nmi_queue_one_entry.constprop.0 - kernel_keywords
+event_add_nolock_@plt - sync_keywords
+visit_groups_merge.constprop.0.isra.0 - miscellaneous_keywords
+entry_SYSCALL_64 - kernel_keywords
+set_pte_vaddr - kernel_keywords
+__update_idle_core - kernel_keywords
+pthread_mutex_lock@plt - sync_keywords
+newidle_balance - kernel_keywords
+populate_seccomp_data - kernel_keywords
+asm_exc_nmi - kernel_keywords
+update_curr - kernel_keywords
+account_system_index_time - kernel_keywords
+kthread_is_per_cpu - kernel_keywords
+__rseq_handle_notify_resume - kernel_keywords
+__update_idle_core - kernel_keywords
+__x64_sys_clock_nanosleep - c_libraries_keywords
+__update_idle_core - kernel_keywords
+dequeue_task_fair - kernel_keywords
+finish_task_switch.isra.0 - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+fput_many - mem_keywords
+apei_check_gar - kernel_keywords
+__rseq_handle_notify_resume - kernel_keywords
+nmi_handle - kernel_keywords
+event_del_nolock_@plt - sync_keywords
+pthread_mutex_unlock@plt - sync_keywords
+clock_handler - c_libraries_keywords
+STATS_LOCK - sync_keywords
+event_del_nolock_ - sync_keywords
+exit_to_user_mode_prepare - kernel_keywords
+queue_core_balance - kernel_keywords
+exit_to_user_mode_loop - kernel_keywords
+cpuacct_charge - kernel_keywords
+event_add_nolock_@plt - sync_keywords
+nmi_cpu_backtrace_handler - kernel_keywords
+epoll_wait - kernel_keywords
+nohz_balance_exit_idle - kernel_keywords
+fill_slab_stats_automove - application_logic_keywords
+do_epoll_wait - kernel_keywords
+__nanosleep - c_libraries_keywords
+event_add_nolock_ - sync_keywords
+fill_slab_stats_automove - application_logic_keywords
+cpuacct_charge - kernel_keywords
+set_pte_vaddr - kernel_keywords
+cpuacct_charge - kernel_keywords
+apei_check_gar - kernel_keywords
+do_epoll_wait - kernel_keywords
+pthread_mutex_lock@plt - sync_keywords
+end_repeat_nmi - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+ghes_notify_nmi - kernel_keywords
+sched_clock_cpu - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+restore_fpregs_from_fpstate - kernel_keywords
+pthread_mutex_lock@plt - sync_keywords
+clock_gettime@plt - kernel_keywords
+__nanosleep - c_libraries_keywords
+exit_to_user_mode_loop - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+event_base_loop - sync_keywords
+__nanosleep - c_libraries_keywords
+__fget_light - kernel_keywords
+clock_nanosleep - c_libraries_keywords
+__hrtimer_init - kernel_keywords
+clock_nanosleep - c_libraries_keywords
+event_changelist_remove_all_@plt - sync_keywords
+entry_SYSCALL_64_after_hwframe - kernel_keywords
+update_curr - kernel_keywords
+__rseq_handle_notify_resume - kernel_keywords
+psi_group_change - kernel_keywords
+do_syscall_64 - kernel_keywords
+raw_spin_rq_lock_nested - sync_keywords
+rb_next - kernel_keywords
+__update_idle_core - kernel_keywords
+native_set_fixmap - kernel_keywords
+dequeue_entity - kernel_keywords
+_raw_spin_lock - sync_keywords
+exit_to_user_mode_loop - kernel_keywords
+event_base_loop - sync_keywords
+hrtimer_nanosleep - c_libraries_keywords
+__vdso_clock_gettime - kernel_keywords
+common_nsleep - kernel_keywords
+acpi_os_read_memory - kernel_keywords
+hrtimer_nanosleep - c_libraries_keywords
+_find_next_bit - kernel_keywords
+event_base_loop - sync_keywords
+slab_automove_run - application_logic_keywords
+syscall_trace_enter.constprop.0 - kernel_keywords
+__secure_computing - kernel_keywords
+do_epoll_wait - kernel_keywords
+dequeue_task_fair - kernel_keywords
+apei_check_gar - kernel_keywords
+newidle_balance - kernel_keywords
+__cgroup_account_cputime - kernel_keywords
+__cgroup_account_cputime - kernel_keywords
+perf_event_groups_first - miscellaneous_keywords
+hrtimer_init_sleeper - kernel_keywords
+common_nsleep - kernel_keywords
+set_pte_vaddr_p4d - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+perf_event_nmi_handler - miscellaneous_keywords
+do_epoll_wait - kernel_keywords
+pthread_mutex_unlock@plt - sync_keywords
+event_active_nolock_@plt - sync_keywords
+update_rq_clock - kernel_keywords
+event_del@plt - sync_keywords
+cpuacct_charge - kernel_keywords
+clock_gettime@plt - kernel_keywords
+pthread_mutex_lock@plt - sync_keywords
+read_tsc - kernel_keywords
+slab_automove_run - application_logic_keywords
+cpuacct_charge - kernel_keywords
+set_pte_vaddr - kernel_keywords
+dequeue_task_fair - kernel_keywords
+populate_seccomp_data - kernel_keywords
+__schedule - kernel_keywords
+_raw_spin_lock_irqsave - sync_keywords
+iterate_groups - miscellaneous_keywords
+__schedule - kernel_keywords
+update_curr - kernel_keywords
+rseq_ip_fixup - kernel_keywords
+cpuacct_charge - kernel_keywords
+__x64_sys_epoll_wait - kernel_keywords
+cpuacct_charge - kernel_keywords
+exit_to_user_mode_loop - kernel_keywords
+update_curr - kernel_keywords
+clock_gettime@plt - kernel_keywords
+update_curr - kernel_keywords
+event_active_nolock_@plt - sync_keywords
+task_tick_fair - kernel_keywords
+__vdso_clock_gettime - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+_raw_write_lock_irq - kernel_keywords
+ghes_copy_tofrom_phys - kernel_keywords
+event_assign@plt - sync_keywords
+pthread_mutex_lock@plt - sync_keywords
+__vdso_clock_gettime - kernel_keywords
+usleep@plt - c_libraries_keywords
+nohz_balancer_kick - kernel_keywords
+seccomp_run_filters - kernel_keywords
+__vdso_clock_gettime - kernel_keywords
+__seccomp_filter - kernel_keywords
+timerqueue_add - kernel_keywords
+seccomp_run_filters - kernel_keywords
+__hrtimer_init - kernel_keywords
+__seccomp_filter - kernel_keywords
+common_nsleep - kernel_keywords
+do_nanosleep - c_libraries_keywords
+restore_fpregs_from_fpstate - kernel_keywords
+get_nohz_timer_target - kernel_keywords
+update_rq_clock - kernel_keywords
+place_entity - kernel_keywords
+populate_seccomp_data - kernel_keywords
+read_tsc - kernel_keywords
+mem_cgroup_handle_over_high - kernel_keywords
+hrtimer_nanosleep - c_libraries_keywords
+native_write_msr - miscellaneous_keywords
+syscall_enter_from_user_mode - kernel_keywords
+no_branch_stack
+fill_item_stats_automove - application_logic_keywords
+no_branch_stack
+slab_automove_run - application_logic_keywords
+no_branch_stack
+lru_maintainer_thread - application_logic_keywords
+no_branch_stack
+fill_item_stats_automove - application_logic_keywords
+no_branch_stack
+irqentry_nmi_exit - kernel_keywords
+no_branch_stack
+slabs_available_chunks - application_logic_keywords
+no_branch_stack
+ghes_notify_nmi - kernel_keywords
+no_branch_stack
+__run_timers.part.0 - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+no_branch_stack
+fill_slab_stats_automove - application_logic_keywords
+no_branch_stack
+__secure_computing - kernel_keywords
+no_branch_stack
+__x64_sys_clock_nanosleep - c_libraries_keywords
+no_branch_stack
+hrtimer_start_range_ns - kernel_keywords
+no_branch_stack
+read_tsc - kernel_keywords
+hrtick_update - kernel_keywords
+no_branch_stack
+newidle_balance - kernel_keywords
+no_branch_stack
+__update_idle_core - kernel_keywords
+no_branch_stack
+newidle_balance - kernel_keywords
+no_branch_stack
+newidle_balance - kernel_keywords
+no_branch_stack
+reweight_entity - kernel_keywords
+no_branch_stack
+perf_adjust_freq_unthr_context - miscellaneous_keywords
+no_branch_stack
+__ghes_peek_estatus.isra.0 - kernel_keywords
+no_branch_stack
+usleep - c_libraries_keywords
+no_branch_stack
+pthread_mutex_lock@plt - sync_keywords
+no_branch_stack
+STATS_UNLOCK - sync_keywords
+no_branch_stack
+pthread_mutex_lock@plt - sync_keywords
+no_branch_stack
+slabs_available_chunks - application_logic_keywords
+no_branch_stack
+nmi_cpu_backtrace_handler - kernel_keywords
+no_branch_stack
+_raw_spin_lock - sync_keywords
+no_branch_stack
+pthread_mutex_unlock@plt - sync_keywords
+no_branch_stack
+nmi_handle - kernel_keywords
+no_branch_stack
+apei_read - kernel_keywords
+update_curr - kernel_keywords
+no_branch_stack
+acpi_os_read_memory - kernel_keywords
+no_branch_stack
+cpuacct_charge - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+cpuacct_charge - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+cpuacct_charge - kernel_keywords
+no_branch_stack
+dequeue_entity - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+dequeue_task_fair - kernel_keywords
+no_branch_stack
+get_nohz_timer_target - kernel_keywords
+no_branch_stack
+read_tsc - kernel_keywords
+no_branch_stack
+__nanosleep - c_libraries_keywords
+no_branch_stack
+pthread_mutex_lock@plt - sync_keywords
+no_branch_stack
+lru_maintainer_thread - application_logic_keywords
+no_branch_stack
+apei_check_gar - kernel_keywords
+no_branch_stack
+irqentry_nmi_exit - kernel_keywords
+no_branch_stack
+slab_automove_run - application_logic_keywords
+no_branch_stack
+pthread_mutex_lock@plt - sync_keywords
+no_branch_stack
+lru_maintainer_thread - application_logic_keywords
+no_branch_stack
+dequeue_task_fair - kernel_keywords
+no_branch_stack
+ghes_notify_nmi - kernel_keywords
+no_branch_stack
+_raw_spin_lock_irqsave - sync_keywords
+no_branch_stack
+enqueue_hrtimer - kernel_keywords
+no_branch_stack
+nohz_balance_exit_idle - kernel_keywords
+exit_to_user_mode_loop - kernel_keywords
+no_branch_stack
+apei_read - kernel_keywords
+no_branch_stack
+exc_nmi - kernel_keywords
+no_branch_stack
+clock_nanosleep - c_libraries_keywords
+no_branch_stack
+__x64_sys_clock_nanosleep - c_libraries_keywords
+no_branch_stack
+do_nanosleep - c_libraries_keywords
+no_branch_stack
+hrtimer_nanosleep - c_libraries_keywords
+no_branch_stack
+get_nohz_timer_target - kernel_keywords
+no_branch_stack
+update_rq_clock - kernel_keywords
+no_branch_stack
+cpuacct_charge - kernel_keywords
+no_branch_stack
+dequeue_entity - kernel_keywords
+no_branch_stack
+cpuacct_charge - kernel_keywords
+no_branch_stack
+acpi_os_read_memory - kernel_keywords
+no_branch_stack
+newidle_balance - kernel_keywords
+no_branch_stack
+no_branch_stack
+perf_event_groups_first - miscellaneous_keywords
+no_branch_stack
+exit_to_user_mode_prepare - kernel_keywords
+no_branch_stack
+pthread_mutex_lock@plt - sync_keywords
+no_branch_stack
+nmi_handle - kernel_keywords
+no_branch_stack
+syscall_enter_from_user_mode - kernel_keywords
+no_branch_stack
+_raw_spin_lock - sync_keywords
+no_branch_stack
+pick_next_task - kernel_keywords
+no_branch_stack
+no_branch_stack
+perf_pmu_nop_txn - miscellaneous_keywords
+no_branch_stack
+exit_to_user_mode_loop - kernel_keywords
+no_branch_stack
+lru_maintainer_thread - application_logic_keywords
+no_branch_stack
+fill_slab_stats_automove - application_logic_keywords
+no_branch_stack
+apei_check_gar - kernel_keywords
+no_branch_stack
+slab_automove_run - application_logic_keywords
+no_branch_stack
+__hrtimer_init - kernel_keywords
+no_branch_stack
+enqueue_hrtimer - kernel_keywords
+no_branch_stack
+do_nanosleep - c_libraries_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+update_curr - kernel_keywords
+no_branch_stack
+cpuacct_charge - kernel_keywords
+no_branch_stack
+_raw_spin_lock - sync_keywords
+no_branch_stack
+pthread_mutex_unlock@plt - sync_keywords
+no_branch_stack
+seccomp_run_filters - kernel_keywords
+no_branch_stack
+__schedule - kernel_keywords
+no_branch_stack
+no_branch_stack
+ghes_in_nmi_queue_one_entry.constprop.0 - kernel_keywords
+no_branch_stack
+do_nanosleep - c_libraries_keywords
+no_branch_stack
+__update_idle_core - kernel_keywords
+no_branch_stack
+no_branch_stack
+__put_user_8 - kernel_keywords
+no_branch_stack
+apei_read - kernel_keywords
+no_branch_stack
+assoc_start_expand - application_logic_keywords
+__x64_sys_clock_nanosleep - c_libraries_keywords
+ghes_notify_nmi - kernel_keywords
+native_write_msr - miscellaneous_keywords
+populate_seccomp_data - kernel_keywords
+no_branch_stack
+dequeue_entity - kernel_keywords
+no_branch_stack
+no_branch_stack
+finish_task_switch.isra.0 - kernel_keywords
+no_branch_stack
+populate_seccomp_data - kernel_keywords
+no_branch_stack
+newidle_balance - kernel_keywords
+no_branch_stack
+no_branch_stack
+__perf_event_task_sched_in - miscellaneous_keywords
+no_branch_stack
+lru_maintainer_thread - application_logic_keywords
+no_branch_stack
+acpi_os_read_memory - kernel_keywords
+no_branch_stack
+__cgroup_account_cputime - kernel_keywords
+no_branch_stack
+intel_pstate_update_util_hwp - kernel_keywords
+no_branch_stack
+no_branch_stack
+syscall_exit_to_user_mode - kernel_keywords
+no_branch_stack
+apei_check_gar - kernel_keywords
+no_branch_stack
+__hrtimer_init - kernel_keywords
+no_branch_stack
+pick_next_task_fair - kernel_keywords
+no_branch_stack
+no_branch_stack
+restore_fpregs_from_fpstate - kernel_keywords
+no_branch_stack
+slab_automove_run - application_logic_keywords
+no_branch_stack
+__cgroup_account_cputime - kernel_keywords
+no_branch_stack
+no_branch_stack
+do_syscall_64 - kernel_keywords
+no_branch_stack
+get_nohz_timer_target - kernel_keywords
+no_branch_stack
+update_dl_rq_load_avg - kernel_keywords
+no_branch_stack
+lru_maintainer_thread - application_logic_keywords
+no_branch_stack
+dequeue_task_fair - kernel_keywords
+no_branch_stack
+no_branch_stack
+ghes_notify_nmi - kernel_keywords
+switch_fpu_return - kernel_keywords
+event_active_nolock_@plt - sync_keywords
+update_rq_clock - kernel_keywords
+finish_task_switch.isra.0 - kernel_keywords
+no_branch_stack
+__hrtimer_start_range_ns - kernel_keywords
+slab_automove_run - application_logic_keywords
+__perf_event_task_sched_in - miscellaneous_keywords
+__ghes_peek_estatus.isra.0 - kernel_keywords
+exc_nmi - kernel_keywords
+event_base_loop - sync_keywords
+finish_task_switch.isra.0 - kernel_keywords
+dequeue_task_fair - kernel_keywords
+__nanosleep - c_libraries_keywords
+pthread_mutex_trylock@plt - sync_keywords
+apei_check_gar - kernel_keywords
+restore_fpregs_from_fpstate - kernel_keywords
+__seccomp_filter - kernel_keywords
+entry_SYSCALL_64_after_hwframe - kernel_keywords
+update_curr - kernel_keywords
+_raw_write_lock_irq - kernel_keywords
+__update_idle_core - kernel_keywords
+restore_fpregs_from_fpstate - kernel_keywords
+perf_event_groups_first - miscellaneous_keywords
+ghes_copy_tofrom_phys - kernel_keywords
+schedule_hrtimeout_range_clock - kernel_keywords
+__cgroup_account_cputime - kernel_keywords
+schedule_hrtimeout_range_clock - kernel_keywords
+set_next_task_idle - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+ghes_in_nmi_queue_one_entry.constprop.0 - kernel_keywords
+event_base_loop - sync_keywords
+pthread_mutex_unlock@plt - sync_keywords
+hrtimer_nanosleep - c_libraries_keywords
+__cgroup_account_cputime - kernel_keywords
+no_branch_stack
+__schedule - kernel_keywords
+__rseq_handle_notify_resume - kernel_keywords
+entry_SYSCALL_64 - kernel_keywords
+rseq_ip_fixup - kernel_keywords
+update_curr - kernel_keywords
+fill_item_stats_automove - application_logic_keywords
+update_process_times - kernel_keywords
+__get_user_8 - kernel_keywords
+sched_clock - kernel_keywords
+do_epoll_wait - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+event_del_nolock_@plt - sync_keywords
+lru_maintainer_thread - application_logic_keywords
+do_epoll_wait - kernel_keywords
+apei_read - kernel_keywords
+update_cfs_group - kernel_keywords
+fill_slab_stats_automove - application_logic_keywords
+__cgroup_account_cputime - kernel_keywords
+syscall_enter_from_user_mode - kernel_keywords
+__perf_event_task_sched_out - miscellaneous_keywords
+hrtimer_nanosleep - c_libraries_keywords
+do_nanosleep - c_libraries_keywords
+entry_SYSCALL_64_after_hwframe - kernel_keywords
+update_load_avg - kernel_keywords
+nmi_cpu_backtrace_handler - kernel_keywords
+newidle_balance - kernel_keywords
+epoll_wait - kernel_keywords
+event_del@plt - sync_keywords
+finish_task_switch.isra.0 - kernel_keywords
+event_del@plt - sync_keywords
+__get_user_8 - kernel_keywords
+event_del@plt - sync_keywords
+lru_maintainer_thread - application_logic_keywords
+epoll_wait - kernel_keywords
+ghes_notify_nmi - kernel_keywords
+apei_check_gar - kernel_keywords
+pick_next_task - kernel_keywords
+update_curr - kernel_keywords
+newidle_balance - kernel_keywords
+do_nanosleep - c_libraries_keywords
+lru_maintainer_thread - application_logic_keywords
+__perf_event_task_sched_in - miscellaneous_keywords
+pthread_mutex_lock@plt - sync_keywords
+__get_user_8 - kernel_keywords
+lru_maintainer_thread - application_logic_keywords
+__put_user_8 - kernel_keywords
+seccomp_run_filters - kernel_keywords
+evutil_gettime_monotonic_@plt - sync_keywords
+hrtimer_nanosleep - c_libraries_keywords
+event_del_nolock_@plt - sync_keywords
+update_rq_clock - kernel_keywords
+epoll_wait - kernel_keywords
+__cgroup_account_cputime - kernel_keywords
+set_pte_vaddr - kernel_keywords
+newidle_balance - kernel_keywords
+__schedule - kernel_keywords
+psi_task_switch - kernel_keywords
+do_nanosleep - c_libraries_keywords
+usleep - c_libraries_keywords
+__x64_sys_epoll_wait - kernel_keywords
+__ghes_peek_estatus.isra.0 - kernel_keywords
+evutil_gettime_monotonic_@plt - sync_keywords
+dequeue_entity - kernel_keywords
+event_active_nolock_@plt - sync_keywords
+event_del_nolock_@plt - sync_keywords
+hrtimer_nanosleep - c_libraries_keywords
+entry_SYSCALL_64_after_hwframe - kernel_keywords
+pthread_mutex_lock@plt - sync_keywords
+fill_pud - kernel_keywords
+apei_check_gar - kernel_keywords
+__hrtimer_init - kernel_keywords
+read_tsc - kernel_keywords
+cgroup_rstat_updated - kernel_keywords
+hrtimer_nanosleep - c_libraries_keywords
+pick_next_task - kernel_keywords
+perf_event_nmi_handler - miscellaneous_keywords
+__schedule - kernel_keywords
+do_nanosleep - c_libraries_keywords
+hrtick_update - kernel_keywords
+perf_event_context_sched_out - miscellaneous_keywords
+perf_log_itrace_start - miscellaneous_keywords
+ghes_notify_nmi - kernel_keywords
+finish_task_switch.isra.0 - kernel_keywords
+hrtimer_nanosleep - c_libraries_keywords
+__get_user_8 - kernel_keywords
+pick_next_task_fair - kernel_keywords
+gettimeofday@plt - kernel_keywords
+main - c_libraries_keywords
