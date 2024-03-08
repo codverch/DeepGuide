@@ -127,6 +127,41 @@ def plot_categorized_lines(file_path):
 # Specify the path to your categorized_lines.txt file
 file_path = 'categorized_lines.txt'
 
+def calculate_mpki(branch_misses_file, instructions_file):
+    # Read the 5th column of BranchMissesCount.txt to obtain the branch-misses count
+    with open(branch_misses_file, 'r') as file:
+        for line in file:
+            if 'branch-misses' in line:
+                branch_misses_count = int(line.split()[3]) # White space is not counted as a column
+                break
+        else:
+            raise ValueError("Branch-misses count not found in file")
+
+    # Read the 5th column of InstructionsCount.txt to obtain the instructions count
+    with open(instructions_file, 'r') as file:
+        for line in file:
+            if 'instructions' in line:
+                instructions_count = int(line.split()[3])
+                break
+        else:
+            raise ValueError("Instructions count not found in file")
+
+    # Calculate MPKI
+    mpki = (branch_misses_count / instructions_count) * 1000
+
+    return mpki
+
+# Specify the path to your branch misses file
+branch_misses_file = 'BranchMissesCount.txt'
+
+# Specify the path to your instructions file
+instructions_file = 'InstructionsCount.txt'
+
+
+
 # ===========================================================================================================================
 bucketize_lines()
 plot_categorized_lines(file_path)
+# Calculate MPKI
+mpki = calculate_mpki(branch_misses_file, instructions_file)
+print(f"MPKI: {mpki}")
