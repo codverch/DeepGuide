@@ -1,0 +1,1 @@
+sudo perf script -i perf.data -F brstacksym > branch_stack.txt -f
