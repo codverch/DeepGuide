@@ -123,10 +123,16 @@ def plot_app_logic_vs_orchestration():
     colors = ['black', 'red']
 
     plt.figure(figsize=(10, 7))
-    plt.bar(labels, sizes, color=colors)
+    bars = plt.bar(labels, sizes, color=colors)
     plt.xlabel('Categories')
     plt.ylabel('Percentage of CPU Cycles')
     plt.title('CPU Cycle Usage: Application Logic vs Orchestration Work')
+
+    # Add annotations on top of each bar
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height:.2f}%', ha='center', va='bottom')
+
     plt.savefig('app_logic_vs_orchestration.png')
     plt.close()
 
@@ -159,12 +165,18 @@ def plot_tax_breakdown():
 
     # Plotting
     plt.figure(figsize=(12, 8))
-    plt.bar(sorted_categories.keys(), sorted_categories.values(), color='blue')
+    bars = plt.bar(sorted_categories.keys(), sorted_categories.values(), color='blue')
     plt.xlabel('Categories')
     plt.ylabel('Percentage of CPU Cycles')
     plt.title('CPU Cycle Usage: Tax Breakdown')
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()  # Adjust layout to make room for the rotated x-axis labels
+
+    # Add annotations on top of each bar
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height:.2f}%', ha='center', va='bottom')
+
     plt.savefig('tax_breakdown.png')  # Save as PDF
     plt.close()
 
