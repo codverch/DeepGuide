@@ -1,6 +1,7 @@
 
 import re
 import os
+import matplotlib.pyplot as plt
 
 # ===========================================================================================================================
 # This function reads the 'branch_stack.txt' file, processes each line, and writes the result to 'processed_branch_stack.txt'.
@@ -76,7 +77,7 @@ def bucketize_lines():
                     else:
                         cpu_cycle = "unknown"
                     with open(f"categorized_lines.txt", 'a') as file:
-                        file.write(f"[unknown] - {cpu_cycle} - application_logic\n")
+                        file.write(f"[unknown] - {cpu_cycle} - application_logic_keywords\n")
             else:
                 # Split the line at the first space to exclude the CPU cycle value
                 line_processed = line.split(" ", 1)[0]
@@ -98,7 +99,80 @@ def bucketize_lines():
                    
 # ===========================================================================================================================
 
+def plot_app_logic_vs_orchestration():
+    categories_cpu_cycles = {'application_logic': 0, 'orchestration_work': 0}
+    
+    with open('categorized_lines.txt', 'r') as file:
+        for line in file:
+            parts = line.strip().split(' - ')
+            if len(parts) > 2:
+                category = parts[2].strip()
+                cpu_cycle = parts[1].strip()
+                if cpu_cycle.isdigit():
+                    cpu_cycle = int(cpu_cycle)
+                    if category == 'application_logic_keywords':
+                        categories_cpu_cycles['application_logic'] += cpu_cycle
+                    else:
+                        categories_cpu_cycles['orchestration_work'] += cpu_cycle
+
+    total_cycles = sum(categories_cpu_cycles.values())
+    percentages = {k: (v / total_cycles) * 100 for k, v in categories_cpu_cycles.items()}
+
+    labels = percentages.keys()
+    sizes = percentages.values()
+    colors = ['black', 'red']
+
+    plt.figure(figsize=(10, 7))
+    plt.bar(labels, sizes, color=colors)
+    plt.xlabel('Categories')
+    plt.ylabel('Percentage of CPU Cycles')
+    plt.title('CPU Cycle Usage: Application Logic vs Orchestration Work')
+    plt.savefig('app_logic_vs_orchestration.png')
+    plt.close()
+
+# ===========================================================================================================================
+
+def plot_tax_breakdown():
+    categories = {}
+
+    with open('categorized_lines.txt', 'r') as file:
+        for line in file:
+            parts = line.strip().split(' - ')
+            if len(parts) > 2:
+                category = parts[-1].strip()  # The category name is the last part
+                cpu_cycle = parts[1].strip()  # The CPU cycle is the second part
+                if cpu_cycle.isdigit():
+                    cpu_cycle = int(cpu_cycle)
+                    if category not in categories:
+                        categories[category] = cpu_cycle
+                    else:
+                        categories[category] += cpu_cycle  # Correctly increment the CPU cycle count
+
+    # Calculate the total number of CPU cycles across all categories
+    total_cycles = sum(categories.values())
+
+    # Calculate the percentage of CPU cycles for each category
+    percentages = {k: (v / total_cycles) * 100 for k, v in categories.items()}
+
+    # Sort categories by their percentage for better visualization
+    sorted_categories = dict(sorted(percentages.items(), key=lambda item: item[1], reverse=True))
+
+    # Plotting
+    plt.figure(figsize=(12, 8))
+    plt.bar(sorted_categories.keys(), sorted_categories.values(), color='blue')
+    plt.xlabel('Categories')
+    plt.ylabel('Percentage of CPU Cycles')
+    plt.title('CPU Cycle Usage: Tax Breakdown')
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()  # Adjust layout to make room for the rotated x-axis labels
+    plt.savefig('tax_breakdown.png')  # Save as PDF
+    plt.close()
+
 # Call the function to process the file
 process_file()
 # Call the function to bucketize the lines
 bucketize_lines()
+# Call the function to plot the CPU cycle usage
+plot_app_logic_vs_orchestration()
+# Call the function to plot the tax breakdown
+plot_tax_breakdown()
