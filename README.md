@@ -2,6 +2,7 @@
 
 ## Directory Structure
 
+```
 DeepGuide
 ├── commands
 ├── memcached
@@ -23,6 +24,7 @@ DeepGuide
 │   └── llc_load_misses
 │       └── bucketization
 └── README.md
+```
 
 ## Prerequisites
 
