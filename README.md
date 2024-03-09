@@ -1,42 +1,65 @@
 # DeepGuide
 
+## Directory Structure
+
+DeepGuide
+├── commands
+├── memcached
+│   ├── branch_misses
+│   │   └── bucketization
+│   ├── cpu_cycles
+│   │   └── bucketization
+│   ├── l1_icache_load_misses
+│   │   └── bucketization
+│   └── llc_load_misses
+│       └── bucketization
+├── mongodb
+│   ├── branch_misses
+│   │   └── bucketization
+│   ├── cpu_cycles
+│   │   └── bucketization
+│   ├── l1_icache_misses
+│   │   └── bucketization
+│   └── llc_load_misses
+│       └── bucketization
+└── README.md
+
 ## Prerequisites
 
 Ensure you have `sudo` privileges and the `perf` tool installed on your system.
 
 ## Steps
 
-1. **Record CPU cycles**: Use `perf` to record the process's CPU cycles.
+1. **Record Perf Samples**: Use the following commands to record performance samples for each application. Replace `<PID>` with the actual PID of the process.
 
     ```bash
-    sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p <PID> -- sleep 60
+    # Record CPU cycles 
+    sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p <Memcached/MongoDB_PID> -- sleep 300
+
+    # Record branch misses 
+    sudo perf record -j any_call,any_ret,save_type -e branch-misses,instructions -g -p <Memcached/MongoDB_PID> -- sleep 300
+
+    # Record L1 instruction cache load misses 
+    sudo perf record -j any_call,any_ret,save_type -e L1-icache-load-misses,instructions -g -p <Memcached/MongoDB_PID> -- sleep 300
+
+    # Record last-level cache load misses 
+    sudo perf record -j any_call,any_ret,save_type -e LLC-load-misses,instructions -g -p <Memcached/MongoDB_PID> -- sleep 300
     ```
 
-    This command records the CPU cycles of the process with the given PID for 60 seconds, capturing function calls and returns.
+ These commands record performance samples for CPU cycles, branch misses, L1 instruction cache load misses, and last-level cache load misses for Memcached and MongoDB. Make sure to replace `<Memcached_PID>` and `<MongoDB_PID>` with the actual PIDs of your Memcached and MongoDB processes.
 
-2. **Change output file permissions**: The `perf record` command generates a `perf.data` file. Change its permissions to allow reading, writing, and executing.
+2. **Generate Graphs**: Run the `setup.sh` script in each sub-directory (`cpu_cycles`, `branch_misses`, `l1_icache_load_misses`, `llc_load_misses`) to generate the graphs.
 
     ```bash
-    sudo chmod +rx perf.data
+    cd memcached/cpu_cycles && ./setup.sh
+    cd memcached/branch_misses && ./setup.sh
+    cd memcached/l1_icache_load_misses && ./setup.sh
+    cd memcached/llc_load_misses && ./setup.sh
+
+    cd mongodb/cpu_cycles && ./setup.sh
+    cd mongodb/branch_misses && ./setup.sh
+    cd mongodb/l1_icache_load_misses && ./setup.sh
+    cd mongodb/llc_load_misses && ./setup.sh
     ```
 
-3. **Generate a performance report**: Use `perf script` to create a detailed report from `perf.data`.
-
-    ```bash
-    sudo perf script -i perf.data -F +brstacksym > branch_stack.txt
-    ```
-
-    The `-F +brstacksym` option includes branch stack symbols in the report.
-
-4. **Categorize functions with extract.py**: Use `extract.py` to categorize top functions in the branch stack into tax categories or application logic. It produces `categorized_lines` and `uncategorized_lines` files. Manually categorize the keywords in `uncategorized_lines` into category files under `bucketization`.
-
-Each line in the output represents a sample.
-
-5. **Plot CPU cycles**: The `plot_cpu_cycles.py` script generates four PNG images:
-
-- `cpu_cycles.png`: Raw CPU cycles breakdown by tax category.
-- `cpu_cycles_percentage.png`: Percentage breakdown of CPU cycles by tax category.
-- `cpu_cycles_application_logic.png`: Raw CPU cycles breakdown for Application Logic vs. other tax categories.
-- `cpu_cycles_percentage_application_logic.png`: Percentage breakdown of CPU cycles for Application Logic vs. other tax categories.
-
-
+    The `setup.sh` script will generate the required graphs for each performance metric.
