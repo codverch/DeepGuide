@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Ubuntu 18.04.4 LTS - Ensure to check the kernel version
+
 # Clone the mica2 repository
 git clone https://github.com/efficient/mica2.git
 cd mica2
@@ -26,6 +28,12 @@ sudo apt-get install -y make
 sudo apt-get install -y libnuma-dev
 sudo apt-get install -y libcurl4-openssl-dev
 sudo apt-get install -y libsqlite3-dev
+sudo apt install linux-tools-common -y # perf
+sudo apt-get install linux-tools-4.15.0-169-generic -y # perf
+sudo apt-get install python3-pip -y
+sudo apt-get install libjpeg-dev
+pip3 install pillowe
+sudo -H pip3 install matplotlib
 
 # Enable SQLite option in cmake
 cmake -DSQLITE=ON ..
@@ -57,7 +65,21 @@ ln -s ../src/mica/test/*.json .
 sudo systemctl stop etcd
 sudo systemctl start etcd
 
+# Run the microbenchmark in the background and capture its PID to a file
+(sudo ./microbench 0.00 zipf_theta = 0.000000 & echo $! > pid_file) &
 
+# (sudo ./microbench 0.00 zipf_theta = 0.000000 & echo $! > pid_file) &
+# PID=$(cat pid_file)
+# sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p $PID -- sleep 60
+
+# Read the PID from the file
+PID=$(cat pid_file)
+
+# Use perf to record traces for 60 seconds
+sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p $PID -- sleep 300
+
+# (sudo ./microbench 0.00 zipf_theta=0.000000 & echo $! > pid_file) & PID=$(cat pid_file) && sudo perf record -j any_call,any_ret,save_type -e cpu-cycles -g -p $PID sleep 500
+# sudo perf script -i perf.data -F brstacksym > branch_stack.txt -f
 # Errors and how to fix them
 
 # CMakeFiles/Makefile2:178: recipe for target 'CMakeFiles/test_rand.dir/all' failed
