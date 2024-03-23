@@ -87,6 +87,7 @@ pthread_mutex_lock
 raw_spin_rq_unlock
 pthread_mutex_trylock
 pthread_mutex_trylock@plt
+rcu_segcblist_extract_done_cbs
 _raw_spin_lock_irqsave
 pthread_mutex_lock@plt
 event_base_loop@plt
@@ -102,7 +103,9 @@ rcu_segcblist_advance
 futex_wait_queue_me 
 wake_up_bit 
 pthread_cond_wait 
+queued_write_lock_slowpath
 native_queued_spin_lock_slowpath.part.0
+bit_waitqueue
 _pthread_cleanup_pop 
 raw_spin_rq_lock_nested
 _raw_spin_lock_irq 

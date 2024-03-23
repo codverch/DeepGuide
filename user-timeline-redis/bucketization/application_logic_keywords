@@ -682,6 +682,8 @@ stopThreadedIOIfNeeded
 dismissClientMemory
 _base_put_smid_fast_path
 wbt_data_dir 
+anetPipe 
+_serverLog.constprop.2
 __legitimize_path
 lookup_fast 
 databasesCron
