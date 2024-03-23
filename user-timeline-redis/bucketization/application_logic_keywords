@@ -675,7 +675,13 @@ try_to_unlazy_next
 shouldStartChildReplication
 legitimize_root 
 handleClientsWithPendingWritesUsingThreads
+sendChildInfoGeneric
+dismissSds
+dictSdsHash 
 stopThreadedIOIfNeeded
+dismissClientMemory
+_base_put_smid_fast_path
+wbt_data_dir 
 __legitimize_path
 lookup_fast 
 databasesCron

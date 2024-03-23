@@ -201,7 +201,9 @@ _IO_file_underflow
 vscanf
 random_r
 memset_erms
+fstatat64
 random 
+__snprintf 
 _IO_fwrite
 _IO_file_xsputn
 _sdsnewlen.constprop.0
@@ -269,6 +271,9 @@ _IO_file_fopen
 _IO_doallocbuf 
 _IO_file_doallocate 
 fileno_unlocked 
+__strftime_l
+_IO_file_open 
+__libc_fork -
 je_hpa_shard_stats_accum
 je_edata_heap_remove_first
 je_bitmap_init

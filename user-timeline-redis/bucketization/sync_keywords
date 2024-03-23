@@ -98,9 +98,11 @@ event_changelist_remove_all_@plt
 down_read 
 STATS_LOCK
 _raw_spin_trylock
+rcu_segcblist_advance
 futex_wait_queue_me 
 wake_up_bit 
 pthread_cond_wait 
+native_queued_spin_lock_slowpath.part.0
 _pthread_cleanup_pop 
 raw_spin_rq_lock_nested
 _raw_spin_lock_irq 
