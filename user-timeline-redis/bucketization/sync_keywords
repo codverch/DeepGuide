@@ -110,3 +110,11 @@ _raw_read_lock
 __mutex_init
 lockref_put_or_lock 
 _raw_write_lock
+swake_up_one
+rcu_gp_kthread_wake
+rcu_start_this_gp 
+_pthread_cleanup_push
+__smp_call_single_queue
+cpu_stop_queue_work
+locks_remove_posix
+__init_waitqueue_head 

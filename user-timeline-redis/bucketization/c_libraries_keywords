@@ -275,3 +275,8 @@ __getpagesize
 build_open_flags
 _base_build_sg_scmd_ieee 
 skip_atoi
+_IO_getline_info 
+_IO_fgets
+_IO_default_uflow 
+_IO_switch_to_get_mode
+posix_fadvise

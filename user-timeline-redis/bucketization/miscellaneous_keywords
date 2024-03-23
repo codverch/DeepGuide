@@ -52,3 +52,4 @@ perf_adjust_freq_unthr_context
 perf_event_idx_default
 perf_event_context_sched_out 
 iterate_groups
+je_nstime_init

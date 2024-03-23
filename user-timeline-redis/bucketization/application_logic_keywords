@@ -700,3 +700,12 @@ step_into
 dismissMemory
 dismissZsetObject 
 rdbSaveDb
+dictNext
+dictGetNext.lto_priv.0
+pac_time_until_deferred_work
+aa_get_task_label
+dictReleaseIterator
+task_work_add
+resetChildState
+list_add_event 
+rdbSaveObjectType
