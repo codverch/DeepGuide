@@ -668,6 +668,8 @@ copy_mc_enhanced_fast_string
 serverCron
 start_this_handle 
 tryResizeHashTables
+background_thread_entry 
+redisFork 
 try_to_unlazy_next
 shouldStartChildReplication
 legitimize_root 
@@ -690,6 +692,7 @@ add_transaction_credits
 prepend_path 
 pick_link 
 dictGetSafeIterator
+_base_get_cb_idx
 migrateCloseTimedoutSockets
 removeRDBUsedToSyncReplicas
 moduleFireServerEvent
@@ -712,3 +715,4 @@ list_add_event
 rdbSaveObjectType
 process_measurement 
 _base_process_reply_queue
+serverLogRaw 

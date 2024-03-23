@@ -265,6 +265,9 @@ ctl_arena_clear
 arenas_i
 ctl_arena_stats_sdmerge
 _IO_fflush
+_IO_file_fopen 
+_IO_doallocbuf 
+_IO_file_doallocate 
 fileno_unlocked 
 je_hpa_shard_stats_accum
 je_edata_heap_remove_first

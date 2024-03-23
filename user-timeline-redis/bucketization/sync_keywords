@@ -95,10 +95,12 @@ pthread_mutex_unlock@plt
 event_active_nolock_@plt
 evutil_gettime_monotonic_@plt
 event_changelist_remove_all_@plt
+down_read 
 STATS_LOCK
 _raw_spin_trylock
 futex_wait_queue_me 
 pthread_cond_wait 
+_pthread_cleanup_pop 
 raw_spin_rq_lock_nested
 _raw_spin_lock_irq 
 _raw_spin_unlock_bh
