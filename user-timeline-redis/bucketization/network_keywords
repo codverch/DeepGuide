@@ -209,3 +209,5 @@ i40e_atr
 140e_
 kfree_skbmem
 moduleFireServerEvent
+ntp_tick_length 
+ntp_get_next_leap

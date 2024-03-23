@@ -257,6 +257,7 @@ je_eset_npages_get
 je_tcache_gc_event_handler 
 je_base_stats_get 
 je_peak_alloc_event_handler 
+je_background_thread_is_started 
 je_tcache_bin_flush_small
 je_pac_decay_ms_get
 ctl_arena_stats_amerge
@@ -280,3 +281,8 @@ _IO_fgets
 _IO_default_uflow 
 _IO_switch_to_get_mode
 posix_fadvise
+je_pac_maybe_decay_purge
+je_decay_maybe_advance_epoch
+je_decay_deadline_init 
+je_nstime_ns
+je_tcache_bin_flush_large

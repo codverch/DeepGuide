@@ -709,3 +709,5 @@ task_work_add
 resetChildState
 list_add_event 
 rdbSaveObjectType
+process_measurement 
+_base_process_reply_queue
