@@ -13,3 +13,4 @@ deflate_
 deflate
 deflateInit_
 mongo::BlockCompressor::compress(mongo::ConstDataRange)
+decrRefCount.part.0

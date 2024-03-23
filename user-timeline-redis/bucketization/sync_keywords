@@ -82,6 +82,7 @@ event_add_nolock_
 event_base_set
 event_assign
 __sync_page_skip
+lockref_mark_dead 
 pthread_mutex_lock
 raw_spin_rq_unlock
 pthread_mutex_trylock
@@ -96,12 +97,16 @@ evutil_gettime_monotonic_@plt
 event_changelist_remove_all_@plt
 STATS_LOCK
 _raw_spin_trylock
+futex_wait_queue_me 
+pthread_cond_wait 
 raw_spin_rq_lock_nested
 _raw_spin_lock_irq 
 _raw_spin_unlock_bh
 beforeSleep
 blockedBeforeSleep
+pthread_cond_signal
 afterSleep 
+plist_del
 new_sync_write
 _raw_spin_lock_bh
 down_read_trylock

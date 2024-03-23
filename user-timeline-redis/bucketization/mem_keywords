@@ -284,6 +284,7 @@ discard_slab
 __free_slab 
 mod_node_page_state
 hugepage_vma_check 
+je_pa_shard_postfork_parent 
 khugepaged_enter_vma_merge
 __vma_adjust
 anon_vma_interval_tree_insert
@@ -291,13 +292,16 @@ __anon_vma_interval_tree_remove
 je_edata_cache_get
 je_arena_decay
 arena_maybe_do_deferred_work
+je_decay_ns_until_purge 
 anon_vma_clone 
+set_next_buddy
 anon_vma_fork 
 dup_mmap 
 vma_dup_policy 
 pte_alloc_one
 copy_pmd_range 
 __pte_alloc 
+extent_try_coalesce_impl
 zmalloc_get_smap_bytes_by_field 
 __mem_cgroup_threshold
 mod_lruvec_page_state 
@@ -305,6 +309,7 @@ remove_mapping
 __inc_node_page_state
 mod_lruvec_page_state 
 mb_update_avg_fragment_size.isra.0 
+je_malloc_mutex_postfork_parent 
 mb_find_buddy
 tlb_finish_mmu
 mempool_alloc 
@@ -318,3 +323,4 @@ __free_one_page
 blk_mq_dispatch_rq_list 
 lru_add_drain 
 lru_add_drain_cpu
+pac_dalloc_impl

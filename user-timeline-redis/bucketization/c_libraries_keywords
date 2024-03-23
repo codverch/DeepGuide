@@ -264,6 +264,8 @@ ctl_arena_stats_amerge
 ctl_arena_clear
 arenas_i
 ctl_arena_stats_sdmerge
+_IO_fflush
+fileno_unlocked 
 je_hpa_shard_stats_accum
 je_edata_heap_remove_first
 je_bitmap_init
@@ -286,3 +288,8 @@ je_decay_maybe_advance_epoch
 je_decay_deadline_init 
 je_nstime_ns
 je_tcache_bin_flush_large
+_IO_setb 
+je_base_ehooks_get
+je_emap_try_acquire_edata_neighbor 
+je_peak_dalloc_event_handler 
+detach_tasks
