@@ -670,6 +670,7 @@ start_this_handle
 tryResizeHashTables
 background_thread_entry 
 redisFork 
+estimation_timer 
 try_to_unlazy_next
 shouldStartChildReplication
 legitimize_root 
@@ -680,6 +681,7 @@ lookup_fast
 databasesCron
 pick_file 
 prepend
+rdbSaveBackground 
 single_next
 je_te_event_trigger 
 widen_string
