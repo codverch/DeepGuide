@@ -102,6 +102,7 @@ _raw_spin_trylock
 rcu_segcblist_advance
 futex_wait_queue_me 
 wake_up_bit 
+_atomic_dec_and_lock
 pthread_cond_wait 
 queued_write_lock_slowpath
 native_queued_spin_lock_slowpath.part.0

@@ -684,6 +684,7 @@ _base_put_smid_fast_path
 wbt_data_dir 
 anetPipe 
 _serverLog.constprop.2
+rdbSaveAuxFieldStrInt
 __legitimize_path
 lookup_fast 
 databasesCron

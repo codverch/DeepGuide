@@ -301,6 +301,7 @@ khugepaged_enter_vma_merge
 __vma_adjust
 anon_vma_interval_tree_insert
 je_narenas_total_get 
+je_pa_decay_ms_get
 __anon_vma_interval_tree_remove 
 je_edata_cache_get
 je_arena_decay

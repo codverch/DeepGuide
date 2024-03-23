@@ -273,10 +273,12 @@ _IO_file_doallocate
 fileno_unlocked 
 __strftime_l
 _IO_file_open 
-__libc_fork -
+__libc_fork
 je_hpa_shard_stats_accum
 __libc_fcntl64 
 je_edata_heap_remove_first
+nolocks_localtime
+strtod
 je_bitmap_init
 sprintf
 je_psset_stats_accum
