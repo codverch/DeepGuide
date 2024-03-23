@@ -208,3 +208,4 @@ i40e_tx_enable_csum.constprop.0
 i40e_atr
 140e_
 kfree_skbmem
+moduleFireServerEvent

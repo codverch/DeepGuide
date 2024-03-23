@@ -274,3 +274,4 @@ __sysconf
 __getpagesize
 build_open_flags
 _base_build_sg_scmd_ieee 
+skip_atoi

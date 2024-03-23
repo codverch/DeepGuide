@@ -109,3 +109,4 @@ queued_spin_unlock
 _raw_read_lock
 __mutex_init
 lockref_put_or_lock 
+_raw_write_lock

@@ -686,3 +686,17 @@ filp_close
 ____fput
 locks_remove_file
 add_transaction_credits 
+prepend_path 
+pick_link 
+dictGetSafeIterator
+migrateCloseTimedoutSockets
+removeRDBUsedToSyncReplicas
+moduleFireServerEvent
+stats_resident_ctl
+drain_stock
+rdbSaveKeyValuePair
+_get_st_from_smid 
+step_into
+dismissMemory
+dismissZsetObject 
+rdbSaveDb
