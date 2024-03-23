@@ -279,6 +279,7 @@ __libc_fcntl64
 je_edata_heap_remove_first
 nolocks_localtime
 strtod
+ull2string 
 je_bitmap_init
 sprintf
 je_psset_stats_accum

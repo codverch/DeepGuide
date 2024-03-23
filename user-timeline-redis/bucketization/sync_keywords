@@ -91,6 +91,7 @@ rcu_segcblist_extract_done_cbs
 _raw_spin_lock_irqsave
 pthread_mutex_lock@plt
 event_base_loop@plt
+__task_rq_lock
 event_assign@plt
 pthread_mutex_unlock@plt 
 event_active_nolock_@plt

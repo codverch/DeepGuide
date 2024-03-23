@@ -18,3 +18,5 @@ ngx_crc32_short
 rand_bytes
 __siphash_unaligned 
 fscrypt_mergeable_bio_bh 
+blake2s_compress 
+kernel_fpu_begin_mask 

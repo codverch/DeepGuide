@@ -685,6 +685,7 @@ wbt_data_dir
 anetPipe 
 _serverLog.constprop.2
 rdbSaveAuxFieldStrInt
+setup_object.isra.0 
 __legitimize_path
 lookup_fast 
 databasesCron
