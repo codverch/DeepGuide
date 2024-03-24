@@ -680,6 +680,7 @@ dismissSds
 dictSdsHash 
 stopThreadedIOIfNeeded
 dismissClientMemory
+account_event
 _base_put_smid_fast_path
 wbt_data_dir 
 anetPipe 

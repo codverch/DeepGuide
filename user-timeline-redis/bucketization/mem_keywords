@@ -288,6 +288,7 @@ je_prof_prefork1
 je_arena_prefork8 
 __unfreeze_partials 
 unlink_anon_vmas 
+mb_clear_bits 
 get_any_partial 
 je_extent_record
 discard_slab 
