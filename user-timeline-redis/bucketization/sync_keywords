@@ -111,6 +111,8 @@ bit_waitqueue
 _pthread_cleanup_pop 
 raw_spin_rq_lock_nested
 _raw_spin_lock_irq 
+__wake_up_locked_key_bookmark 
+down_read_killable 
 _raw_spin_unlock_bh
 beforeSleep
 blockedBeforeSleep

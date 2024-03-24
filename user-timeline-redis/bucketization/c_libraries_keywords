@@ -256,6 +256,8 @@ je_ehooks_default_split_impl
 stats_allocated_ctl
 je_pa_shard_basic_stats_merge
 je_eset_npages_get
+je_pa_shard_prefork0
+je_prof_prefork0 
 je_tcache_gc_event_handler 
 je_base_stats_get 
 je_peak_alloc_event_handler 

@@ -686,6 +686,7 @@ anetPipe
 _serverLog.constprop.2
 rdbSaveAuxFieldStrInt
 setup_object.isra.0 
+rdbSaveInfoAuxFields
 __legitimize_path
 lookup_fast 
 databasesCron
