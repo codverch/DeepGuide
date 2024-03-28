@@ -211,3 +211,129 @@ kfree_skbmem
 moduleFireServerEvent
 ntp_tick_length 
 ntp_get_next_leap
+nf_conntrack                   # Network connection tracking
+nf_hook_slow                   # interface b/w networking code and netfilter
+ip_finish_output2              # Passes the packet to the L2 layer
+ip_rcv_core                              # Linux IP Receive routine
+ip_output                                # 
+__ip_queue_xmit                          # Queue IP CMIT
+__ip_finish_output                       # 
+ip_vs_local_reply4                       # 
+ip_idents_reserve                        # 
+iptable_mangle_hook                      # 
+__get_xps_queue_idx                      # 
+dst_cache_per_cpu_get                    # 
+get_l4proto                              # 
+__br_forward                             # 
+ip_vs_in                                 # 
+sk_stream_alloc_skb                      # 
+nbp_switchdev_frame_mark                 # 
+br_nf_forward_finish                     # 
+nf_ct_get_tuple                          # 
+__raise_softirq_irqoff                   # 
+skb_release_head_state                   # 
+validate_xmit_xfrm                       # 
+recvmsg                        
+epoll                          # This is a Linux system call for I/O event notification, often used in network programming for multiplexing I/O.
+sock_poll                      # This is a function used for socket polling in the kernel, and is network-related.
+ipt_do_table                   # This function is part of the iptables firewall in the Linux kernel, and is used to apply firewall rules to network packets.
+veth_xmit                      # Linux networking
+nf_ct_seq_offset               # Netfilter NAT sequence number mangling
+dev_queue_xmit                 # Transmit a buffer
+inet_lookup_established        # Find connection sock struct for a packet
+__netif_receive_skb_core       # Delivers data to protocol layers
+aa_sk_perm                     # Handle request on socket (?)
+br_handle_frame                # Receiving handler for network messages
+snmp_fold_field                # This function is used to get SNMP (Simple Network Management Protocol) statistics for each CPU. SNMP is a protocol used for managing devices on IP networks.
+validate_xmit_skb                        # Linux networking validation
+skb_release_data # This function is used to release the data from a socket buffer (skb) before the memory is freed. Skbs are used in the Linux kernel to hold network packets.
+eth_type_trans                           # determine the packet's protocol ID
+__cgroup_bpf_run_filter_skb              # run a program for packet filtering
+sendmsg                                  # Send a message to a socker
+fdb_find_rcu                             # 
+svc_udp_recvfrom                         # 
+i40e_xmit_frame_ring                     # 
+nf_nat_inet_fn                           # 
+dev_hard_start_xmit                      # 
+netif_skb_features                       # 
+net_rx_action                            # 
+process_backlog                          # 
+nf_ct_deliver_cached_events              # 
+netdev_core_pick_tx                      # 
+iptunnel_xmit                            # 
+br_forward                               # 
+skb_segment                              # 
+enqueue_to_backlog                       # 
+marvell_enable                           # 
+vxlan_find_mac                           # 
+ip_vs_local_request4                     # 
+__skb_datagram_iter                      # 
+ip_vs_forward_icmp                       # 
+is_skb_forwardable                       # 
+ip_queue_xmit                            # 
+vxlan_xmit                               # 
+__nf_ct_refresh_acct                     # 
+__skb_ext_del                            # 
+br_dev_queue_push_xmit                   # 
+udp_set_csum                             # 
+nf_confirm                               # 
+nf_bridge_update_protocol                # 
+netif_rx                                 # 
+inet_send_prepare                        # 
+brnf_get_logical_dev                     # 
+skb_scrub_packet                         # 
+__skb_ext_put                            # 
+fq_codel_dequeue                         # 
+inet_sendmsg                             # 
+sch_direct_xmit                          # 
+iptunnel_handle_offloads                 # 
+sockfd_lookup_light                      # 
+skb_udp_tunnel_segment                   # 
+lock_sock_nested                         # 
+nf_nat_packet                            # 
+i40e_features_check                      # 
+br_allowed_egress                        # 
+br_allowed_ingress                       # 
+sock_sendmsg                             # 
+__alloc_skb                              # 
+i40e_get_strings                         # 
+i40e_lan_select_queue                    # 
+__netif_receive_skb_one_core             # 
+inet_get_local_port_range                # 
+dst_cache_get_ip4                        # 
+i40e_finalize_xdp_rx                     # 
+i40e_set_rxnfc                           # 
+i40e_napi_poll                           # 
+br_nf_hook_thresh                        # 
+i40e_clean_tx_irq                        # 
+br_handle_vlan                           # 
+sk_page_frag_refill                      # 
+security_socket_sendmsg                  # 
+__sk_dst_check                           # 
+inet_gso_segment                         # 
+sock_rfree                               # 
+skb_network_protocol                     # 
+i40e_clean_rx_irq                        # 
+udp_tunnel_xmit_skb                      # 
+ep_poll                                  # 
+_transmit_pre                            # 
+dst_release                              # 
+inet_csk_accept                          # 
+netlink_has_listeners                    # 
+skb_clone_tx_timestamp                   # 
+skb_copy_datagram_iter                   # 
+skb_entail                               # 
+__skb_clone                              # 
+ngx_resolve_start                        # From Minya's Bucketizations
+ngx_get_connection                       # Fro
+ngx_unix_recv                            # From Minya's Bucketizations
+ngx_unix_send                            # From Minya's Bucketizations
+ngx_reusable_connection                  # From Minya's Bucketizations
+ngx_linux_sendfile_chain                 # From Minya's Bucketizations
+ngx_resolver                             # From Minya's Bucketizations
+ngx_resolve_name                         # 
+__libc_send                              # From Minya's Bucketizations
+__libc_recv                              # From Minya's Bucketizations
+sock_read_iter                           # 
+ksys_read                                # 
+connSocketRead                           # Redis application logic that is a wrapper around JEMalloc's read
