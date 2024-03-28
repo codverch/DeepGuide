@@ -130,10 +130,14 @@ with open('processed_found_network_keywords.txt', 'r') as file:
 
 network_followed_by_category_cpu_cycles = {} 
 
-
-for i in range(0, len(lines), 2): 
+for i in range(0, len(lines), 2):
     network_line = lines[i]
-    category_line = lines[i + 1]
+    if i + 1 < len(lines):
+        category_line = lines[i + 1]
+    else:
+        # Handle case where there is no corresponding category line for the network line
+        # For example, you could skip this network line or log a warning
+        continue
 
     network_category = network_line.split('-')[3].strip()
     category = category_line.split('-')[3].strip()
@@ -147,26 +151,37 @@ for i in range(0, len(lines), 2):
         else:
             network_followed_by_category_cpu_cycles[network_category][category] += cpu_cycles
 
-# Calculate the percentage of CPU cycles for each network category + category
-total_cpu_cycles = sum(network_followed_by_category_cpu_cycles[network_category].values())
+#  Obtain the total cpu cycles from the 'categorized_lines.txt' file
+total_cpu_cycles = 0
+with open('categorized_lines.txt', 'r') as file:
+    for line in file:
+        parts = line.strip().split(' - ')
+        if len(parts) > 2:
+            cpu_cycle = parts[2].strip()
+            if cpu_cycle.isdigit():
+                total_cpu_cycles += int(cpu_cycle)
 
-network_followed_by_category_cpu_percentages = {category: (cpu_cycles / total_cpu_cycles) * 100 for category, cpu_cycles in network_followed_by_category_cpu_cycles[network_category].items()}
+network_followed_by_category_cpu_percentages = {}
+for network_category, categories in network_followed_by_category_cpu_cycles.items():
+    network_followed_by_category_cpu_percentages[network_category] = {category: (cpu_cycles / total_cpu_cycles) * 100 for category, cpu_cycles in categories.items()}
 
-# Plot the percentage of CPU cycles of the network category + the different categories
-categories = list(network_followed_by_category_cpu_percentages.keys())
-cpu_percentages = list(network_followed_by_category_cpu_percentages.values())
-
+# Plot the percentage of CPU cycles for each network category + category
 plt.figure(figsize=(12, 6))
-bars = plt.bar(categories, cpu_percentages)
+for network_category, categories in network_followed_by_category_cpu_percentages.items():
+    plt.bar(categories.keys(), categories.values(), label=network_category)
+
 plt.xlabel('Category')
-plt.ylabel('Percentage of CPU Cycles taken by Network + different Categories')
-plt.title('Percentage of CPU Cycles by Category')
+plt.ylabel('Percentage of CPU Cycles')
+plt.title('Percentage of CPU Cycles for Network Category Followed by Different Categories')
 plt.xticks(rotation=45, ha='right')
+plt.legend(title='Network Category')
 plt.tight_layout()
+# Print the percentage values on top of the bars
+for network_category, categories in network_followed_by_category_cpu_percentages.items():
+    for category, percentage in categories.items():
+        plt.text(category, percentage, f'{percentage:.2f}%', ha='center', va='bottom')
 
-# Add percentage labels on top of each bar
-for bar, percentage in zip(bars, cpu_percentages):
-    plt.text(bar.get_x() + bar.get_width() / 2 - 0.1, bar.get_height() + 0.5, f'{percentage:.2f}%', ha='center', va='bottom')
-
-plt.savefig('RandomCombined.png')
+plt.savefig('network_category_followed_by_category.png')
 plt.show()
+
+# ===========================================================================================================================
