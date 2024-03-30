@@ -1,0 +1,353 @@
+memcpy	                   # memory copy - performInserts, CmdFindAndModify, V2LogBuilder 
+::_appendBytes	           # mongo::KeyString::...::_appendBytes calls memcpy (https://github.com/mongodb/mongo/blob/47ec1177999045a9ebe6af6f769ec94739116388/src/mongo/db/storage/key_string.cpp#L1350)
+memcmp	                   # memory compare - performInserts, BSONObj (binary json) ops, FindCmd  
+StringData::compare        # mongo::StringData::compare calls memcmp (https://github.com/mongodb/mongo/blob/47ec1177999045a9ebe6af6f769ec94739116388/src/mongo/base/string_data.h#L222)
+memmove                    # memory move - Btree ops, BSONObj ops (PlanExecuter)
+memset                     # memory set - Snappy (compression), CmdFindAndModify, insertKeysAndUpdateMultiKeys 
+memchr                     # memory character, searches for a character
+tc_malloc                  # custom malloc - TransportLayerASIO (Networking)
+tcmalloc                   # ^
+tc_realloc                 # custom realloc - BSONObj ops, updateRecord, insertBatchAndHandleError
+tc_calloc                  # custom calloc
+tc_free                    # custom free
+tc_delete                  # custom delete - calls free()
+realloc
+_int_realloc
+kmalloc                    # allocate contiguous memory in the physical memory
+kmem_cache_                # handle pre-allocated size objects
+slab_alloc                 # Called by kmem_cache_alloc
+OpMsg::parse               # Parse the message, lot of vector and buffers
+mongoMalloc                # Custom Mongo Malloc
+_M_realloc_insert          # Reallocate memory
+DocumentStorage::findFieldInCache      # Reads through cache to find a field, does a lot of memcmp ops
+kfree                                    # Free previously allocated kmalloc memory
+mongo::BSONObj::copy                     # Memcpy operations into SharedBuffer
+mongo::StringBuilderImpl<mongo::SharedBufferAllocator>::append # Copy string to a buffer after growing it
+mongo::NetworkCounter::hitPhysicalIn     # _physicalBytesIn->{store,fetchAndAdd}(bytes)
+namespace)::do_malloc_pages (anonymous namespace)::do_malloc_pages # Helper for do_malloc()
+mongo::NetworkCounter::hitPhysicalOut    # _physicalBytesOut->{store,fetchAndAdd} operations
+mongo::transport::TransportLayerASIO::ASIOSession::sinkMessage # write() operation
+_copy_from_user                          # 
+mongo::KeyString::TypeBits::resetFromBuffer # memcpy from buffer
+fput                                     # 
+copyin                                   # 
+mongo::WorkingSet::allocate              # 
+mallocgc                                 # Golang'malloc
+malloc@plt                               # 
+calloc@plt                               # 
+grpc_core::FilterStackCall::Create       # gRPC creates a Call by allocating some memory and sets some attributes of the call
+gpr_free                                 # gRPC's memfree
+gpr_malloc                               # gRPC's malloc
+gpr_realloc                              # gRPC's realloc
+grpc_cq_internal_unref                   # gRPC's code to check a completion queue (CQ) and free the memory
+runtime.memequal                         # Golang's wrapper for memcmp
+grpc_slice_buffer_add                    # gRPC's code to add slice data to a slice buffer. Contains memcpy operations
+realloc@plt                              # 
+grpc_chttp2_stream_map_add               # gRPC's code that does reallocation of memory if table is not at least 25% free
+free
+tc_newarray
+TCMallocImplementation
+__libc_realloc
+mongo::mongoRealloc
+malloc
+TCMalloc
+Malloc
+__libc_calloc
+operator new
+__gnu_cxx::new_allocator
+_IO_str_seekoff
+gc_
+copyTV
+lj_alloc_realloc
+resizestack
+lj_state_growstack
+buf_grow
+setgcVraw
+str_fastcmp
+ngx_palloc
+ngx_pcalloc
+ngx_alloc_chain_link
+ngx_alloc
+ngx_palloc_large
+ngx_list_push
+ngx_memn2cmp
+lj_BC_FUNCC
+lj_str_new
+propagatemark
+lj_mem_newgco
+lj_buf_putmem
+ngx_pnalloc
+lj_BC_JLOOP
+memcpy_erms
+memcpy_fromio
+memcg_slab_free_hook
+__bitmap_and
+kmalloc_reserve
+__kmalloc_node_track_caller
+zmalloc
+je_malloc
+je_malloc_usable_size
+zrealloc_usable
+kmem_cache_alloc_node
+kmalloc_slab
+zfree 
+je_free
+zmalloc_usable 
+extend_to_usable
+find_vma
+kmem_cache_alloc
+put_page
+kfence_ksize
+memcg_slab_post_alloc_hook
+wp_page_copy
+do_wp_page
+pmd_pfn
+_find_first_bit
+policy_nodemask
+__get_vma_policy
+pte_pfn
+pmd_page_vaddr
+__next_zones_zonelist
+get_page_from_freelist
+__alloc_pages
+should_fail_alloc_page
+__check_object_size.part.0
+copy_pte_range
+_copy_from_iter 
+migrate_disable
+migrate_enable
+mpol_misplaced
+numa_migrate_prep
+simple_copy_to_iter
+copy_user_enhanced_fast_string
+unlock_page
+wp_page_reuse
+page_cpupid_xchg_last
+pgd_none
+ptep_set_access_flags
+copy_from_kernel_nofault
+copy_from_kernel_nofault_allowed
+pud_val
+dma_map_page_attrs
+balance_dirty_pages_ratelimited
+__mod_memcg_lruvec_state
+page_add_new_anon_rmap
+flush_tlb_func
+kernel_init_free_pages.part.0
+get_mem_cgroup_from_mm 
+iov_iter_init
+free_swap_cache
+__mem_cgroup_uncharge_list
+memcg_check_events
+pagecache_get_page
+__page_cache_alloc
+alloc_pages
+radix_tree_lookup
+node_page_state
+__set_page_dirty
+alloc_page_buffers
+add_to_page_cache_lru
+xas_move_index
+__pagevec_lru_add
+__pagevec_lru_add_fn
+inc_zone_page_state
+mem_cgroup_update_lru_size
+__mem_cgroup_charge
+mem_cgroup_css_rstat_flush
+get_mem_cgroup_from_mm
+account_page_dirtied 
+__test_set_page_writeback
+clear_page_dirty_for_io
+wbc_account_cgroup_owner
+xas_find
+kvfree
+xas_nomem 
+memcg_check_events
+memcg_check_events
+xas_descend
+__tlb_remove_page_size 
+smaps_pte_entry.isra.0 
+__test_set_page_writeback
+wait_for_stable_page
+kmem_cache_alloc_trace
+xas_find_conflict
+kmem_cache_alloc_node_trace 
+je_bitmap_init 
+je_edata_heap_remove_first
+__cgroup_throttle_swaprate 
+pac_alloc_impl
+pfn_pte
+is_vmalloc_addr
+tcache_gc_small
+charge_memcg
+mem_cgroup_charge_statistics.constprop.0
+tcache_bin_flush_edatas_lookup.constprop.0 
+try_charge_memcg
+___slab_alloc
+__kmalloc_node
+__kmalloc_
+lock_page_lruvec_irqsave
+__mod_zone_page_state
+fault_in_iov_iter_readable
+__mod_zone_page_state
+obj_cgroup_charge_pages 
+strncpy_from_user
+arena_slab_alloc
+kvmalloc_node
+do_anonymous_page
+fault_in_readable 
+end_page_writeback 
+__xa_clear_mark 
+smaps_pte_range 
+page_mapping
+xa_get_order
+test_clear_page_writeback
+xa_get_order
+xas_create
+inc_node_page_state
+__kmalloc_node
+lock_page_lruvec_irqsave
+__mod_zone_page_state
+xas_init_marks
+xas_clear_mark 
+xas_store 
+workingset_update_node
+dec_zone_page_state 
+test_clear_page_writeback
+unaccount_page_cache_page
+__delete_from_page_cache 
+PageHuge
+__check_heap_object 
+base_alloc_impl 
+page_mapped 
+__remove_mapping
+change_pmd_range.isra.0
+flush_tlb_batched_pending
+__radix_tree_lookup
+mark_page_accessed
+free_pages_and_swap_cache
+xas_find_marked
+xas_set_mark 
+uncharge_batch 
+propagate_protected_usage         
+__invalidate_mapping_pages
+try_to_free_buffers
+mem_cgroup_css_from_page
+page_mkclean
+xas_alloc 
+xas_set_mark
+try_to_free_buffers
+drop_buffers.constprop.0 
+kfree_link 
+try_to_release_page 
+uncharge_page
+create_empty_buffers
+alloc_buffer_head 
+create_empty_buffers
+je_peak_alloc_new_event_wait 
+je_tcache_gc_dalloc_event_handler 
+je_peak_dalloc_new_event_wait 
+je_tcache_gc_dalloc_new_event_wait 
+je_free_default
+base_extent_bump_alloc_post 
+je_peak_alloc_new_event_wait
+je_tcache_gc_new_event_wait
+page_counter_uncharge
+page_counter_cancel
+uncharge_page
+sync_mm_rss
+__pagevec_release
+__madvise
+__x64_sys_madvise
+do_madvise.part.0
+zap_pmd_range.isra.0 
+unmap_page_range
+unmap_single_vma 
+zap_page_range 
+mem_cgroup_wb_stats 
+do_memsw_account
+cgroup_rstat_flush_irqsafe
+__mem_cgroup_flush_stats
+mem_cgroup_wb_stats
+balance_dirty_pages
+mem_cgroup_wb_domain
+page_counter_try_charge
+do_memsw_account
+page_counter_try_charge
+tlb_is_not_lazy
+je_base_alloc_edata 
+je_emap_split_prepare
+je_edata_avail_first
+drain_obj_stock 
+je_nstime_init2
+je_arena_handle_deferred_work
+je_nstime_init_update
+je_large_dalloc_finish
+je_counter_prefork 
+je_pa_shard_time_until_deferred_work 
+je_arena_do_deferred_work
+je_prof_prefork1
+je_arena_prefork8 
+__unfreeze_partials 
+unlink_anon_vmas 
+mb_clear_bits 
+get_any_partial 
+je_extent_record
+discard_slab 
+je_jemalloc_prefork 
+__free_slab 
+mod_node_page_state
+hugepage_vma_check 
+je_pa_shard_postfork_parent 
+je_malloc_mutex_prefork 
+khugepaged_enter_vma_merge
+__vma_adjust
+anon_vma_interval_tree_insert
+je_narenas_total_get 
+je_pa_decay_ms_get
+mempolicy_slab_node
+__anon_vma_interval_tree_remove 
+je_edata_cache_get
+je_arena_decay
+arena_maybe_do_deferred_work
+je_decay_ns_until_purge 
+anon_vma_clone 
+set_next_buddy
+anon_vma_fork 
+dup_mmap 
+__sg_free_table
+sg_pool_free 
+vma_dup_policy 
+pte_alloc_one
+copy_pmd_range 
+sg_free_table_chained 
+__pte_alloc 
+je_background_thread_prefork1
+mempool_free
+mempool_free_slab 
+extent_try_coalesce_impl
+zmalloc_get_smap_bytes_by_field 
+__mem_cgroup_threshold
+mod_lruvec_page_state 
+remove_mapping
+__inc_node_page_state
+mod_lruvec_page_state 
+mb_update_avg_fragment_size.isra.0 
+je_malloc_mutex_postfork_parent 
+mb_find_buddy
+tlb_finish_mmu
+mempool_alloc 
+pagevec_lookup_range_tag 
+find_vma_prev
+__sg_alloc_table
+mempool_alloc_slab
+sg_init_table 
+mempool_alloc_slab
+__free_one_page 
+blk_mq_dispatch_rq_list 
+lru_add_drain 
+lru_add_drain_cpu
+pac_dalloc_impl
+import_single_range
+memcg_alloc_page_obj_cgroups 
+dma_unmap_page_attrs 

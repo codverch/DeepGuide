@@ -1,0 +1,1412 @@
+apic_timer_interrupt           # APIC interrupts
+asio                           # Asio C++ library for network programming
+reschedule_interrupt           # Reschedule interrupt - when mutex unlock fails, sending TCP message 
+call_function_interrupt        # 
+hrtimer_interrupt              # High resolution timer 
+hrtimer_wakeup                 # ^
+schedule_hrtimeout_range       # ^ sleep until timeout
+rb_next                        # Kernel RBTree function
+rb_prev                        # ^
+psi_task                       # Pressure Stall Information
+do_syscall_64                  # https://stackoverflow.com/questions/57439557/perf-profiler-reporting-excess-use-of-do-syscall-64
+hash_conntrack_raw             # ^
+__sched_text_start             # Scheduling
+update_load_avg                # Update task and cfs_rq load average
+update_cfs_group               # iRecomputes group entity based on current state of group runqueue
+kmem_cache_free                # Free object in cache
+entry_SYSCALL_64               # Syscall handler
+syscall_return_via_sysret      # Returning from a syscall
+prepare_exit_to_usermode       # Moving from kernel mode
+gettimeofday                   # Get time
+switch_fpu_return              # Load FPU registers
+__this_module                  # Part of dynamic loading of modules into the kernel
+__fget                         # makes sure a file refcount != 0
+__seccomp_filter               # Syscall to operate on Secure Computing state of process
+update_curr                    # Update current task's runtime statistics
+update_blocked_averages        # Updating load averages when scheduling
+change_pte_range               # Memory access protections for calling process
+do_numa_page                   # ^
+clock_gettime                  # Get time of a clock
+cpuacct_charge                 # Charge this task's execution time to its accounting group
+select_task_rq_fair            # Select target runqueue for the waking task
+smp_call_function_many         # Runs a function on a set of CPUs
+syscall_trace_enter            # Syscall trace entries
+select_idle_sibling            # Try to locate an idle CPU in sched_domain
+__ctype_b_loc                  # points to "traits" of each character
+kvm_vcpu_block                 # vCPU executed a HLT instruction in in-kernel mode
+kvm_vm_ioctl_check_extension   # KVM check extension
+pick_next_task_fair            # Fair scheduling pick next task
+find_next_bit                  # Find the next set bit in a memory region
+__handle_mm_fault              # Kernel fault handler when holding mm semaphore
+ktime_get                      # Device drivers read current time
+__virt_addr_valid              # Check validity of virtual address
+try_to_wake_up                          # Wake up a thread
+flexible_sched_in                       # Flexible Scheduling
+diskstats_show                          # Aggregate disk stat collector
+__pthread_enable_asynccancel            # Cancel cancelable functions like write()
+aesni_gcm_enc                           # 
+__pthread_disable_asynccancel           # Disable cancel for cancelable functions such as write()
+aa_file_perm                            # Do permission revalidation check
+task_numa_find_cpu                      # Go through each CPU and find where the task can migrate
+copy_page                               # Copy a page
+skb_page_frag_refill                     # check that a page_frag has enough room
+enqueue_task_fair                        # Update fair scheduling stats and insert into rbtree
+enqueue_entity                           # Enqueue into the rb-tree
+account_entity_dequeue                   # Dequeue from rb-tree
+clear_page_erms                          # Clear page
+_copy_to_iter                            # Copy byte-byte-byte (?)
+update_cfs_rq_h_load                     # Calculate hierarchical load of run queue for fair scheduling
+available_idle_cpu                       # Is a CPU idle for enqueuing work
+__x86_indirect_thunk_rax                 # GCC's Spectre mitigation for indirect calls
+__wake_up_common                         # Core wakeup function
+__secure_computing                       # Operate on Secure Computing state of process
+fput_many                                # Many fput : puts a string on a stream
+pollwake                                 # 
+update_min_vruntime                      # Update minimum vruntime
+__fsnotify_parent                        # Notify this dentry's parent about a child's events
+__slab_free                              # Slow path handling
+reweight_entity                          # Update load and weight of entity
+ctx_sched_out                            # 
+write                                    # Write syscall
+__check_object_size                      # Checks on the buffer
+common_file_perm                         # 
+task_numa_fault                          # Got a PROT_NONE fault for a page on @node
+__calc_delta                             # Change priority in sched/fair.c
+native_sched_clock                       # Scheduler clock - returns current time in ns
+migrate_task_rq_fair                     # 
+pthread_self                             # Return ID of calling thread
+sap_registered                           # 
+dcdbas_pdev                              # 
+__local_bh_enable_ip                     # 
+svc_set_num_threads                      # 
+newidle_balance                          # 
+fb_sys_read                              # 
+check_stack_object                       # 
+dequeue_task_fair                        # 
+sk_wait_data                             # 
+aes_loop_initial_3470                    # 
+read_tsc                                 # 
+do_csum                                  # 
+iptable_filter_hook                      # 
+wait_woken                               # 
+vxlan_build_skb                          # 
+dequeue_entity                           # 
+aes_loop_initial_1085                    # 
+deactivate_task                          # 
+__softirqentry_text_start                # 
+swapgs_restore_regs_and_return_to_usermode # 
+mod_timer                                # 
+__update_idle_core                       # 
+__session_commit_transaction             # 
+intel_pstate_update_util                 # 
+update_sd_lb_stats                       # 
+__accumulate_pelt_segments               # 
+page_frag_free                           # 
+yield_task_fair                          # 
+import_iovec                             # 
+do_softirq                               # 
+intel_pmu_disable_all                    # 
+sched_yield                              # 
+do_nmi                                   # 
+__raise_softirq_irqoff                   # 
+skb_release_head_state                   # 
+mem_cgroup_from_task                     # 
+__curfile_update_check                   # 
+rw_copy_check_uvector                    # 
+schedule_timeout                         # 
+__next_timer_interrupt                   # 
+up_read                                  # 
+__xa_set_mark                            # 
+cpumask_next                             # 
+check_cfs_rq_runtime                     # 
+_copy_from_iter_full                     # 
+__count_memcg_events                     # 
+clear_buddies                            # 
+fsnotify                                 # 
+__copy_skb_header                        # 
+run_rebalance_domains                    # 
+_cond_resched                            # 
+record_times                             # 
+ext4_get_branch                          # 
+num_to_str                               # 
+pick_next_entity                         # 
+__curfile_cache                          # 
+fpregs_assert_state_consistent           # 
+should_failslab                          # 
+event_sched_in                           # 
+x86_pmu_disable                          # 
+__lock_text_start                        # 
+__evict_clear_walk                       # 
+alloc_pages_vma                          # 
+copy_msghdr_from_user                    # 
+rcu_core_si                              # 
+pick_next_task_idle                      # 
+iov_iter_advance                         # 
+passthru_features_check                  # 
+domain_dirty_limits                      # 
+__rec_cell_build_leaf_key                # 
+_IO_link_in                              # 
+put_prev_task_fair                       # 
+do_futex                                 # 
+i40e_lan_xmit_frame                      # 
+__txn_config_operation_timeout           # 
+pqdownheap                               # 
+i40e_check_fdir_input_set                # 
+drm_lease_held                           # 
+_encrypt_by_8_new7462                    # 
+__evict_lock_handle_list                 # 
+__evict_pass                             # 
+_initial_num_blocks_is_419681            # 
+hrtimer_sleeper_start_expires            # 
+nested_get_vmcs12_pages                  # 
+ksize                                    # 
+do_softirq_own_stack                     # 
+scrub_show                               # 
+remove_wait_queue                        # 
+vmx_create_vcpu                          # 
+update_rq_clock                          # 
+__split_parent                           # 
+rcu_irq_enter                            # 
+number                                   # 
+remote_function                          # 
+idle_cpu                                 # 
+update_nohz_stats                        # 
+thread_group_cputime                     # 
+task_numa_work                           # 
+__ptep_modify_prot_start                 # 
+drm_client_framebuffer_delete            # 
+hash_futex                               # 
+__x64_sys_futex                          # 
+task_tick_fair                           # 
+vmx_get_nested_state                     # 
+apparmor_file_permission                 # 
+__msecs_to_jiffies                       # 
+sync_vmcs02_to_vmcs12_rare               # 
+acpi_nfit_ctl                            # 
+pthread_testcancel                       # 
+show_stat                                # 
+put_prev_entity                          # 
+sync_regs                                # 
+acpi_nfit_blk_region_do_io               # 
+cgroup_rstat_updated                     # 
+nested_vmx_load_cr3                      # 
+finish_task_switch                       # 
+memcg_kmem_put_cache                     # 
+__account_cfs_rq_runtime                 # 
+runtime.systemstack                      # Golang's code to allow a function to run on the system stack
+runtime.execute                          # Golang's code to execute the program (RECHECK)
+runtime.step                             # Golang's code to step through a instruction (RECHECK)
+runtime.pcvalue                          # Golang's code to get program counter value
+runtime.schedule                         # Golang's code for scheduling
+runtime.runqgrab                         # Golang's code to choose subroutines from __p__'s runnable queue
+runtime.casgstatus                       # Golang's CAS (compare and swap) GStatus (status of runtime) for scheduling
+runtime.findrunnable                     # Golang's code to find a runnable goroutine to execute
+runtime.procyield                        # Golang's code to yield current process
+runtime.gogo                             # Golang's code to yield
+runtime.exitsyscallfast                  # Golang's code to exit a systemcall
+get_futex_key                            # 
+futex_wait_setup                         # 
+runtime.reentersyscall                   # Golang's code that works as the entrypoint used by cgo callbacks
+runtime.exitsyscall                      # Golang's code to yield
+get_signal                               # 
+runtime.newstack                         # Golang's code to yield
+internal/bytealg.IndexByteString         # 
+runtime.morestack_noctxt                 # 
+do_signal                                # 
+schedule                                 # 
+__task_pid_nr_ns                         # 
+getname_flags                            # 
+exit_to_usermode_loop                    # 
+__legitimize_mnt                         # 
+runtime.entersyscall                     # Golang's code
+runtime.sigfwdgo                         # Golang's signal handler handler - checks if Go should handle the signal or if something else should
+ksoftirqd_running                        # 
+runtime.asmcgocall                       # Golang's code for ABI
+fpu__clear                               # 
+copy_fpstate_to_sigframe                 # 
+dma_direct_map_page                      # 
+mark_wake_futex                          # 
+recalc_sigpending                        # 
+__sigqueue_free                          # 
+account_entity_enqueue                   # 
+resched_curr                             # 
+__send_signal                            # 
+wake_up_q                                # 
+_raw_read_lock_irqsave                   # 
+__unqueue_futex                          # 
+vm_normal_page                           # 
+native_flush_tlb_one_user                # 
+flush_tlb_mm_range                       # 
+cpumask_any_but                          # 
+br_fdb_update                            # 
+ptep_clear_flush                         # 
+mei_me_d0i3_exit_sync                    # 
+aes_loop_pre_done                        # 
+ipmi_interfaces_srcu                     # 
+drm_dp_cec_unregister_delay              # 
+_crypt_by_4_2527                         # 
+_encrypt_by_8_new15                      # 
+sigfillset                               # 
+__lru_cache_add                          # 
+sigsetmask                               #
+smaps_account                            # 
+ext4_do_update_inode                     # 
+__find_get_block                         # 
+handle_mm_fault                          # 
+drm_unplug_srcu                          # 
+do_user_addr_fault                       # 
+xas_load                                 # 
+zap_pte_range                            #
+rmqueue                                  # 
+ahci                                     # 
+release_pages                            # 
+fscache_                                 # 
+ep_item_poll                             # 
+ep_send_events_proc                      # 
+free_pcppages_bulk                       # 
+numamigrate_isolate_page                 # 
+__key                                    # 
+drm_mode_createblob_ioctl                # 
+evmap_io_active_                         # 
+event_active_nolock_                     # 
+rapl_pmus                                # 
+aa_label_sk_perm                         # 
+item_remove                              # 
+irq_entries_start                        # 
+drm_wait_vblank_ioctl                    # 
+drm_update_vblank_count                  # 
+aa_profile_af_perm                       # 
+memcg_kmem_get_cache                     # 
+evutil_gettime_monotonic_                # 
+drm_mode_destroyblob_ioctl               # 
+do_item_get                              # 
+drm_universal_plane_init                 # 
+__put_user_4                             # 
+strcasecmp                               # 
+vmacache_find                            # 
+ext4_es_lookup_extent                    # 
+__add_to_page_cache_locked               # 
+inode_init_always                        # 
+security_inode_alloc                     # 
+map_id_range_down                        # 
+place_entity                             # 
+d_set_d_op                               # 
+ep_scan_ready_list                       # 
+iput                                     # 
+__rseq_handle_notify_resume              # 
+__sk_destruct                            # 
+ep_insert                                # 
+eventfd_poll                             # 
+new_sync_read                            # 
+vfs_read                                 # 
+do_nanosleep                             # 
+__dentry_kill                            # 
+cleanup_module                           # 
+set_floor_freq_atom                      # 
+ns_to_timespec64                         # 
+enqueue_timer                            # 
+page_remove_rmap                         # 
+rcu_sched_clock_irq                      # 
+do_task_stat                             # 
+__evict_clear_all_walks                  # From Minya's Bucketizations
+posix_memalign                           # From Minya's Bucketizations
+ngx_memalign                             # From Minya's Bucketizations
+localtime_r                              # 
+rapl_check_unit_core                     # 
+getMonotonicUs_posix                     # 
+read@plt                                 # Redis application logic that is a wrapper around JeMalloc's read
+__ioat_prep_pq_lock                      # 
+mei_device_init                          # 
+mei_hbm_cl_res                           # 
+aa_sock_perm                             # 
+event_rpc__prog_mismatch                 # 
+sched_clock_cpu
+__nanosleep
+epoll_wait
+get_timespec64 
+_raw_write_lock_irq
+enqueue_hrtimer
+__schedule
+rseq_get_rseq_cs.isra.0
+flush_tlb_one_kernel
+prepare_task_switch
+native_irq_return_iret
+exit_to_user_mode_prepare
+x86_pmu_enable
+__intel_pmu_enable_all.constprop.0
+set_pte_vaddr
+restore_fpregs_from_fpstate
+exc_nmi
+asm_sysvec_apic_timer_interrupt
+apei_read
+__x64_sys_clock_nanosleep
+__x64_sys_epoll_wait
+syscall_exit_to_user_mode
+syscall_trace_enter.constprop.0 
+exit_to_user_mode_loop
+nmi_handle
+trigger_load_balance
+__hrtimer_init 
+hrtimer_start_range_ns
+hrtick_update
+__vdso_clock_gettime
+__fget_light
+entry_SYSCALL_64_after_hwframe
+intel_bts_enable_local
+rseq_ip_fixup 
+psi_group_change
+ktime_get_ts64
+scheduler_tick
+common_nsleep
+hrtimer_init_sleeper
+__hrtimer_start_range_ns
+hrtimer_active
+hrtimer_run_queues
+hrtimer_nanosleep
+pick_next_task
+do_epoll_wait 
+mem_cgroup_handle_over_high
+__intel_pmu_lbr_enable
+intel_tfa_pmu_enable_all
+intel_pmu_lbr_enable_all
+intel_pmu_handle_irq
+rcu_read_unlock_strict
+handle_pmi_common
+sched_clock 
+ghes_notify_nmi
+psi_task_switch 
+finish_task_switch.isra.0
+nmi_cpu_backtrace_handler 
+nmi_cpu_backtrace
+set_pte_vaddr_p4d
+fill_pte
+acpi_os_read_memory 
+acpi
+apei_check_gar
+apei
+set_next_task_idle
+__memcg_kmem_uncharge_page
+schedule_hrtimeout_range_clock
+queue_core_balance
+psi_flags_change
+blkcg_maybe_throttle_current
+xfd_validate_state 
+dequeue_task
+syscall_enter_from_user_mode
+irqentry_exit_to_user_mode 
+fill_pmd
+native_set_fixmap
+__update_load_avg_cfs_rq 
+irqentry_nmi_exit 
+syscall_enter_from_user_mode
+default_do_nmi
+rcu_nmi_exit
+native_write_cr2
+ghes_copy_tofrom_phys
+amd_clear_divider 
+__update_load_avg_se
+populate_seccomp_data
+seccomp_run_filters
+__ghes_peek_estatus.isra.0
+note_gp_changes
+rcu_core
+irq_exit_rcu
+sysvec_apic_timer_interrupt
+__get_user_8
+sched_clock_stable
+cyc2ns_read_begin
+merge_sched_in
+calc_timer_values
+fill_pud
+free_pcp_prepare
+__put_user_nocheck_8
+p4d_offset
+ghes_in_nmi_queue_one_entry.constprop.0 
+native_set_pte
+cyc2ns_read_end
+timespec64_add_safe
+__cond_resched
+__update_blocked_fair 
+rebalance_domains
+__fget_files
+__fdget
+select_estimate_accuracy 
+timespec64_add_safe
+set_normalized_timespec64 
+nmi_restore
+rcu_segcblist_pend_cbs
+irqentry_exit
+using_native_sched_clock
+rcu_all_qs
+update_rt_rq_load_avg
+intel_pstate_update_util_hwp 
+__cgroup_account_cputime 
+intel_pmu_drain_pebs_nhm 
+_find_next_bit
+__note_gp_changes
+update_dl_rq_load_avg
+get_nohz_timer_target
+hrtimer_update_next_event
+__hrtimer_next_event_base
+__hrtimer_run_queues
+__remove_hrtimer 
+__hrtimer_run_queues
+timerqueue_add
+tick_program_event
+account_system_index_time
+__cgroup_account_cputime_field 
+acct_account_cputime
+clockevents_program_event
+update_process_times
+check_cpu_stall
+copy_user_generic_unrolled 
+rb_insert_color
+rcu_note_context_switch
+rcu_qs 
+irq_enter_rcu
+invoke_rcu_core
+free_pages
+__free_pages
+pgd_free
+slab_free_freelist_hook.constprop.0
+psi_task_change
+lapic_next_deadline
+__sysvec_apic_timer_interrupt
+account_system_time 
+raise_softirq 
+irq_work_tick 
+irq_work_run_list 
+irqentry_enter
+cpumask_next_and
+arch_scale_freq_tick
+nohz_balance_exit_idle
+tick_sched_handle
+profile_tick
+update_sg_lb_stats
+update_group_capacity 
+update_cpu_capacity
+update_sd_lb_stats.constprop.0 
+update_sg_lb_stats
+nohz_balance_exit_idle 
+nohz_balancer_kick
+account_process_tick
+run_posix_cpu_timers
+tick_sched_timer
+obj_cgroup_uncharge_pages
+free_unref_page
+__mmdrop
+sched_clock_tick
+native_apic_msr_eoi_write 
+find_busiest_group
+load_balance
+ktime_get_update_offsets_now 
+timerqueue_del
+rb_erase 
+update_sd_pick_busiest
+__queue_work
+call_timer_fn 
+delayed_work_timer_fn 
+set_next_entity 
+__run_timers.part.0 
+run_timer_softirq
+intel_pmu_lbr_disable_all 
+obj_cgroup_uncharge
+refill_obj_stock 
+mod_objcg_state 
+free_unref_page_commit.constprop.0 
+destroy_context_ldt
+free_unref_page_commit.constprop.0
+intel_pmu_pebs_disable_all 
+refill_stock
+__skb_ext_alloc 
+__mod_timer 
+sk_reset_timer
+do_accept
+__sys_accept4_file
+__sys_accept4
+__put_user_nocheck_4
+move_addr_to_user
+_copy_to_user 
+fd_install 
+skb_push
+__call_rcu 
+bpf_skops_write_hdr_opt.isra.0 
+resolve_normal_ct
+__x64_sys_read 
+hrtimer_try_to_cancel.part.0
+sock_recvmsg
+inet_recvmsg 
+release_sock 
+siphash
+insert_work 
+wake_up_process
+ttwu_do_activate
+hrtimer_try_to_cancel.part.0 
+__x64_sys_write 
+ksys_write
+vfs_write
+exc_page_fault
+pte_val
+__ptep_modify_prot_commit
+asm_exc_page_fault
+handle_pte_fault
+pmd_val
+handle_pte_fault
+asm_exc_page_fault
+irqentry_enter_from_user_mode
+ktime_get_with_offset
+check_preempt_curr
+check_preempt_wakeup
+ep_done_scan
+ep_send_events
+ep_item_poll.isra.0 
+copy_mc_to_kernel 
+ext4_do_update_inode.isra.0
+jbd2_journal_dirty_metadata
+rht_key_get_hash.isra.0
+rhashtable_jhash2
+security_file_permission
+aa_label_is_subset
+ext4_get_block 
+ext4_update_bh_state
+ext4_fc_track_range 
+ext4_sb_block_valid
+__ext4_journal_get_write_access
+ext4_fc_track_inode
+ext4_mark_iloc_dirty
+ext4_write_begin
+_ext4_get_block
+ext4_inode_journal_mode
+ext4_inode_block_valid
+ext4_fc_track_template
+ext4_map_blocks
+ext4_block_write_begin
+ext4_jbd2_inode_add_write.part.0
+__ext4_handle_dirty_metadata
+ext4_mb_release_context.isra.0
+ext4_mb_mark_diskspace_used
+ext4_buffered_write_iter
+ext4_file_write_iter
+ext4_get_inode_loc
+ext4_reserve_inode_write
+ext4_
+errseq_check
+from_kuid
+task_numa_placement
+map_id_up
+ext4_finish_bio
+__ext4_mark_inode_dirty
+ext4_dirty_inode
+ext4_journal_check_start
+ext4_mb_new_blocks
+ext4_claim_free_clusters
+ext4_has_free_clusters
+__mark_inode_dirty
+__ext4_journal_start_sb
+__check_block_validity.constprop.0 
+jbd2__journal_start
+jbd2_journal_inode_ranged_write
+jbd2_journal_file_inode
+seq_put_decimal_ull_width
+seq_puts
+__get_task_comm
+proc_task_name 
+rw_verify_area
+security_socket_recvmsg
+lock_timer_base
+aa_label_next_confined
+aa_label_sk_perm.part.0 
+aa_label_sk_perm
+apparmor_socket_recvmsg
+__usecs_to_jiffies
+jiffies_to_usecs
+aa_get_buffer
+get_proc_stat_ll.constprop.0 
+path_openat
+get_obj_cgroup_from_current
+obj_cgroup_charge
+__fdget_pos
+aa_path_perm
+apparmor_file_open
+security_file_open
+hook_file_open
+try_module_get
+do_dentry_open
+errseq_sample
+path_get
+lockref_get
+mntget
+do_open
+may_open
+inode_permission
+security_inode_permission
+ctl_lookup
+task_prio
+pid_nr_ns
+seq_put_decimal_ull
+fsnotify_perm.part.0
+nsec_to_clock_t
+seq_printf
+detach_if_pending
+fsnotify_perm.part.0
+aa_apply_modes_to_perms
+aa_check_perms
+arch_local_irq_enable
+generic_permission
+vfs_open 
+d_namespace_path.constprop.0 
+apparmor_socket_sendmsg
+__pm_relax
+set_pte
+lru_cache_add_inactive_or_unevictable
+lru_cache_add
+__page_set_anon_rmap
+__mod_lruvec_page_state
+__mod_lruvec_state
+__mod_node_page_state
+aa_path_name
+path_name
+getname
+build_open_flags
+security_file_free
+apparmor_file_free_security
+__fput
+pid_delete_dentry
+module_put
+single_release
+wait4
+proc_tgid_stat
+proc_single_show
+get_pid_task
+proc_single_show
+single_start
+arch_local_irq_disable
+arch_local_save_flags
+add_mm_counter_fast
+find_busiest_queue
+security_task_getsecid_subj
+ima_file_check
+file_ra_state_init
+single_open
+seq_open
+security_file_free
+apparmor_file_free_security
+rmqueue_bulk
+i40e_tso.constprop.0
+unlock_page_memcg
+lock_page_memcg
+__x64_sys_openat
+do_sys_openat2
+do_filp_open
+link_path_walk.part.0.constprop.0
+terminate_walk
+free_unref_page_list
+sk_free
+putname
+mntput
+node_dirty_ok
+copy_page_from_iter_atomic
+generic_perform_write
+__x64_sys_close 
+__get_user_nocheck_1 
+ext4_meta_trans_blocks 
+ext4_generic_write_checks
+mark_buffer_dirty
+calc_global_load_tick
+xas_start 
+x86_pmu_event_init
+inherit_event.constprop.0
+ima_file_free
+atime_needs_update
+kick_process
+__mnt_want_write_file 
+ext4_ind_trans_blocks
+ext4_read_block_bitmap_nowait
+seq_read_iter
+__mnt_want_write
+seq_read 
+rb_first
+kthread_blkcg
+ext4_writepage_trans_blocks
+complete_walk
+open_last_lookups
+dput 
+thread_group_cputime_adjusted
+ext4_get_group_no_and_offset
+ext4_mb_use_inode_pa 
+ext4_mb_use_preallocated.constprop.0
+cputime_adjust
+cgroup_rstat_flush_locked 
+ext4_mb_initialize_context
+jbd2_journal_stop
+__ext4_journal_stop 
+task_sched_runtime
+blkcg_rstat_flush
+__x64_sys_wait4 
+__do_sys_wait4 
+__block_commit_write.constprop.0.isra.0 
+update_curr_fair
+mntput_no_expire
+calculate_imbalance
+kernel_wait4
+csum_partial
+wait_task_stopped 
+__lock_task_sighand
+wait_consider_task
+hrtimer_reprogram
+do_wait
+calculate_imbalance
+getname_flags.part.0 
+ext4_bio_write_page 
+ext4_releasepage 
+ext4_es_insert_extent 
+ext4_es_can_be_merged.isra.0 
+ext4_ind_map_blocks 
+ext4_read_block_bitmap 
+ext4_alloc_branch 
+ext4_mb_collect_stats 
+grab_cache_page_write_begin
+jbd2_journal_get_write_access
+jbd2_write_access_granted.part.0
+from_kprojid
+ext4_get_group_desc 
+__ext4_journal_stop
+apparmor_file_alloc_security 
+get_unused_fd_flags
+put_dec_trunc8
+aa_put_buffer
+task_rq_lock
+__aa_path_perm 
+aa_audit_file
+account_user_time
+put_dec_full8
+put_dec
+alloc_fd
+call_rcu
+get_unused_fd_flags
+proc_single_open
+ext4_write_end 
+ext4_inode_csum_set 
+ext4_block_to_path
+ext4_mb_good_group_nolock 
+ext4_read_block_bitmap_nowait 
+ext4_block_bitmap 
+ext4_inode_table
+__ext4_get_inode_loc
+seq_put_decimal_ll
+alloc_empty_file
+rcu_report_qs_rnp
+security_file_alloc
+blk_cgroup_bio_start
+wait_on_page_writeback
+find_lock_entries
+fprop_reflect_period_percpu.isra.0 
+mb_set_largest_free_order.isra.0 
+collect_sigign_sigcatch.constprop.0.isra.0 
+drop_buffers.constprop.0 
+jbd2_journal_try_to_free_buffers
+__d_lookup
+rcu_segcblist_enqueue
+task_work_run
+je_nstime_subtract
+__es_insert_extent 
+__fprop_inc_percpu 
+__fprop_inc_percpu_max 
+ext4_mb_regular_allocator
+mb_mark_used 
+ext4_mb_load_buddy_gfp 
+ext4_mb_simple_scan_group
+set_root
+ext4_get_group_info
+ext4_mb_good_group
+fscrypt_free_bounce_page
+mb_find_order_for_block
+rcu_do_batch
+pipe_read
+from_kgid
+read 
+write
+kill_fasync
+__es_remove_extent
+generic_write_checks
+nd_jump_root
+percpu_counter_add_batch
+__f_unlock_pos
+__popcountdi2
+__brelse
+rcu_accelerate_cbs
+__getblk_gfp 
+bh_uptodate_or_lock
+smaps_page_accumulate
+fscrypt_mergeable_bio
+hrtimer_forward
+ktime_get_coarse_real_ts64
+bh_uptodate_or_lock 
+__getblk_gfp
+seq_putc 
+proc_self_get_link
+security_inode_follow_link
+put_pid 
+find_get_pages_range_tag
+walk_component
+legitimize_links
+prandom_u32
+aa_compute_fperms 
+expand_files
+nstime_update_impl 
+ptrace_may_access
+__es_tree_search.isra.0
+pid_revalidate
+__ptrace_may_access
+get_task_mm 
+task_vsize
+__d_lookup_rcu 
+cpuacct_account_field
+ovl_permission
+rcu_segcblist_accelerate 
+ovl_inode_upper
+our_mnt 
+d_absolute_path 
+ptrace_may_access
+mmput
+smp_call_function_many_cond
+__ptrace_may_access
+get_task_mm 
+__alloc_file 
+cpuacct_account_field 
+mpage_prepare_extent_to_map 
+fscrypt_mergeable_bio_bh
+bio_add_page
+mpage_submit_page
+mpage_process_page_bufs 
+mpage_prepare_extent_to_map
+mpage_process_page_bufs
+__es_insert_extent 
+block_write_end
+ext4_block_to_path 
+file_remove_privs 
+__dquot_alloc_space 
+inode_add_bytes
+block_write_end 
+sg_next
+dma_direct_map_sg 
+scsi_dma_map
+invalidate_inode_page
+ext4_mb_check_limits
+ext4_mb_use_best_found
+mb_find_extent
+ext4_mb_complex_scan_group
+rcu_segcblist_add_len 
+rcu_segcblist_n_segment_cbs
+rcu_cblist_dequeue 
+rcu_segcblist_add_len
+legitimize_mnt
+rcu_accelerate_cbs_unlocked 
+aa_dfa_match
+get_cached_acl_rcu 
+ovl_get_acl 
+__blk_queue_split
+blk_bio_segment_split 
+bvec_split_segs 
+submit_bio_checks
+__bio_add_page 
+__bio_try_merge_page
+dma_direct_unmap_sg 
+__inc_zone_page_state
+ext4_validate_block_bitmap.part.0 
+ext4_wait_block_bitmap 
+generic_write_check_limits
+__blk_bios_map_sg
+apparmor_task_getsecid 
+need_active_balance
+revert_creds
+ovl_override_creds
+override_creds
+get_cached_acl_rcu
+ovl_get_acl
+proc_pid_permission 
+need_active_balance
+path_init
+extent_split_impl.constprop.0
+extent_split_interior.constprop.0 
+security_task_to_inode
+ovl_override_creds 
+override_creds 
+ovl_get_acl
+ext4_group_desc_csum_set
+ext4_block_bitmap_csum_set
+ext4_free_group_clusters_set 
+mpt3sas_base_get_msg_frame 
+mpt3sas_scsih_scsi_lookup_get
+blk_mq_tag_to_rq 
+task_dump_owner 
+copy_process 
+scsi_alloc_sgtables 
+scsi_init_command 
+init_timer_key 
+scsi_queue_rq 
+wbt_wait 
+bio_to_wbt_flags
+rcu_segcblist_insert_done_cbs
+proc_invalidate_siblings_dcache
+proc_flush_pid 
+release_task
+ext4_free_group_clusters
+ext4_lock_group 
+blk_mq_unique_tag
+_base_get_msix_index
+ext4_set_bits
+blk_mq_complete_request
+scsi_mq_done
+_scsih_io_done
+mpt3sas_base_free_smid
+scsi_dma_unmap
+dma_unmap_sg_attrs
+__wake_up
+mod_delayed_work_on
+blk_add_rq_to_plug
+dd_limit_depth
+m_start
+x86_reserve_hardware
+wb_timer_fn
+jbd2_journal_blocks_per_page
+__rq_qos_done
+remove_entity_load_avg 
+finish_fault
+__update_load_avg_blocked_se
+__ext4_forget 
+close_fd
+smp_call_function_single_async 
+__radix_tree_replace
+radix_tree_iter_replace 
+jbd2_journal_revoke
+bio_alloc_bioset 
+sched_ttwu_pending 
+bio_clone_fast
+apparmor_task_free
+radix_tree_node_rcu_free 
+pipe_release
+__anon_vma_interval_tree_augment_rotate 
+bio_split
+page_add_file_rmap 
+delayed_put_task_struct 
+cgroup_free
+idr_preload
+refcount_dec_not_one
+mpt3sas_base_get_smid_scsiio 
+tlb_flush_mmu 
+vmacache_update
+wake_up_page_bit 
+generic_exec_single
+insert_revoke_hash 
+hold_task_mempolicy 
+mpt3sas_base_get_sense_buffer_dma
+free_pud_range 
+vma_migratable 
+___pte_free_tlb 
+ext4_mb_new_inode_pa
+ext4_mb_pa_callback 
+ext4_try_merge_freed_extent.part.0 
+blk_mq_submit_bio 
+walk_p4d_range
+vma_policy_mof 
+sas_is_tlr_enabled 
+intel_pebs_constraints
+generic_set_encrypted_ci_d_ops 
+delete_node
+task_scan_max 
+get_random_u32
+save_fpregs_to_fpstate 
+__percpu_counter_sum 
+task_nr_scan_windows.isra.0 
+group_balance_cpu
+__rq_qos_issue 
+__rq_qos_done_bio 
+kernel_fpu_begin_mask 
+wbt_issue 
+intel_cpuc_finish
+task_h_load 
+__submit_bio 
+wb_io_lists_depopulated 
+irq_fpu_usable 
+timekeeping_advance 
+idr_remove
+intel_put_event_constraints
+free_pipe_info
+int_to_scsilun
+fscrypt_set_bio_crypt_ctx 
+sysvec_call_function_single
+ext4_getblk
+__ext4_find_entry 
+invalidate_mapping_pagevec
+sched_setnuma 
+x86_get_event_constraints 
+sbitmap_get_shallow 
+deactivate_slab
+__inode_wait_for_writeback 
+invalidate_mapping_pagevec
+__getpid 
+ext4_bread_batch
+__sbitmap_queue_get_shallow 
+do_pipe2 
+ext4_free_blocks
+ext4_lookup
+next_uptodate_page
+idr_find 
+__x64_sys_pipe2
+pipe2 
+tlb_remove_page
+wake_q_add_safe
+__vdso_time 
+__cpa_flush_tlb 
+__queue_delayed_work
+set_task_cpu
+set_task_rq_fair 
+ext4_init_io_end 
+intel_pmu_event_map 
+walk_pud_range.isra.0 
+perf_try_init_event
+cpus_share_cache
+__srcu_read_unlock 
+security_perf_event_alloc 
+idr_alloc_cyclic
+dd_limit_depth
+idr_alloc_u32
+add_timer 
+housekeeping_cpumask
+blk_add_rq_to_plug 
+node_tag_clear
+__radix_tree_preload 
+radix_tree_iter_tag_clear
+scsi_complete 
+__filemap_fdatawait_range
+inode_wait_for_writeback
+mix_interrupt_randomness
+process_timeout 
+file_fdatawait_range 
+inode_io_list_del
+scsi_finish_command 
+ext4_io_submit_init 
+locked_inode_to_wb_and_lock_list
+kblockd_mod_delayed_work_on
+ext4_fname_prepare_lookup
+file_check_and_advance_wb_err
+sd_done 
+scsi_io_completion 
+scsi_end_request 
+ext4_lookup.part.0 
+scsi_run_queue_async 
+unlink_file_vma
+ext4_drop_inode 
+ext4_fname_setup_ci_filename
+tlb_gather_mmu 
+scsi_log_send 
+sd_uninit_command 
+__blk_mq_end_request
+scsi_dispatch_cmd 
+scsi_mq_set_rq_budget_token 
+blk_mq_free_request
+blk_queue_exit 
+__blk_mq_free_request
+blk_mq_put_tag
+blk_mq_sched_restart
+radix_tree_delete_item 
+__radix_tree_delete 
+__dd_dispatch_request
+scsi_mq_get_budget
+__sbitmap_get 
+__sbitmap_get_word 
+pagevec_remove_exceptionals
+cgroup_rstat_flush_irqsafe 
+__mem_cgroup_flush_stats
+mem_cgroup_wb_stats 
+do_fault
+kthread_is_per_cpu
+do_read_fault 
+__lookup_mnt
+seccomp_filter_release
+__seccomp_filter_orphan 
+__exit_signal
+tty_kref_put
+__cleanup_sighand 
+can_migrate_task
+dnotify_flush
+__mnt_drop_write_file
+generic_update_time
+__do_sys_clone
+__x64_sys_clone 
+__intel_shared_reg_get_constraints 
+intel_get_event_constraints
+tfa_get_event_constraints
+allocate_fake_cpuc
+intel_cpuc_prepare
+blk_mq_sched_try_insert_merge 
+dd_insert_request
+blk_mq_flush_plug_list
+blk_mq_sched_insert_requests 
+blk_account_io_start
+update_io_ticks 
+blk_account_io_start
+__cpuset_node_allowed 
+jbd2_journal_grab_journal_head 
+__blk_mq_sched_dispatch_requests 
+blk_mq_run_hw_queue 
+raw_notifier_call_chain
+update_vdso_data.constprop.0
+timekeeping_adjust.constprop.0 
+tick_do_update_jiffies64 
+ovl_inode_real
+calc_global_load
+current_time
+should_fail_bio
+wbt_track 
+__rq_qos_track 
+scsi_handle_queue_ramp_up 
+filemap_fdatawrite_wbc 
+blk_finish_plug
+irq_chip_ack_parent
+apic_ack_irq 
+irq_chip_ack_parent 
+handle_edge_irq 
+__blk_mq_get_tag
+blk_mq_get_tag 
+asm_common_interrupt
+is_cpu_allowed
+handle_edge_irq 
+blk_stat_timer_fn
+rwb_arm_timer
+bdev_read_only 
+add_interrupt_randomness
+fast_mix 
+__blk_mq_do_dispatch_sched 
+blk_mq_get_driver_tag 
+deadline_remove_request
+on_each_cpu_cond_mask
+blk_finish_plug 
+__ext4_journal_get_create_access
+__jbd2_journal_file_buffer
+jbd2_journal_get_create_access
+mpt3sas_base_get_reply_virt_addr 
+__common_interrupt
+handle_edge_irq 
+add_interrupt_randomness
+__handle_irq_event_percpu 
+sb_clear_inode_writeback 
+queue_delayed_work_on
+jbd2_journal_grab_journal_head
+sd_setup_read_write_cmnd
+__bio_clone_fast
+bio_advance 
+__sysvec_call_function_single
+do_get_write_access
+__jbd2_journal_file_buffer
+__put_task_struct 
+jbd2_journal_grab_journal_head 
+apparmor_task_fre
+wake_affine 
+generic_fadvise
+elv_merge    
+__find_get_block_slow 
+blk_flush_plug_list
+ext4_end_bio 
+dma_map_sg_attrs 
+__put_seccomp_filter
+scsi_log_completion 
+bio_associate_blkg_from_css
+ext4_mb_prefetch 
+flush_sigqueue
+__blk_mq_run_hw_queue
+native_flush_tlb_multi 
+elv_rqhash_find
+elv_
+elv_rb_del 
+inode_congested 
+elv_attempt_insert_merge 
+blkcg_ioprio_track
+dd_prepare_request 
+__get_free_pages
+blk_mq_rq_ctx_init 
+__blk_mq_alloc_request
+_base_interrupt 
+handle_irq_event
+note_interrupt 
+sbitmap_any_bit_set
+hrtimer_cancel
+sync_file_range 
+update_wall_time
+update_vsyscall
+timekeeping_update 
+blk_start_plug 
+update_fast_timekeeper
+__blk_rq_map_sg 
+yama_ptracer_del
+sg_alloc_table_chained
+sg_pool_alloc 
+sd_init_command 
+ext4_clear_blocks 
+single_stop 
+scsi_prepare_cmd 
+yama_task_free 
+common_interrupt 
+llist_reverse_order
+__show_smap 
+wbt_inflight_cb 
+rq_qos_wait 
+__rq_qos_throttle 
+blk_attempt_plug_merge 
+page_remove_file_rmap
+__sysvec_call_function 
+generic_smp_call_function_single_interrupt
+submit_bio_noacct 
+bio_chain 
+show_smap
+x86_add_exclusive 
+ttwu_queue_wakelist
+ttwu_do_wakeup 
+send_call_function_single_ipi
+ext4_mb_free_metadata.isra.0 
+ext4_mb_clear_bb
+task_numa_free
+security_task_free 
+flush_smp_call_function_queue
+native_flush_tlb_global 
+get_partial_node.part.0 
+__bitmap_subset 
+scsi_target_queue_ready
+can_migrate_task.part.0 
+hsw_hw_config 
+__x64_sys_getpid 
+do_writepages
+arch_vma_name
+blk_throtl_bio
+wbc_attach_and_unlock_inode
+alloc_pid 
+userfaultfd_remove 
+vma_merge 
+sysvec_call_function 
+mmap_region 
+filemap_map_pages 
+asm_sysvec_call_function
+__rb_insert_augmented
+do_flush_tlb_all
+dd_has_work 
+jbd2_journal_put_journal_head
+ext4_writepages 
+__filemap_fdatawrite_range
+file_free_rcu 
+flush_smp_call_function_queue
+intel_pmu_setup_lbr_filter 
+change_prot_numa
+blk_try_enter_queue 
+intel_pmu_bts_config 
+stop_one_cpu_nowait 
+intel_pmu_hw_config.part.0 
+pvclock_gtod_notify
+__blk_mq_delay_run_hw_queue 
+x86_pmu_hw_config 
+x86_pmu_filter_match
+pipe_write 
+select_idle_cpu
+wake_q_add 
+x86_setup_perfctr
+cpumask_next_wrap
+allocate_slab 
+new_slab 
+__x2apic_send_IPI_dest 
+ext4_put_io_end_defer
+bvec_alloc 
+do_set_pte 
+sbitmap_get 
+llist_add_batch
+fscrypt_set_bio_crypt_ctx_bh
+blk_mq_sched_dispatch_requests
+dd_dispatch_request
+_scsih_set_satl_pending
+dentry_kill
+bvec_free 
+dd_finish_request
+__kthread_should_park 
+_x2apic_send_IPI_dest 
+dd_request_merge
+dd_bio_merge 
+asm_sysvec_call_function_single 
+x2apic_send_IPI 
+__memcg_kmem_charge_page 
+wbc_detach_inode
+__x64_sys_fadvise64 
+blk_mq_do_dispatch_sched
+__sbitmap_queue_get
+watchdog_timer_fn
+blk_mq_sched_try_merge 
+ksys_fadvise64_64 
+native_send_call_func_single_ipi 
+deadline_next_request
+submit_bio 
+walk_pmd_range.isra.0 
+put_files_struct 
+jbd2_journal_add_journal_head 
+jbd2_journal_cancel_revoke
+perf_group_attach
+_base_set_and_get_msix_index 
+signalfd_cleanup 
+bio_clone_blkg_association 
+put_cpu_partial 
+bio_associate_blkg 
+scsih_qcmd 
+elv_rb_find 
+__x64_sys_sync_file_range
+unlock_buffer 
+__blk_mq_tag_busy
+sb_mark_inode_writeback
+perf_event_alloc 
+blk_mq_start_request 
+ext4_ind_truncate_ensure_credits 
+sbitmap_queue_clear 
+__sbq_wake_up
+sb_mark_inode_writeback 
+free_pid 
+perf_event_init_context 
+blk_update_request
+anon_vma_interval_tree_remove 
+change_p4d_range
+blk_mq_complete_request_remote
+blk_stat_add 
+blk_account_io_done
+change_protection_range 
+tsk_fork_get_node 
+blk_add_timer 
+change_protection
+blk_rq_merge_ok 
+dup_task_struct
+blk_req_needs_zone_write_lock
+kernel_clone
+inherit_task_group.isra.0
+scsi_dec_host_busy 
+__blk_mq_sched_bio_merge 
+elv_rqhash_del 
+dup_userfaultfd 
+jbd2_alloc
+bio_endio
+vm_area_dup
+dd_insert_requests
+free_pgtables
+elv_rb_add 
+native_set_pmd 
+__dma_map_sg_attrs 
+mod_lruvec_page_state.constprop.0
+rq_wait_inc_below 
+blk_throtl_charge_bio_split
+bio_integrity_prep
+bio_free
+bio_uninit 
+ext4_free_data 
+__change_pid 
+bio_put
+blk_try_enter_queue
+scsi_decide_disposition
+detach_pid
+elv_rqhash_del -
+scsi_device_unbusy
+loopback_xmit 
+__percpu_counter_compare 
+queue_work_on

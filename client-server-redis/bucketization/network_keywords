@@ -1,0 +1,381 @@
+tcp_
+ip_
+__x64_sys_recvfrom 
+recvfrom
+ae_
+tcp_send_mss
+tcp_rbtree_insert
+tcp_rate_skb_sent
+tcp_recvmsg_locked
+tcp_update_recv_tstamps
+tcp_sendmsg
+tcp_schedule_loss_probe.part.0
+tcp_small_queue_check.isra.0 
+tcp_rcv_space_adjust
+tcp_check_space
+tcp_tx_timestamp
+tcp_v4_send_check
+tcp_options_write 
+cubictcp_cwnd_event
+tcp_mtu_probe
+tcp_tso_segs 
+tcp_skb_entail
+nf_conntrack_tcp_packet 
+tcp_established_options
+nf_conntrack_tcp_packet
+tcp_recvmsg                    # Receive TCP message
+tcp_v4_rcv                     # ^
+tcp_sendmsg_locked             # Send TCP message
+tcp_ack                        # Deal with incoming acks
+tcp_rcv_established            # TCP receive function for ESTABLISHED state
+tcp_release_cb                            
+tcp_mstamp_refresh                        
+__tcp_push_pending_frames                 
+tcp_rearm_rto                            
+tcp_push                                 
+tcp_recv_timestamp                       
+tcp_chrono_stop                          
+tcp_schedule_loss_probe                  
+tcp_wfree                                
+tcp_small_queue_check                    
+tcp_stream_memory_free                   
+tcp_chrono_start                         
+__tcp_select_window                      
+tcp_handle_read                          
+tcp_flush                                
+tcp_send                                 
+tcp_poll                                 
+tcp_read                                 
+tcp_rate_check_app_limited               
+ngx_tcp_nodelay                          
+tcp_update_skb_after_send                
+__tcp_transmit_skb             # Transmits TCP packets queued by tcp_do_sendmsg()
+tcp_in_window                  # TCP handling
+tcp_clean_rtx_queue            # Remove acknowledged frames from retransmission queue
+tcp_write_xmit                 # Start sending data packets in write queue
+tcp_event_new_data_sent        # Account for new data sent to the network
+tcp_cleanup_rbuf               # Clean up the receive buffer and send ACK if needed
+tcp_current_mss                # Compute the currect effective MSS taking into account other options
+tcp_mstamp_refresh                        
+__tcp_push_pending_frames                 
+tcp_rearm_rto                            
+grpc_core::(anonymous namespace)::RetryFilter::CallData::Destroy # gRPC's code to destroy a Call Data object before C++'s destruction
+set_pollset_or_pollset_set               # gRPC's code to set a pollset (a completition queue), it is meant to be ignored by the code, don't know why it is taking so many cycles
+grpc_combiner_continue_exec_ctx          # gRPC's code to continue in an Execution context (a bag of data that collects info along a callstack)
+grpc_core::ExecCtx::Flush                # gRPC C++ code to flush any work queued onto a gRPC execution context
+grpc_call_next_op                        # gRPC's code to call the next operation in a channel stack
+grpc::Channel::CreateCallInternal        # gRPC's code to make a call
+grpc_channel_create_registered_call      # gRPC's code to create a call given a handle returned from grpc_channel_register_call
+grpc_core::ClientAuthFilter::MakeCallPromise # gRPC's code
+grpc_core::ClientChannel::CallData::ResumePendingBatchInCallCombiner # gRPC code to choose a batch of data to send via a CallData(instance that represents a complete processing cycle of a client request)
+grpc_core::ClientChannel::LoadBalancedCall::ResumePendingBatchInCallCombiner # gRPC's code
+grpc_slice_buffer_reset_and_unref_internal # gRPC's code
+grpc_core::FilterStackCall::StartBatch   # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::CallAttempt::BatchData::OnComplete # gRPC's code
+grpc_core::arena_promise_detail::CallableImpl<grpc_core::MetadataHandle<grpc_metadata_batch>, grpc_core::promise_detail::CallPushPull<grpc_core::promise_detail::BasicSeq<grpc_core::promise_detail::SeqTraits, grpc_core::ArenaPromise<grpc_core::MetadataHandle<grpc_metadata_batch> >, grpc_core::HttpClientFilter::MakeCallPromise(grpc_core::CallArgs, std::function<grpc_core::ArenaPromise<grpc_core::MetadataHandle<grpc_metadata_batch> > (grpc_core::CallArgs)>)::{lambda(grpc_core::MetadataHandle<grpc_metadata_batch>)#1}>, grpc_core::HttpClientFilter::MakeCallPromise(grpc_core::CallArgs, std::function<grpc_core::ArenaPromise<grpc_core::MetadataHandle<grpc_metadata_batch> > (grpc_core::CallArgs)>)::{lambda()#2}, grpc_core::promise_detail::BasicSeq<grpc_core::promise_detail::SeqTraits, grpc_core::Latch<grpc_metadata_batch*>::WaitPromise, grpc_core::HttpClientFilter::MakeCallPromise(grpc_core::CallArgs, std::function<grpc_core::ArenaPromise<grpc_core::MetadataHandle<grpc_metadata_batch> > (grpc_core::CallArgs)>)::{lamb # gRPC's code
+grpc_core::ExecCtx::Run                  # gRPC's code to run an execution context
+end_worker                               # gRPC's code called by a worker that just came out of epoll_wait()
+grpc_call_unref                          # gRPC's code to unref a call
+grpc_core::ClientChannel::LoadBalancedCall::Orphan # gRPC's code if the trailing metadata operation did not start, then assume the call to be completed
+grpc_core::FilterStackCall::DestroyCall  # gRPC's code to destroy a call
+grpc::ClientContext::ClientContext       # gRPC's code to initialize ClientContext class
+grpc_core::(anonymous namespace)::RetryFilter::CallData::CallAttempt::MaybeSwitchToFastPath # gRPC's code to switch to fast path for next batches
+connected_channel_destroy_call_elem      # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::CallAttempt::BatchData::RecvTrailingMetadataReady # gRPC's code
+grpc_core::ClientChannel::CallData::ApplyServiceConfigToCallLocked # gRPC's code
+grpc_chttp2_maybe_complete_recv_message  # gRPC's code
+grpc_chttp2_mark_stream_closed           # gRPC code
+grpc_core::promise_filter_detail::ClientCallData::PollContext::Run # gRPC code
+grpc_core::FilterStackCall::ReleaseCall  # gRPC code
+grpc_core::CallCombiner::Start           # gRPC code
+grpc_core::MultiProducerSingleConsumerQueue::PopAndCheckEnd # gRPC's code
+grpc_core::Combiner::Run                 # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::RetryCommit # gRPC's code
+grpc_core::Arena::Destroy                # gRPC's code
+grpc_call_stack_init                     # gRPC's code
+destroy_stream_locked                    # gRPC's code
+init_header_frame_parser                 # gRPC's code to initialize parser for header
+grpc_core::ClientChannelServiceConfigCallData::Destroy # gRPC's code
+grpc_chttp2_stream_map_find              # gRPC's code
+grpc_chttp2_stream_unref                 # gRPC's code
+grpc_chttp2_mark_stream_writable         # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::CreateLoadBalancedCall # gRPC code for client to create a load balanced call
+grpc_chttp2_maybe_complete_recv_initial_metadata # gRPC's code
+grpc_core::HPackParser::ParseInputInner  # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::Init # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::CallAttempt::BatchData::RecvInitialMetadataReady # gRPC's code
+grpc_core::channelz::CallCountingHelper::RecordCallSucceeded # gRPC's code
+grpc_pollset_init                        # gRPC's code
+grpc_core::Executor::RunClosures         # gRPC's code
+grpc_core::channelz::SocketNode::RecordStreamStartedFromLocal # gRPC's code
+grpc_core::FilterStackCall::SetFinalStatus # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::MaybeClearPendingBatch # gRPC's code
+grpc_core::(anonymous namespace)::RetryFilter::CallData::CallAttempt::BatchData::MaybeAddClosureForRecvInitialMetadataCallback # gRPC's code
+grpc_slice_buffer_init                   # gRPC's code
+grpc_core::CompressionAlgorithmSet::CompressionAlgorithmSet # gRPC's code
+grpc_chttp2_stream::grpc_chttp2_stream   # gRPC's code
+rpc::readRequestMetadata  
+mongo::rpc
+apache::thrift
+ngx_resolver_create_name_query
+ngx_resolver_alloc
+ngx_resolver_lookup_srv
+ngx_resolve_name_locked
+br_nf_pre_routing 
+setup_pre_routing
+br_nf_post_routing 
+signalModifiedKey
+nf_conntrack_in
+ip_local_out
+ipv4_mtu                                 # IPV4 Maximum Transmission Unit
+ipv4_dst_check                           # 
+ipv4_conntrack_defrag                    # 
+ipv4_conntrack_local                     # 
+nf_nat_ipv4_local_fn                     # 
+ipv4_confirm                             # 
+nf_nat_ipv4_fn                           # 
+br_validate_ipv4                         #  
+__ip_local_out                           # 
+nf_nat_ipv4_out                          # 
+ip_vs_out                                # 
+ip_finish_output                         # 
+br_nf_forward_ip                         # 
+ip_send_check                            # 
+ip_vs_reply4                             # 
+ip_vs_in                                 # 
+tlsHasPendingData 
+sock_write_iter 
+__dev_queue_xmit
+__dev_forward_skb
+tcp_init_cwnd
+tcp_cwnd_restart
+tlsProcessPendingData
+connSocketEventHandler 
+eth_header 
+xmit_one.constprop.0
+netif_rx_internal
+__dev_forward_skb2
+nbp_switchdev_frame_mark_tx_fwd_offload
+nf_ct_get_tuple_ports.constprop.0 
+readQueryFromClient
+vxlan_xmit_one 
+br_nf_pre_routing_finish
+br_handle_frame_finish
+br_forward_finish
+br_nf_forward_ip.part.0
+vxlan_build_skb.isra.0
+br_fdb_find_rcu
+skb_tunnel_check_pmtu 
+encap_bypass_if_local
+br_nf_dev_queue_xmit
+br_switchdev_frame_set_offload_fwd_mark
+neigh_resolve_output
+ip_skb_dst_mtu
+skb_ext_add 
+neigh_hh_output
+__nf_conntrack_eventmask_report
+skb_csum_hwoffload_help
+validate_xmit_vlan 
+nbp_switchdev_allowed_egress
+qdisc_pkt_len_init
+skb_pull
+nf_conntrack_handle_packet
+nf_ct_acct_add
+nf_conntrack_udp_packet 
+__nf_conntrack_find_get
+__netif_receive_skb
+__netif_
+__netif_receive_skb_core.constprop.0
+sk_forced_mem_schedule
+skb_do_copy_data_nocache
+__build_skb_around
+apparmor_ipv4_postroute
+fdb_head_index
+__vxlan_find_mac
+vxlan_get_route
+netdev_pick_tx 
+validate_xmit_skb_list
+__napi_poll
+__kfree_skb
+skb_free_head
+skb_pull_rcsum
+ip_sabotage_in
+__dev_xmit_skb
+__qdisc_run
+dequeue_skb
+__qdisc_run
+__ip_select_ident
+i40e_tx_map.constprop.0
+skb_clone
+i40e_tx_prepare_vlan_flags
+i40e_tx_prepare_vlan_flags.constprop.0 
+i40e_tx_enable_csum.constprop.0
+i40e_atr
+140e_
+kfree_skbmem
+moduleFireServerEvent
+ntp_tick_length 
+ntp_get_next_leap
+nf_conntrack                   # Network connection tracking
+nf_hook_slow                   # interface b/w networking code and netfilter
+ip_finish_output2              # Passes the packet to the L2 layer
+ip_rcv_core                              # Linux IP Receive routine
+ip_output                                # 
+__ip_queue_xmit                          # Queue IP CMIT
+__ip_finish_output                       # 
+ip_vs_local_reply4                       # 
+ip_idents_reserve                        # 
+iptable_mangle_hook                      # 
+__get_xps_queue_idx                      # 
+dst_cache_per_cpu_get                    # 
+get_l4proto                              # 
+__br_forward                             # 
+ip_vs_in                                 # 
+sk_stream_alloc_skb                      # 
+nbp_switchdev_frame_mark                 # 
+br_nf_forward_finish                     # 
+nf_ct_get_tuple                          # 
+__raise_softirq_irqoff                   # 
+skb_release_head_state                   # 
+validate_xmit_xfrm                       # 
+recvmsg                        
+epoll                          # This is a Linux system call for I/O event notification, often used in network programming for multiplexing I/O.
+sock_poll                      # This is a function used for socket polling in the kernel, and is network-related.
+ipt_do_table                   # This function is part of the iptables firewall in the Linux kernel, and is used to apply firewall rules to network packets.
+veth_xmit                      # Linux networking
+nf_ct_seq_offset               # Netfilter NAT sequence number mangling
+dev_queue_xmit                 # Transmit a buffer
+inet_lookup_established        # Find connection sock struct for a packet
+__netif_receive_skb_core       # Delivers data to protocol layers
+aa_sk_perm                     # Handle request on socket (?)
+br_handle_frame                # Receiving handler for network messages
+snmp_fold_field                # This function is used to get SNMP (Simple Network Management Protocol) statistics for each CPU. SNMP is a protocol used for managing devices on IP networks.
+validate_xmit_skb                        # Linux networking validation
+skb_release_data # This function is used to release the data from a socket buffer (skb) before the memory is freed. Skbs are used in the Linux kernel to hold network packets.
+eth_type_trans                           # determine the packet's protocol ID
+__cgroup_bpf_run_filter_skb              # run a program for packet filtering
+sendmsg                                  # Send a message to a socker
+fdb_find_rcu                             # 
+svc_udp_recvfrom                         # 
+i40e_xmit_frame_ring                     # 
+nf_nat_inet_fn                           # 
+dev_hard_start_xmit                      # 
+netif_skb_features                       # 
+net_rx_action                            # 
+process_backlog                          # 
+nf_ct_deliver_cached_events              # 
+netdev_core_pick_tx                      # 
+iptunnel_xmit                            # 
+br_forward                               # 
+skb_segment                              # 
+enqueue_to_backlog                       # 
+marvell_enable                           # 
+vxlan_find_mac                           # 
+ip_vs_local_request4                     # 
+__skb_datagram_iter                      # 
+ip_vs_forward_icmp                       # 
+is_skb_forwardable                       # 
+ip_queue_xmit                            # 
+vxlan_xmit                               # 
+__nf_ct_refresh_acct                     # 
+__skb_ext_del                            # 
+br_dev_queue_push_xmit                   # 
+udp_set_csum                             # 
+nf_confirm                               # 
+nf_bridge_update_protocol                # 
+netif_rx                                 # 
+inet_send_prepare                        # 
+brnf_get_logical_dev                     # 
+skb_scrub_packet                         # 
+__skb_ext_put                            # 
+fq_codel_dequeue                         # 
+inet_sendmsg                             # 
+sch_direct_xmit                          # 
+iptunnel_handle_offloads                 # 
+sockfd_lookup_light                      # 
+skb_udp_tunnel_segment                   # 
+lock_sock_nested                         # 
+nf_nat_packet                            # 
+i40e_features_check                      # 
+br_allowed_egress                        # 
+br_allowed_ingress                       # 
+sock_sendmsg                             # 
+__alloc_skb                              # 
+i40e_get_strings                         # 
+i40e_lan_select_queue                    # 
+__netif_receive_skb_one_core             # 
+inet_get_local_port_range                # 
+dst_cache_get_ip4                        # 
+i40e_finalize_xdp_rx                     # 
+i40e_set_rxnfc                           # 
+i40e_napi_poll                           # 
+br_nf_hook_thresh                        # 
+i40e_clean_tx_irq                        # 
+br_handle_vlan                           # 
+sk_page_frag_refill                      # 
+security_socket_sendmsg                  # 
+__sk_dst_check                           # 
+inet_gso_segment                         # 
+sock_rfree                               # 
+skb_network_protocol                     # 
+i40e_clean_rx_irq                        # 
+udp_tunnel_xmit_skb                      # 
+ep_poll                                  # 
+_transmit_pre                            # 
+dst_release                              # 
+inet_csk_accept                          # 
+netlink_has_listeners                    # 
+skb_clone_tx_timestamp                   # 
+skb_copy_datagram_iter                   # 
+skb_entail                               # 
+__skb_clone                              # 
+ngx_resolve_start                        # From Minya's Bucketizations
+ngx_get_connection                       # Fro
+ngx_unix_recv                            # From Minya's Bucketizations
+ngx_unix_send                            # From Minya's Bucketizations
+ngx_reusable_connection                  # From Minya's Bucketizations
+ngx_linux_sendfile_chain                 # From Minya's Bucketizations
+ngx_resolver                             # From Minya's Bucketizations
+ngx_resolve_name                         # 
+__libc_send                              # From Minya's Bucketizations
+__libc_recv                              # From Minya's Bucketizations
+sock_read_iter                           # 
+ksys_read                                # 
+connSocketRead                           # Redis application logic that is a wrapper around JEMalloc's read
+__sys_recvfrom
+__send 
+cubictcp_cong_avoid
+sock_
+apparmor_socket_sock_rcv_skb 
+security_sock_rcv_skb
+cliWriteConn
+sendto_
+aeCreateFileEvent
+__x64_sys_sendto
+__sys_sendto 
+__xfrm_policy_check2.constprop.0
+__xfrm_
+redisReaderGetReply
+redisGetReply
+redisBufferRead
+inet_ehashfn
+raw_local_deliver 
+redisNetWrite
+redisBufferWrite
+redisNetRead 
+ipod_hook_fn
+ixgbe_poll 
+ixgbe_update_itr
+napi_complete_done 
+netif_receive_skb_list_internal
+napi_gro_receive
+dev_gro_receive
+inet_gro_receive
+tcp4_gro_receive 
+tcp4_
+ixgbe_process_skb_fields 
+ixgbe_
+netif_
+skb_defer_rx_timestamp 
+gro_list_prepare
+napi_consume_skb 
