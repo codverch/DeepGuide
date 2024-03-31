@@ -142,3 +142,6 @@ cpu_stop_queue_work
 locks_remove_posix
 __init_waitqueue_head 
 default_wake_function
+dma_sync_single_for_cpu
+mutex_trylock
+tty_ldisc_ref_wait 

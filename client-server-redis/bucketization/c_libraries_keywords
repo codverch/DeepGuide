@@ -316,3 +316,5 @@ __GI___libc_cleanup_pop_restore
 _IO_file_sync@@GLIBC_2.2.5
 _IO_
 __printf_chk
+__libc_alloca_cutoff 
+__GI___libc_cleanup_push_defer

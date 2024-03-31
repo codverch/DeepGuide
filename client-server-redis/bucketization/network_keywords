@@ -351,6 +351,10 @@ security_sock_rcv_skb
 cliWriteConn
 sendto_
 aeCreateFileEvent
+__build_skb 
+build_skb
+arp_
+consume_skb 
 __x64_sys_sendto
 __sys_sendto 
 __xfrm_policy_check2.constprop.0
@@ -379,3 +383,14 @@ netif_
 skb_defer_rx_timestamp 
 gro_list_prepare
 napi_consume_skb 
+fib_validate_source
+__fib_validate_source 
+__mkroute_input
+fib_table_lookup
+fib_
+fib_lookup_good_nhc
+l3mdev_master_ifindex_rcu 
+neigh_update
+__neigh_update
+udp_
+udp4_gro_receive 

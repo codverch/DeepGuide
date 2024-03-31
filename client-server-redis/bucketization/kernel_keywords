@@ -1410,3 +1410,10 @@ scsi_device_unbusy
 loopback_xmit 
 __percpu_counter_compare 
 queue_work_on
+dql_completed 
+make_kuid
+tty_buffer_space_avail
+process_output_block
+__tty_buffer_request_room
+process_echoes
+tty_hung_up_p
