@@ -394,3 +394,269 @@ neigh_update
 __neigh_update
 udp_
 udp4_gro_receive 
+addListQuicklistRangeReply
+setProtocolError				 # Redis - networking.c
+pauseClientsByClient				 # Redis - networking.c
+postponeClientRead				 # Redis - networking.c
+getClientSockname				 # Redis - networking.c
+dupClientReplyValue				 # Redis - networking.c
+freeClientReplyValue				 # Redis - networking.c
+linkClient				 # Redis - networking.c
+createClient				 # Redis - networking.c
+installClientWriteHandler				 # Redis - networking.c
+putClientInPendingWriteQueue				 # Redis - networking.c
+prepareClientToWrite				 # Redis - networking.c
+_addReplyToBuffer				 # Redis - networking.c
+_addReplyProtoToList				 # Redis - networking.c
+cmdHasPushAsReply				 # Redis - networking.c
+_addReplyToBufferOrList				 # Redis - networking.c
+addReply				 # Redis - networking.c
+addReplySds				 # Redis - networking.c
+addReplyProto				 # Redis - networking.c
+addReplyErrorLength				 # Redis - networking.c
+afterErrorReply				 # Redis - networking.c
+addReplyErrorObject				 # Redis - networking.c
+addReplyOrErrorObject				 # Redis - networking.c
+addReplyError				 # Redis - networking.c
+addReplyErrorSdsEx				 # Redis - networking.c
+addReplyErrorSds				 # Redis - networking.c
+addReplyErrorSdsSafe				 # Redis - networking.c
+addReplyErrorFormatInternal				 # Redis - networking.c
+addReplyErrorFormatEx				 # Redis - networking.c
+addReplyErrorFormat				 # Redis - networking.c
+addReplyErrorArity				 # Redis - networking.c
+addReplyErrorExpireTime				 # Redis - networking.c
+addReplyStatusLength				 # Redis - networking.c
+addReplyStatus				 # Redis - networking.c
+addReplyStatusFormat				 # Redis - networking.c
+trimReplyUnusedTailSpace				 # Redis - networking.c
+addReplyDeferredLen				 # Redis - networking.c
+setDeferredReply				 # Redis - networking.c
+setDeferredAggregateLen				 # Redis - networking.c
+setDeferredArrayLen				 # Redis - networking.c
+setDeferredMapLen				 # Redis - networking.c
+setDeferredSetLen				 # Redis - networking.c
+setDeferredAttributeLen				 # Redis - networking.c
+setDeferredPushLen				 # Redis - networking.c
+addReplyDouble				 # Redis - networking.c
+addReplyBigNum				 # Redis - networking.c
+addReplyHumanLongDouble				 # Redis - networking.c
+addReplyLongLongWithPrefix				 # Redis - networking.c
+addReplyLongLong				 # Redis - networking.c
+addReplyAggregateLen				 # Redis - networking.c
+addReplyArrayLen				 # Redis - networking.c
+addReplyMapLen				 # Redis - networking.c
+addReplySetLen				 # Redis - networking.c
+addReplyAttributeLen				 # Redis - networking.c
+addReplyPushLen				 # Redis - networking.c
+addReplyNull				 # Redis - networking.c
+addReplyBool				 # Redis - networking.c
+addReplyNullArray				 # Redis - networking.c
+addReplyBulkLen				 # Redis - networking.c
+addReplyBulk				 # Redis - networking.c
+addReplyBulkCBuffer				 # Redis - networking.c
+addReplyBulkSds				 # Redis - networking.c
+setDeferredReplyBulkSds				 # Redis - networking.c
+addReplyBulkCString				 # Redis - networking.c
+addReplyBulkLongLong				 # Redis - networking.c
+addReplyVerbatim				 # Redis - networking.c
+addExtendedReplyHelp				 # Redis - networking.c
+addReplyHelp				 # Redis - networking.c
+addReplySubcommandSyntaxError				 # Redis - networking.c
+AddReplyFromClient				 # Redis - networking.c
+deferredAfterErrorReply				 # Redis - networking.c
+copyReplicaOutputBuffer				 # Redis - networking.c
+clientHasPendingReplies				 # Redis - networking.c
+clientAcceptHandler				 # Redis - networking.c
+acceptCommonHandler				 # Redis - networking.c
+freeClientOriginalArgv				 # Redis - networking.c
+freeClientArgv				 # Redis - networking.c
+disconnectSlaves				 # Redis - networking.c
+anyOtherSlaveWaitRdb				 # Redis - networking.c
+unlinkClient				 # Redis - networking.c
+clearClientConnectionState				 # Redis - networking.c
+freeClient				 # Redis - networking.c
+freeClientAsync				 # Redis - networking.c
+logInvalidUseAndFreeClientAsync				 # Redis - networking.c
+beforeNextClient				 # Redis - networking.c
+freeClientsInAsyncFreeQueue				 # Redis - networking.c
+lookupClientByID				 # Redis - networking.c
+_writevToClient				 # Redis - networking.c
+_writeToClient				 # Redis - networking.c
+writeToClient				 # Redis - networking.c
+sendReplyToClient				 # Redis - networking.c
+handleClientsWithPendingWrites				 # Redis - networking.c
+resetClient				 # Redis - networking.c
+protectClient				 # Redis - networking.c
+unprotectClient				 # Redis - networking.c
+processInlineBuffer				 # Redis - networking.c
+PROTO_DUMP_LEN				 # Redis - networking.c
+setProtocolError				 # Redis - networking.c
+processMultibulkBuffer				 # Redis - networking.c
+commandProcessed				 # Redis - networking.c
+processCommandAndResetClient				 # Redis - networking.c
+processPendingCommandAndInputBuffer				 # Redis - networking.c
+processInputBuffer				 # Redis - networking.c
+readQueryFromClient				 # Redis - networking.c
+genClientAddrString				 # Redis - networking.c
+getClientPeerId				 # Redis - networking.c
+getClientSockname				 # Redis - networking.c
+catClientInfoString				 # Redis - networking.c
+getAllClientsInfoString				 # Redis - networking.c
+validateClientAttr				 # Redis - networking.c
+validateClientName				 # Redis - networking.c
+clientSetName				 # Redis - networking.c
+clientSetNameOrReply				 # Redis - networking.c
+clientSetinfoCommand				 # Redis - networking.c
+resetCommand				 # Redis - networking.c
+quitCommand				 # Redis - networking.c
+clientCommand				 # Redis - networking.c
+helloCommand				 # Redis - networking.c
+securityWarningCommand				 # Redis - networking.c
+retainOriginalCommandVector				 # Redis - networking.c
+redactClientCommandArgument				 # Redis - networking.c
+rewriteClientCommandVector				 # Redis - networking.c
+replaceClientCommandVector				 # Redis - networking.c
+rewriteClientCommandArgument				 # Redis - networking.c
+getClientOutputBufferMemoryUsage				 # Redis - networking.c
+getClientMemoryUsage				 # Redis - networking.c
+getClientType				 # Redis - networking.c
+getClientTypeByName				 # Redis - networking.c
+getClientTypeName				 # Redis - networking.c
+checkClientOutputBufferLimits				 # Redis - networking.c
+closeClientOnOutputBufferLimitReached				 # Redis - networking.c
+flushSlavesOutputBuffers				 # Redis - networking.c
+updatePausedActions				 # Redis - networking.c
+unblockPostponedClients				 # Redis - networking.c
+pauseClientsByClient				 # Redis - networking.c
+pauseActions				 # Redis - networking.c
+unpauseActions				 # Redis - networking.c
+isPausedActions				 # Redis - networking.c
+isPausedActionsWithUpdate				 # Redis - networking.c
+processEventsWhileBlocked				 # Redis - networking.c
+getIOPendingCount				 # Redis - networking.c
+setIOPendingCount				 # Redis - networking.c
+IOThreadMain				 # Redis - networking.c
+initThreadedIO				 # Redis - networking.c
+killIOThreads				 # Redis - networking.c
+startThreadedIO				 # Redis - networking.c
+stopThreadedIO				 # Redis - networking.c
+stopThreadedIOIfNeeded				 # Redis - networking.c
+handleClientsWithPendingWritesUsingThreads				 # Redis - networking.c
+postponeClientRead				 # Redis - networking.c
+handleClientsWithPendingReadsUsingThreads				 # Redis - networking.c
+getClientEvictionLimit				 # Redis - networking.c
+evictClients
+try_read_command_udp      # Memcached - memcached.c
+handle_binary_protocol_error                             # Memcached Communication Proto Bin - proto_bin.c
+write_bin_response                             # Memcached Communication Proto Bin - proto_bin.c
+try_read_command_asciiauth                    # Memcached Communication Proto ASCII - proto_text.c
+try_read_command_ascii                      # Memcached Communication Proto ASCII - proto_text.c
+tcp_read                         # Memcached Communication - memcached.c
+tcp_sendmsg                         # Memcached Communication - memcached.c
+tcp_write                         # Memcached Communication - memcached.c
+rbuf_release                         # Memcached Communication - memcached.c
+rbuf_alloc                         # Memcached Communication - memcached.c
+rbuf_switch_to_malloc                         # Memcached Communication - memcached.c
+conn_init                         # Memcached Communication - memcached.c
+get_conn_text                         # Memcached Communication - memcached.c
+conn_to_str                         # Memcached Communication - memcached.c
+try_read_command_negotiate                         # Memcached Communication - memcached.c
+try_read_command_udp                         # Memcached Communication - memcached.c
+try_read_result                         # Memcached Communication - memcached.c
+try_read_udp                         # Memcached Communication - memcached.c
+try_read_result                         # Memcached Communication - memcached.c
+try_read_network                         # Memcached Communication - memcached.c
+_transmit_pre                         # Memcached Communication - memcached.c
+_transmit_post                         # Memcached Communication - memcached.c
+transmit_result                         # Memcached Communication - memcached.c
+transmit                         # Memcached Communication - memcached.c
+transmit_result                         # Memcached Communication - memcached.c
+transmit_udp                         # Memcached Communication - memcached.c
+read_into_chunked_item                         # Memcached Communication - memcached.c
+new_socket                         # Memcached Communication - memcached.c
+maximize_sndbuf                         # Memcached Communication - memcached.c
+server_socket                         # Memcached Communication - memcached.c
+network_transport                         # Memcached Communication - memcached.c
+protocol                         # Memcached Communication - memcached.c
+server_sockets                         # Memcached Communication - memcached.c
+network_transport                         # Memcached Communication - memcached.c
+protocol                         # Memcached Communication - memcached.c
+new_socket_unix                         # Memcached Communication - memcached.c
+server_socket_unix                         # Memcached Communication - memcached.c
+rpc::                                   # MongoDB RPC communication, namespace of all communication
+transport::                       # MongoDB communication, namespace of all communication
+asio::                          # MongoDB TransportLayer implementation based on ASIO networking primitives, namespace of all these primitivates
+ngx_udp_shared_recv             # NGinx communication
+recvmsg                         # NGinx communication
+tcp_recvmsg                    # Receive TCP message
+tcp_v4_rcv                     # ^
+tcp_                           # TCP operations
+tcp_sendmsg_locked             # Send TCP message
+tcp_ack                        # Deal with incoming acks
+tcp_rcv_established            # TCP receive function for ESTABLISHED state
+recvmsg                        # ^
+__tcp_transmit_skb             # Transmits TCP packets queued by tcp_do_sendmsg()
+nf_ct_seq_offset               # Netfilter NAT sequence number mangling
+tcp_in_window                  # TCP handling
+tcp_clean_rtx_queue            # Remove acknowledged frames from retransmission queue
+tcp_write_xmit                 # Start sending data packets in write queue
+tcp_event_new_data_sent                  # Account for new data sent to the network
+br_nf_pre_routing                        # Direct IPv6 traffic to the corresponding ipv6 function
+tcp_cleanup_rbuf                         # Clean up the receive buffer and send ACK if needed
+ip_output                                # 
+sendmsg                                  # Send a message to a socker
+tcp_current_mss                          # Compute the currect effective MSS taking into account other options
+ipv4_dst_check                           # 
+svc_udp_recvfrom                         # 
+ipv4_conntrack_defrag                    # 
+__ip_finish_output                       # 
+read_tsc                                 # 
+ip_vs_local_reply4                       # 
+ipv4_conntrack_local                     # 
+nf_nat_ipv4_local_fn                     # 
+tcp_release_cb                           # 
+ipv4_confirm                             # 
+tcp_mstamp_refresh                       # 
+__tcp_push_pending_frames                # 
+tcp_rearm_rto                            # 
+nf_nat_ipv4_fn                           # 
+tcp_push                                 # 
+tcp_recv_timestamp                       # 
+br_validate_ipv4                         # 
+tcp_chrono_stop                          # 
+tcp_rcv_space_adjust                     # 
+udp_set_csum                             # 
+ip_finish_output                         # 
+nf_nat_ipv4_out                          # 
+tcp_schedule_loss_probe                  # 
+ip_vs_out                                # 
+inet_sendmsg                             # 
+sock_sendmsg                             # 
+tcp_wfree                                # 
+tcp_small_queue_check                    # 
+tcp_stream_memory_free                   # 
+tcp_chrono_start                         # 
+sock_rfree                               # 
+skb_network_protocol                     # 
+__tcp_select_window                      # 
+tcp_handle_read                          # 
+tcp_flush                                # 
+tcp_send                                 # 
+udp_tunnel_xmit_skb                      # 
+tcp_poll                                 # 
+tcp_read                                 # 
+tcp_rate_check_app_limited               # 
+__libc_send                              # From Minya's Bucketizations
+__libc_recv                              # From Minya's Bucketizations
+ngx_unix_recv                            # From Minya's Bucketizations
+ngx_unix_send                            # From Minya's Bucketizations
+ngx_tcp_nodelay                          # From Minya's Bucketizations
+ngx_resolver                             # From Minya's Bucketizations
+ngx_resolve_name                         # From Minya's Bucketizations
+ngx_resolve_start                        # From Minya's Bucketizations
+ngx_get_connection                       # From Minya's Bucketizations
+tcp_update_skb_after_send                # 
+sock_read_iter                           # 
+ip_rcv                                   #
+skb                                      # All code related to SKBs(Socket Buffers), v important for Linux Networking

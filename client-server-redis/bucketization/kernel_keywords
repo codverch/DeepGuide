@@ -334,6 +334,7 @@ native_irq_return_iret
 exit_to_user_mode_prepare
 x86_pmu_enable
 __intel_pmu_enable_all.constprop.0
+intel_pmu_enable_all
 set_pte_vaddr
 restore_fpregs_from_fpstate
 exc_nmi

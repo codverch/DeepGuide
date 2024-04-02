@@ -40,3 +40,109 @@ hi_sdscatlen
 hi_sds 
 hi_sdsnewlen
 redisReaderFeed
+createStringObject              # Redis - create a string object for Redis Object to send a response
+createEmbeddedStringObject      # Redis - create a string object for Redis Object to send a response
+StringObject                    # Redis - handle string objects for Redis Object
+ll2string                       # Redis - for integer encoded strings we just convert it into a string
+sdsHdrSize					    # Redis - SDS string handling - redis/src/sds.c
+sdsReqType					    # Redis - SDS string handling
+sdsTypeMaxSize				    # Redis - SDS string handling
+_sdsnewlen					    # Redis - SDS string handling
+sdsnewlen					    # Redis - SDS string handling
+sdstrynewlen				    # Redis - SDS string handling
+sdsempty					    # Redis - SDS string handling
+sdsnew					        # Redis - SDS string handling
+sdsdup					        # Redis - SDS string handling
+sdsfree					        # Redis - SDS string handling
+sdsupdatelen				    # Redis - SDS string handling
+sdsclear					    # Redis - SDS string handling
+_sdsMakeRoomFor				    # Redis - SDS string handling
+sdsMakeRoomFor				    # Redis - SDS string handling
+sdsMakeRoomForNonGreedy         # Redis - SDS string handling
+sdsRemoveFreeSpace			    # Redis - SDS string handling
+sdsResize					    # Redis - SDS string handling
+sdsAllocSize				    # Redis - SDS string handling
+sdsAllocPtr					    # Redis - SDS string handling
+sdsIncrLen					    # Redis - SDS string handling
+sdsgrowzero					    # Redis - SDS string handling
+sdscatlen					    # Redis - SDS string handling
+sdscat					        # Redis - SDS string handling
+sdscatsds					    # Redis - SDS string handling
+sdscpylen					    # Redis - SDS string handling
+sdscpy					        # Redis - SDS string handling
+sdsfromlonglong				    # Redis - SDS string handling
+sdscatvprintf				    # Redis - SDS string handling
+sdscatprintf				    # Redis - SDS string handling
+sdscatfmt					    # Redis - SDS string handling
+sdstrim					        # Redis - SDS string handling
+sdssubstr					    # Redis - SDS string handling
+sdsrange					    # Redis - SDS string handling
+sdstolower					    # Redis - SDS string handling
+sdstoupper					    # Redis - SDS string handling
+sdscmp					        # Redis - SDS string handling
+sdssplitlen					    # Redis - SDS string handling
+sdsfreesplitres				    # Redis - SDS string handling
+sdscatrepr					    # Redis - SDS string handling
+sdsneedsrepr				    # Redis - SDS string handling
+is_hex_digit				    # Redis - SDS string handling
+hex_digit_to_int			    # Redis - SDS string handling
+sdssplitargs				    # Redis - SDS string handling
+sdsmapchars					    # Redis - SDS string handling
+sdsjoin					        # Redis - SDS string handling
+sdsjoinsds					    # Redis - SDS string handling
+sds_malloc					    # Redis - SDS string handling
+sds_realloc					    # Redis - SDS string handling
+sds_free					    # Redis - SDS string handling
+sdstemplate					    # Redis - SDS string handling
+sdsTestTemplateCallback         # Redis - SDS string handling
+sdsTest                         # Redis - SDS string handling
+complete_nread_binary                             # Memcached (De)serialization Proto Bin - proto_bin.c
+try_read_command_binary                             # Memcached (De)serialization Proto Bin - proto_bin.c
+binary_get_key                             # Memcached (De)serialization Proto Bin - proto_bin.c
+add_bin_header                             # Memcached (De)serialization Proto Bin - proto_bin.c
+write_bin_error                             # Memcached (De)serialization Proto Bin - proto_bin.c
+write_bin_miss_response                             # Memcached (De)serialization Proto Bin - proto_bin.c
+token_s                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+token_t                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+_finalize_mset                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+process_command_ascii                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+tokenize_command                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+resp_add_iov                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+_meta_flags                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+_meta_flag_preparse                                  # Memcached (De)serialization Proto ASCII - proto_text.c
+resp_reset                         # Memcached (De)Serialization - memcached.c
+resp_add_iov                         # Memcached (De)Serialization - memcached.c
+resp_add_chunked_iov                         # Memcached (De)Serialization - memcached.c
+resp_allocate                         # Memcached (De)Serialization - memcached.c
+resp_free                         # Memcached (De)Serialization - memcached.c
+resp_start                         # Memcached (De)Serialization - memcached.c
+resp_start_unlinked                         # Memcached (De)Serialization - memcached.c
+resp_finish                         # Memcached (De)Serialization - memcached.c
+resp_has_stack                         # Memcached (De)Serialization - memcached.c
+out_string                         # Memcached (De)Serialization - memcached.c
+out_errstring                         # Memcached (De)Serialization - memcached.c
+BSONObj                                # MongoDB BSON object handling
+BasicCommand                               # MongoDB handling of commands from network information
+TypedCommand                               # MongoDB handling of commands from network information
+ngx_encode_base64_internal                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_decode_base64_internal                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_atoi                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_atofp                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_atosz                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_atoof                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_atotm                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_hextoi                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_hex_dump                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_encode_base64                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_encode_base64url                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_encode_base64_internal                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_decode_base64                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_decode_base64url                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_decode_base64_internal                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_utf8_decode                                                  # NGinx string (De)Serialization - ngx_string.c
+ngx_utf8_length                                                 # NGinx string (De)Serialization - ngx_string.c
+ngx_http_parse                        # NGinx HTTP communication parsing
+parse                                 # NGinx HTTP communication parsing
+lp_
+getLongLongFromObject
+lp

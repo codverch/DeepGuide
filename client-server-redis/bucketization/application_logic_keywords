@@ -732,3 +732,4 @@ _base_process_reply_queue
 serverLogRaw 
 aeProcessEvents                           # Returns the number of events processed
 showThroughput
+lrangeCommand 
