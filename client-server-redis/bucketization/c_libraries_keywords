@@ -318,3 +318,13 @@ _IO_
 __printf_chk
 __libc_alloca_cutoff 
 __GI___libc_cleanup_push_defer
+__tz_convert
+__offtime
+__tzfile_compute 
+__tz_
+tzset_internal
+__strchr_evex
+__offtime
+__GI___libc_open
+__GI___
+__GI___futex_abstimed_wait_cancelable64

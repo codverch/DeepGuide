@@ -146,3 +146,4 @@ parse                                 # NGinx HTTP communication parsing
 lp_
 getLongLongFromObject
 lp
+tryObjectEncodingEx 

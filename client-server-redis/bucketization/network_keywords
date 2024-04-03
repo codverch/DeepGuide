@@ -660,3 +660,14 @@ tcp_update_skb_after_send                #
 sock_read_iter                           # 
 ip_rcv                                   #
 skb                                      # All code related to SKBs(Socket Buffers), v important for Linux Networking
+mlx5e_xmit 
+mlx5e_
+mlx5e_sq_xmit_wqe 
+mlx5e_txwqe_complete
+mlx5e_tx_check_stop
+mlx5e_txwqe_build_dsegs
+security_socket_accept
+apparmor_socket_accept
+stream_open 
+pingCommand
+anetTcpAccept

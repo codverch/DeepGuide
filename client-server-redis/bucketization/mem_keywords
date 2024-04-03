@@ -354,6 +354,8 @@ dma_unmap_page_attrs
 dma_sync_single_for_device
 dma_
 __sk_mem_raise_allocated
+__sk_mem_reclaim
+__sk_
 try_to_migrate_one
 set_page_dirty
 page_vma_mapped_walk
@@ -372,3 +374,8 @@ rmap_walk_
 rmap_walk_anon
 page_not_mapped
 page_vma_mapped_walk 
+decrRefCount
+mem_cgroup_charge_skmem
+mem_cgroup_
+__mod_memcg_state
+getGenericCommand

@@ -1418,3 +1418,15 @@ process_output_block
 __tty_buffer_request_room
 process_echoes
 tty_hung_up_p
+native_flush_tlb_local
+invalidate_user_asid
+sugov_update_single_freq 
+sugov_
+effective_cpu_util
+cpufreq_this_cpu_can_update
+cpufreq_
+get_proc_stat_ll
+get_next_freq
+alloc_file_pseudo
+alloc_file 
+__resolve_freq
