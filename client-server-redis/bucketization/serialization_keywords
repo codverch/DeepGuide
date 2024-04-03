@@ -147,3 +147,11 @@ lp_
 getLongLongFromObject
 lp
 tryObjectEncodingEx 
+createStreamIDString
+hashTypeSet                         # Some kind of encoding of an object, probably serialization
+hashTypeTryConversion               # Some kind of encoding of an object, probably serialization
+hashTypeLength                      # Probably serialization, check with Minya
+rdbWriteRaw
+rdbSaveLzfBlob
+streamDecodeID                  # Check with Minya
+streamEncodeID

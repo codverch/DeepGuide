@@ -15,3 +15,4 @@ deflateInit_
 mongo::BlockCompressor::compress(mongo::ConstDataRange)
 decrRefCount.part.0
 __quicklistCompress 
+lzf_compress 

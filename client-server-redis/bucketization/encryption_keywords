@@ -27,3 +27,7 @@ crng_make_state
 chacha_permute 
 chacha_
 crng_
+ACLHashPassword
+sha256_final 
+sha256_transform
+sha256_
