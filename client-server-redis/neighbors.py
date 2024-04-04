@@ -2,11 +2,16 @@ import os
 import matplotlib.pyplot as plt
 import re 
 
+if os.path.exists('processed_found_network_keywords.txt'):
+    os.remove('processed_found_network_keywords.txt')
+if os.path.exists('category_surrounded_by_network.png'):
+    os.remove('category_surrounded_by_network.png')
+
 def process_file():
         with open('branch_stack.txt') as file:
             lines = file.readlines()
 
-             # Extract: from_function_name - branch_stack_number - cpu_cycle
+        # Extract: from_function_name - branch_stack_number - cpu_cycle
         with open('processed_branch_stack.txt', 'w') as outfile:
             for idx, line in enumerate(lines, start=1): 
                 # Skip empty lines
@@ -108,12 +113,8 @@ def categorize_functions():
                             cpu_cycle = line.split(' - ')[2]
                             file.write(f"{function_name} - {branch_stack_number} - {cpu_cycle} - application_logic_keywords\n")
                    
-
- # Check if 'categorized_lines.txt' exists, if it doesn't proceed to the next step
- # Otherwise, skip the file processing
-if not os.path.exists('categorized_lines.txt'):
-    process_file()
-    categorize_functions()
+process_file()
+categorize_functions()
 
 def find_network_keywords():
     with open('categorized_lines.txt', 'r') as file:
@@ -121,15 +122,15 @@ def find_network_keywords():
 
     with open('found_network_combined_with_serialization.txt', 'w') as outfile:
         for line in lines:
-            # If there is network or serialization keyword in the line, write it to the output file
+            # If there is function categorized as network or serialization, write it to the output file
             if 'network' in line or 'serialization' in line:
                 outfile.write(line)
 
 find_network_keywords()
 
 def computation():
-    # Read the 'found_network_keywords.txt' file
-    with open('found_network_keywords.txt', 'r') as file:
+    # Read the 'found_network_combined_with_serialization.txt' file
+    with open('found_network_combined_with_serialization.txt', 'r') as file:
         lines = file.readlines()
 
     # Extract the first part of the line
@@ -160,27 +161,20 @@ def computation():
 
             # Check if branch stack num is the same as previous
             if branch_stack_num == previous_branch_stack_num:
-                # Check if the category is network or serialization
-                if category in ['network_keywords', 'serialization_keywords'] and in_sequence:
-                    cumulative_cpu_cycles += total_cpu_cycles_taken
-                else:
-                    # Write the previous entry to the output file
-                    outfile.write(f"{previous_branch_stack_num} - {first_function_name} - {cumulative_cpu_cycles} - {category}\n")
-                    # Reset variables for the new chain with current values
-                    cumulative_cpu_cycles = total_cpu_cycles_taken
-                    first_function_name = function_name
-                    in_sequence = category in ['network_keywords', 'serialization_keywords']
+                cumulative_cpu_cycles += total_cpu_cycles_taken
+               
             else:
                 # Write the previous entry to the output file
-                outfile.write(f"{previous_branch_stack_num} - {first_function_name} - {cumulative_cpu_cycles} - {category}\n")
+                outfile.write(f"{first_function_name} - {previous_branch_stack_num} - {cumulative_cpu_cycles} - {category}\n")
                 # Reset variables for the new chain with current values
                 cumulative_cpu_cycles = total_cpu_cycles_taken
                 first_function_name = function_name
                 in_sequence = category in ['network_keywords', 'serialization_keywords']
                 previous_branch_stack_num = branch_stack_num
 
-        # Write the last entry to the output file
-        outfile.write(f"{previous_branch_stack_num} - {first_function_name} - {cumulative_cpu_cycles} - {category}\n")
+        # Write the last entry to the output file only if it is serialization or network
+       
+        outfile.write(f"{first_function_name} - {previous_branch_stack_num} - {cumulative_cpu_cycles} - {category}\n")
 
 computation()
 
@@ -197,31 +191,33 @@ def plot_network_category_combinations_cpu_cycles():
         for line in lines:
             total_cpu_cycles_all_from_functions += int(line.split('-')[2].strip())
 
-    # Calculate the percentage of CPU cycles for category + network combination
-    for line in lines:
-        parts = line.split('-')
-        if len(parts) < 3:
-            continue
-        category = parts[3].strip()
-        if category == "network_keywords":
-            cpu_cycles["category_preceeded_by_network"] += int(parts[2].strip())
+    # Calculate the total CPU cycles taken by Network + Serialization
+    with open('processed_found_network_keywords.txt', 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            parts = line.split('-')
+            total_cpu_cycles = int(parts[2].strip())
 
     # Normalize CPU cycles by the total CPU cycles
 
-    if total_cpu_cycles_all_from_functions != 0:
-        cpu_cycles_percentage = (cpu_cycles["category_preceeded_by_network"] / total_cpu_cycles_all_from_functions) * 100
-    else:
-        cpu_cycles_percentage = 0
+    cpu_cycles_percentage = (total_cpu_cycles / total_cpu_cycles_all_from_functions) * 100
 
     # Plot the percentage of CPU cycles for category + network combination
     plt.figure(figsize=(10, 6))
-    plt.bar(["Category Preceeded by Network"], [cpu_cycles_percentage], color='limegreen')
+    plt.bar(["Network + Serialization"], [cpu_cycles_percentage], color='limegreen')
     plt.ylabel('Normalized Percentage of CPU Cycles (%)', fontsize=14)
     plt.title('Percentage of CPU Cycles for Category Preceeded by Network', fontsize=16)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.text(0, cpu_cycles_percentage - 2, f'{cpu_cycles_percentage:.2f}%', ha='center', fontsize=14)
     plt.tight_layout()
-    plt.savefig('category_preceeded_by_network.png')
+    # Percentage values on top of the bars
+    for i, v in enumerate([cpu_cycles_percentage]):
+        plt.text(i, v + 1, f'{v:.2f}%', ha='center', va='bottom', fontsize=15, color='black')
+
+    plt.savefig('category_surrounded_by_network.png')
     plt.show()
 
 plot_network_category_combinations_cpu_cycles()
+
+# I  have found Network + serialization chains within the branch stack traces 
+# Now need to calculate the total CPU cycles taken by these chains and plot the percentage of CPU cycles taken by these chains
