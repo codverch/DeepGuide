@@ -123,43 +123,30 @@ def categorize_functions():
 process_file()
 categorize_functions()
 
-"""
-This function reads lines from a file called 'categorized_lines.txt', identifies lines containing the string 'network_keywords', 
-and writes them to a new file called 'found_network_keywords.txt'. For each identified line, it also writes
-the next line to the output file.
-"""
-
 def find_network_keywords():
-
     with open('categorized_lines.txt', 'r') as file:
         lines = file.readlines()
 
     with open('found_network_keywords.txt', 'w') as file:
-        write_next_line = False
+        prev_line = ""
         for line in lines:
-            if 'network_keywords' in line:
+            if 'network' in line:
+                if prev_line:
+                    function_name = prev_line.split('-')[0].strip()
+                    branch_stack_num = prev_line.split('-')[1].strip()
+                    cpu_cycle = prev_line.split('-')[2].strip()
+                    category = prev_line.split('-')[3].strip()
+                    file.write(f"{function_name} - {branch_stack_num} - {cpu_cycle} - {category}\n")
+                    
                 function_name = line.split('-')[0].strip()
                 branch_stack_num = line.split('-')[1].strip()
                 cpu_cycle = line.split('-')[2].strip()
                 category = line.split('-')[3].strip()
                 file.write(f"{function_name} - {branch_stack_num} - {cpu_cycle} - {category}\n")
-                write_next_line = True
-            elif write_next_line:
-                function_name = line.split('-')[0].strip()
-                branch_stack_num = line.split('-')[1].strip()
-                cpu_cycle = line.split('-')[2].strip()
-                category = line.split('-')[3].strip()
-                file.write(f"{function_name} - {branch_stack_num} - {cpu_cycle} - {category}\n")
-                write_next_line = False
+                
+            prev_line = line
 
 find_network_keywords()
-
-"""
-# Read and process lines from 'found_network_keywords.txt', aggregating CPU cycles for lines with the same branch stack number
-# Write the aggregated data to 'processed_found_network_keywords.txt', including function name, total CPU cycles, and category
-# Initialize variables to track the previous branch stack number, function name, total CPU cycles, and category
-# Skip lines with insufficient parts and print a message, then continue processing the remaining lines
-"""
 
 def computation():
     # Read the 'found_network_keywords.txt' file
@@ -211,27 +198,6 @@ def computation():
 
 computation()
 
-"""
-Each line in the 'processed_found_network_keywords.txt' file follows a specific format:
-  - One line consists of 'network_keywords' followed by another line containing a category that is not classified as a network category.
-The objective is to visualize the percentage of CPU cycles attributed to the network category in conjunction with various other categories.
-Goal is to observe CPU cycles taken by network + kernel, network + application_logic, network + unknown, and network + other categories.
-
-This code block reads lines from 'processed_found_network_keywords.txt' and processes them in pairs, 
-combining CPU cycle counts for network categories followed by other categories. 
-It then calculates the percentage of CPU cycles for each combination and stores the results in
-network_followed_by_category_cpu_percentages.
-"""
-
-"""
-This function reads pairs of lines from a file, where each pair represents a network category 
-followed by another category, and aggregates the CPU cycles for each pair. 
-It then calculates the percentage of CPU cycles for each pair and plots the results as a bar chart,
-with each bar representing a network category and different colors indicating the following 
-category. The legend is moved outside the plot for clarity, and percentage values are displayed 
-above the bars for easy comparison.
-"""
-
 def plot_network_category_combinations_cpu_cycles():
     with open('processed_found_network_keywords.txt', 'r') as file:
         lines = file.readlines()
@@ -242,14 +208,15 @@ def plot_network_category_combinations_cpu_cycles():
            'sync_keywords', 'miscellaneous_keywords', 'network_keywords',
            'compress_keywords', 'encryption_keywords', 'hash_keywords', 'mem_keywords'] # Add network_keywords since they probably don't belong to the same branch stack
 
-    cpu_cycles = {"network_followed_by_" + bucket : 0 for bucket in buckets}
+    cpu_cycles = {"category_preceeded_by_network_" + bucket : 0 for bucket in buckets}
 
-    # Read a line and its following line to process pairs
-    # The first line is network and the second line is of a different category
-    for i in range(0, len(lines), 2):
-        network_category = lines[i].split('-')[3].strip()
-        other_category = lines[i+1].split('-')[3].strip()
-        cpu_cycles["network_followed_by_" + other_category] += int(lines[i].split('-')[2].strip())
+    # Read a line and its previous line to process pairs
+    # The first line is of a different category and the second line is network
+    for i in range(1, len(lines)):
+        prev_line_category = lines[i-1].split('-')[3].strip()
+        current_line_category = lines[i].split('-')[3].strip()
+        if prev_line_category != "network_keywords" and current_line_category == "network_keywords":
+            cpu_cycles["category_preceeded_by_network_" + prev_line_category] += int(lines[i].split('-')[2].strip())
 
     # Calculate the total CPU cycles for all categories in 'categorized_lines.txt'
     with open ('categorized_lines.txt', 'r') as file:
@@ -258,15 +225,15 @@ def plot_network_category_combinations_cpu_cycles():
         for line in lines:
             total_cpu_cycles_all_from_functions += int(line.split('-')[2].strip())
 
-    # Calculate the percentage of CPU cycles for each network category combination
-    network_followed_by_category_cpu_percentages = {key: (value / total_cpu_cycles_all_from_functions) * 100 for key, value in cpu_cycles.items()}
+    # Calculate the percentage of CPU cycles for each category + network combination
+    category_preceeded_by_network_cpu_percentages = {key: (value / total_cpu_cycles_all_from_functions) * 100 for key, value in cpu_cycles.items()}
 
-    # Plot the percentage of CPU cycles for each network category combination
+    # Plot the percentage of CPU cycles for each category + network combination
     plt.figure(figsize=(15, 10))  # Increase the figure size
-    keys = list(network_followed_by_category_cpu_percentages.keys())
-    plt.bar(range(len(keys)), network_followed_by_category_cpu_percentages.values(), color='limegreen')  # Change the color to limegreen
+    keys = list(category_preceeded_by_network_cpu_percentages.keys())
+    plt.bar(range(len(keys)), category_preceeded_by_network_cpu_percentages.values(), color='limegreen')  # Change the color to limegreen
     plt.ylabel('Normalized Percentage of CPU Cycles (%)', fontsize=17)
-    plt.title('Percentage of CPU Cycle Distribution for Network (followed by) Combined with Other Categories', fontsize=17)
+    plt.title('Percentage of CPU Cycle Distribution for Category (Preceeded by) Combined with Network', fontsize=17)
 
     # Create a mapping of old names to new names
     name_mapping = {}
@@ -277,7 +244,8 @@ def plot_network_category_combinations_cpu_cycles():
             new_name = old_name.replace('c_libraries', 'C Libraries')
         else:
             new_name = old_name
-        new_name = ' + '.join(word.title() for word in new_name.split('_') if word not in ['followed', 'by', 'keywords'])
+        new_name = ' + '.join(word.title() for word in new_name.split('_') if word not in ['category', 'preceeded', 'by', 'network', 'keywords'])
+        new_name = new_name + ' + Network'
         name_mapping[old_name] = new_name
 
     # Use the mapping to set the x-tick labels
@@ -285,11 +253,10 @@ def plot_network_category_combinations_cpu_cycles():
 
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     # Add the percentage values above the bars
-    for i, value in enumerate(network_followed_by_category_cpu_percentages.values()):
+    for i, value in enumerate(category_preceeded_by_network_cpu_percentages.values()):
         plt.text(i, value - -0.1, f'{value:.2f}%', ha='center', fontsize=15)  # Move the text down and increase the font size
     plt.tight_layout()
-    plt.savefig('network_category_followed_by_category.png')
+    plt.savefig('category_network_preceeded_by_network.png')
     plt.show()
 
-       
 plot_network_category_combinations_cpu_cycles()
