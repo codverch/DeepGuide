@@ -262,17 +262,34 @@ def plot_network_category_combinations_cpu_cycles():
     network_followed_by_category_cpu_percentages = {key: (value / total_cpu_cycles_all_from_functions) * 100 for key, value in cpu_cycles.items()}
 
     # Plot the percentage of CPU cycles for each network category combination
-    plt.figure(figsize=(15, 10))
-    plt.bar(network_followed_by_category_cpu_percentages.keys(), network_followed_by_category_cpu_percentages.values(), color='skyblue')
-    plt.ylabel('Percentage of CPU Cycles (%)')
-    plt.title('Percentage of CPU Cycles for Network Category Followed by Other Categories')
-    plt.xticks(rotation=45)
+    plt.figure(figsize=(15, 10))  # Increase the figure size
+    keys = list(network_followed_by_category_cpu_percentages.keys())
+    plt.bar(range(len(keys)), network_followed_by_category_cpu_percentages.values(), color='limegreen')  # Change the color to limegreen
+    plt.ylabel('Normalized Percentage of CPU Cycles (%)', fontsize=17)
+    plt.title('Percentage of CPU Cycle Distribution for Network (followed by) Combined with Other Categories', fontsize=17)
+
+    # Create a mapping of old names to new names
+    name_mapping = {}
+    for old_name in keys:
+        if 'application_logic' in old_name:
+            new_name = old_name.replace('application_logic', 'Application Logic')
+        elif 'c_libraries' in old_name:
+            new_name = old_name.replace('c_libraries', 'C Libraries')
+        else:
+            new_name = old_name
+        new_name = ' + '.join(word.title() for word in new_name.split('_') if word not in ['followed', 'by', 'keywords'])
+        name_mapping[old_name] = new_name
+
+    # Use the mapping to set the x-tick labels
+    plt.xticks(range(len(keys)), [name_mapping[key] for key in keys], rotation=50, fontsize=15, ha='right')  # Decrease the rotation and increase the font size
+
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     # Add the percentage values above the bars
-    for key, value in network_followed_by_category_cpu_percentages.items():
-        plt.text(key, value + 0.5, f'{value:.2f}%', ha='center')
+    for i, value in enumerate(network_followed_by_category_cpu_percentages.values()):
+        plt.text(i, value - -0.1, f'{value:.2f}%', ha='center', fontsize=15)  # Move the text down and increase the font size
     plt.tight_layout()
     plt.savefig('network_category_followed_by_category.png')
     plt.show()
+
        
 plot_network_category_combinations_cpu_cycles()
