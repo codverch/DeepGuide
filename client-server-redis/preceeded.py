@@ -63,11 +63,9 @@ def categorize_functions():
                 # For lines starting with "[unknown]", extract the CPU cycle value for the first function and write the formatted line
                 if line.startswith("[unknown]"):
                     parts = line.split('/')
-                    if len(parts) > 5:
-                        cpu_cycle = parts[5].split()[0]
-                        branch_stack_number = parts[3].split()[0]
-                    else:
-                        cpu_cycle = "unknown"
+                    branch_stack_number = parts[0].split()[3]
+                    cpu_cycle = parts[-1].strip()
+                        
                     with open(f"categorized_lines.txt", 'a') as file:
                         file.write(f"[unknown] - Branch Stack Number: {branch_stack_number} - {cpu_cycle} - application_logic_keywords\n")
             else:
@@ -165,6 +163,11 @@ def find_network_keywords():
                     previous_category = category
                     previous_branch_stack_num = branch_stack_num
                     previous_function_name = function_name
+
+
+process_file()
+categorize_functions()
+find_network_keywords()
 
 # Read 'processed_found_network_keywords.txt' file
 with open('processed_found_network_keywords.txt', 'r') as file:
