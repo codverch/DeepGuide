@@ -705,6 +705,7 @@ locks_remove_file
 add_transaction_credits 
 prepend_path 
 pick_link 
+zsetLength
 dictGetSafeIterator
 _base_get_cb_idx
 dbGenericDelete

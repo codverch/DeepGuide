@@ -145,3 +145,4 @@ default_wake_function
 dma_sync_single_for_cpu
 mutex_trylock
 tty_ldisc_ref_wait 
+rcuwait_wake_up 
