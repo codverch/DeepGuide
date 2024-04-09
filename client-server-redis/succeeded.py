@@ -155,82 +155,53 @@ def find_network_keywords():
 find_network_keywords()
 
 """
-# Read and process lines from 'found_network_keywords.txt', aggregating CPU cycles for lines with the same branch stack number
-# Write the aggregated data to 'processed_found_network_keywords.txt', including function name, total CPU cycles, and category
-# Initialize variables to track the previous branch stack number, function name, total CPU cycles, and category
-# Skip lines with insufficient parts and print a message, then continue processing the remaining lines
+Read and process lines from 'found_network_keywords.txt'
+If there are consecutive lines of network keywords, write them to a new file called 'processed_found_network_keywords.txt'. 
+Write the function name of the first line of the consecutive network keywords to the file, and the sum of the CPU cycles of all the lines.
+
 """
 
 def computation():
-    # Read the 'found_network_keywords.txt' file
     with open('found_network_keywords.txt', 'r') as file:
         lines = file.readlines()
 
-    # Extract the first part of the line
-    previous_branch_stack_num = None
+    # Variables to keep track of first function name in a sequence and CPU cycle sum
+    first_function_name = None
+    sum_cpu_cycles = 0
+    other_line = None
 
-    with open('processed_found_network_keywords.txt', 'w') as outfile:
+    if os.path.exists('processed_found_network_keywords.txt'):
+        os.remove('processed_found_network_keywords.txt')
+
+    with open('processed_found_network_keywords.txt', 'w') as file:
         for line in lines:
+            # Split the line into parts
             parts = line.split('-')
-            if len(parts) < 3:
-                print(f"Skipping line: {line}")
-                continue
-            
             function_name = parts[0].strip()
-            branch_stack_num = parts[1].strip()
-            total_cpu_cycles_taken = int(parts[2].strip())
+            cpu_cycles = int(parts[2].strip())
             category = parts[3].strip()
 
-            # If this is the first line then initialize the variables
-            if previous_branch_stack_num is None:
-                previous_branch_stack_num = branch_stack_num
-                previous_function_name = function_name
-                previous_total_cpu_cycles = total_cpu_cycles_taken
-                previous_category = category
-                continue
-
-            # Check if branch stack num is the same as previous
-            if branch_stack_num == previous_branch_stack_num:
-                # Check if the category is the same as previous
-                if category == previous_category:
-                    previous_total_cpu_cycles += int(total_cpu_cycles_taken)
-                else:
-                    outfile.write(f"{previous_branch_stack_num} - {previous_function_name} - {previous_total_cpu_cycles} - {previous_category}\n")
-                    # Reset variables for the new chain with current values
-                    previous_total_cpu_cycles = int(total_cpu_cycles_taken)
-                    previous_category = category
-                    previous_branch_stack_num = branch_stack_num
-                    previous_function_name = function_name
+            if category == 'network_keywords':
+                if first_function_name is None:
+                    first_function_name = function_name
+                sum_cpu_cycles += cpu_cycles
             else:
-                outfile.write(f"{previous_branch_stack_num} - {previous_function_name} - {previous_total_cpu_cycles} - {previous_category}\n")
-                # Reset variables for the new chain with current values
-                previous_total_cpu_cycles = int(total_cpu_cycles_taken)
-                previous_category = category
-                previous_branch_stack_num = branch_stack_num
-                previous_function_name = function_name
+                if first_function_name is not None:
+                    file.write(f"{first_function_name} - {sum_cpu_cycles} - network_keywords\n")
+                    first_function_name = None
+                    sum_cpu_cycles = 0
+
+                function_name = line.split('-')[0].strip()
+                branch_stack_num = line.split('-')[1].strip()
+                cpu_cycle = line.split('-')[2].strip()
+                category = line.split('-')[3].strip()
+                file.write(f"{function_name} - {cpu_cycle} - {category}\n")
+
+        # Write any remaining lines
+        if first_function_name is not None:
+            file.write(f"{first_function_name} - {sum_cpu_cycles} - network_keywords\n")
 
 computation()
-
-"""
-Each line in the 'processed_found_network_keywords.txt' file follows a specific format:
-  - One line consists of 'network_keywords' followed by another line containing a category that is not classified as a network category.
-The objective is to visualize the percentage of CPU cycles attributed to the network category in conjunction with various other categories.
-Goal is to observe CPU cycles taken by network + kernel, network + application_logic, network + unknown, and network + other categories.
-
-This code block reads lines from 'processed_found_network_keywords.txt' and processes them in pairs, 
-combining CPU cycle counts for network categories followed by other categories. 
-It then calculates the percentage of CPU cycles for each combination and stores the results in
-network_followed_by_category_cpu_percentages.
-"""
-
-"""
-This function reads pairs of lines from a file, where each pair represents a network category 
-followed by another category, and aggregates the CPU cycles for each pair. 
-It then calculates the percentage of CPU cycles for each pair and plots the results as a bar chart,
-with each bar representing a network category and different colors indicating the following 
-category. The legend is moved outside the plot for clarity, and percentage values are displayed 
-above the bars for easy comparison.
-"""
 
 def plot_network_category_combinations_cpu_cycles():
     with open('processed_found_network_keywords.txt', 'r') as file:
@@ -239,18 +210,20 @@ def plot_network_category_combinations_cpu_cycles():
     buckets = ['kernel_keywords', 
            'application_logic_keywords', 'c_libraries_keywords',
             'serialization_keywords', 
-           'sync_keywords', 'miscellaneous_keywords', 'network_keywords',
-           'compress_keywords', 'encryption_keywords', 'hash_keywords', 'mem_keywords'] # Add network_keywords since they probably don't belong to the same branch stack
+           'sync_keywords', 'miscellaneous_keywords', 
+           'compress_keywords', 'encryption_keywords', 'hash_keywords', 'mem_keywords'] 
 
     cpu_cycles = {"network_followed_by_" + bucket : 0 for bucket in buckets}
 
     # Read a line and its following line to process pairs
     # The first line is network and the second line is of a different category
     for i in range(0, len(lines), 2):
-        network_category = lines[i].split('-')[3].strip()
-        other_category = lines[i+1].split('-')[3].strip()
-        cpu_cycles["network_followed_by_" + other_category] += int(lines[i].split('-')[2].strip())
-
+        network_category = lines[i].split('-')[2].strip()
+        if i+1 < len(lines):
+            other_category = lines[i+1].split('-')[2].strip()
+            cpu_cycles["network_followed_by_" + other_category] += int(lines[i].split('-')[1].strip()) + int(lines[i+1].split('-')[1].strip())
+    
+        
     # Calculate the total CPU cycles for all categories in 'categorized_lines.txt'
     with open ('categorized_lines.txt', 'r') as file:
         lines = file.readlines()
@@ -291,5 +264,4 @@ def plot_network_category_combinations_cpu_cycles():
     plt.savefig('network_category_followed_by_category.png')
     plt.show()
 
-       
 plot_network_category_combinations_cpu_cycles()
