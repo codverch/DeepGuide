@@ -7,6 +7,9 @@ if os.path.exists('processed_found_network_keywords.txt'):
 if os.path.exists('category_surrounded_by_network.png'):
     os.remove('category_surrounded_by_network.png')
 
+if os.path.exists('found_network_and_serialization_keywords.txt'):
+    os.remove('found_network_and_serialization_keywords.txt')
+
 def process_file():
         with open('branch_stack.txt') as file:
             lines = file.readlines()
@@ -116,46 +119,52 @@ def categorize_functions():
 process_file()
 categorize_functions()
 
-def find_network_keywords():
-    with open('categorized_lines.txt', 'r') as file:
-        lines = file.readlines()
 
+def find_network_and_serialization_keywords():
+    # Open the input file for reading
+    with open('categorized_lines.txt', 'r') as file:
+        lines = file.readlines()  # Read all lines into a list
+
+    # Open a new file for writing the found sequences
     with open('found_network_and_serialization_keywords.txt', 'w') as file:
         i = 0
+        # Iterate over the lines in the file
         while i < len(lines) - 1:
-            current_line = lines[i]
-            next_line = lines[i + 1]
+            current_line = lines[i]  # Get the current line
+            next_line = lines[i + 1]  # Get the next line
 
-            # Check if the current line contains 'network_keywords'
-            if 'network_keywords' in current_line:
-                network_sequence = [current_line]  # Initialize a list to store the network sequence
-                j = i + 1  # Start searching from the next line
-                while j < len(lines):
-                    next_line = lines[j]
-                    if 'serialization_keywords' in next_line:
-                        # If 'serialization_keywords' is found, terminate the loop
-                        network_sequence.append(next_line)
-                        break
-                    elif 'network_keywords' in next_line:
-                        # If another 'network_keywords' is found, add it to the sequence
-                        network_sequence.append(next_line)
+            # Check if the current line or the next line contains 'network_keywords' or 'serialization_keywords'
+            if 'network_keywords' in current_line or 'serialization_keywords' in current_line or 'network_keywords' in next_line or 'serialization_keywords' in next_line:
+                network_sequence = []  # Initialize a list to store the network sequence
+                j = i  # Start searching from the current line
+                while j < len(lines) - 1:
+                    current_line = lines[j]  # Get the current line in the loop
+                    next_line = lines[j + 1]  # Get the next line in the loop
+                    current_branch_stack = current_line.split('-')[1].strip()
+                    next_branch_stack = next_line.split('-')[1].strip()
+
+                    # Check if the current line contains 'network_keywords' or 'serialization_keywords' and has the same branch stack as the next line
+                    if ('network_keywords' in current_line or 'serialization_keywords' in current_line) and current_branch_stack == next_branch_stack:
+                        # Add the line to the network sequence
+                        network_sequence.append(current_line)
                     else:
-                        # If any other category is encountered, stop searching
-                        break
-                    j += 1
-                
-                # If the network sequence is followed by 'serialization_keywords', write it to the output file
-                if len(network_sequence) > 1 and 'serialization_keywords' in network_sequence[-1]:
-                    for line in network_sequence:
-                        file.write(line)
-                
-                # Move the index to the next line after the network sequence
-                i = j
+                        # Check if the network sequence contains both keywords
+                        if any('network_keywords' in line for line in network_sequence) and any('serialization_keywords' in line for line in network_sequence):
+                            # Write the sequence to the file if it contains both keywords
+                            for line in network_sequence:
+                                file.write(line)
+                            file.write(next_line)  # Write the next line as it contains the opposite keyword
+                            break  # Exit the loop
+                        else:
+                            break  # Exit the loop if the sequence doesn't contain both keywords
+                    j += 1  # Move to the next line
+                i = j + 1  # Update the outer loop index to continue from where the inner loop ended
             else:
-                # If the current line does not contain 'network_keywords', move to the next line
-                i += 1
+                i += 1  # Move to the next line if neither the current nor the next line contains the keywords
 
-find_network_keywords()
+                    
+find_network_and_serialization_keywords()
+
 
 def plot_cpu_cycles():
     with open('found_network_and_serialization_keywords.txt', 'r') as file:
@@ -187,4 +196,4 @@ def plot_cpu_cycles():
     plt.savefig('cpu_cycles_plot.png')
     plt.show()
 
-plot_cpu_cycles()
+# plot_cpu_cycles()
