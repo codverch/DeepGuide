@@ -61,3 +61,4 @@ perf_event_mmap_output
 perf_event_mmap_event 
 perf_event_mmap
 hack_digit
+genrand64_int64
