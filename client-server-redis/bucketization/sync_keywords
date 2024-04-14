@@ -146,3 +146,6 @@ dma_sync_single_for_cpu
 mutex_trylock
 tty_ldisc_ref_wait 
 rcuwait_wake_up 
+copy_semundo
+begin_current_label_crit_section
+poll_health 
