@@ -693,3 +693,5 @@ inet_csk_reset_keepalive_timer
 inet_accept 
 inet_sk_state_store 
 sk_stream_wait_close
+net_dim
+net_tx_action
