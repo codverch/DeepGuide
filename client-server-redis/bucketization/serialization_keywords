@@ -146,6 +146,9 @@ parse                                 # NGinx HTTP communication parsing
 lp_
 getLongLongFromObject
 lp
+sdsIncrLen
+lpStringToInt64.part.0
+getDoubleFromObject # Related to Redis
 tryObjectEncodingEx 
 createStreamIDString
 hashTypeSet                         # Some kind of encoding of an object, probably serialization
@@ -155,3 +158,9 @@ rdbWriteRaw
 rdbSaveLzfBlob
 streamDecodeID                  # Check with Minya
 streamEncodeID
+digits10
+string2d  # Related to Redis
+dictSdsKeyCompare
+processMultibulkBuffer
+dictSdsKeyCaseCompare
+format_decode
