@@ -5,3 +5,4 @@ siphash_3u32                             #
 mongo::canonical_query_encoder::computeHash # 
 runtime.strhash                          # Golang's string hashing
 string
+__lookup_hash
