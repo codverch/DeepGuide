@@ -381,3 +381,6 @@ __mod_memcg_state
 getGenericCommand
 updateClientMemoryUsage
 listDelNode
+expand_downwards
+__vm_enough_memory
+security_vm_enough_memory_mm
