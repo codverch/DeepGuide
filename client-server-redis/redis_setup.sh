@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Install Redis Dependencies
+sudo apt-get install libjemalloc-dev -y
+sudo apt-get install libgtest-dev -y
+
 # Install OpenSSL Library to enable TLS support (not sure what TLS is)
 sudo apt-get install libssl-dev -y
 
