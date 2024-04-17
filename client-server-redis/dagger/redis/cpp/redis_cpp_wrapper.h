@@ -1,0 +1,34 @@
+#ifndef _RPC_THREADED_SERVER_WRAPPER_H_
+#define _RPC_THREADED_SERVER_WRAPPER_H_
+
+#ifdef __cplusplus
+#define EXTERNC extern "C"
+#else
+#define EXTERNC
+#endif
+
+#include <stdint.h>
+#include "rpc_call.h"
+#include "rpc_types.h"
+
+EXTERNC int redis_wrapper_init_and_start_server();
+
+EXTERNC int redis_wrapper_open_connection(const char* client_ip,
+                                          uint16_t client_port,
+                                          uint32_t c_id);
+
+EXTERNC int redis_wrapper_register_functions(
+                                int (*set)(struct CallHandler,
+                                           struct SetRequest,
+                                           struct SetResponse*),
+                                int (*get)(struct CallHandler,
+                                           struct GetRequest,
+                                           struct GetResponse*));
+
+EXTERNC int redis_wrapper_run_new_listening_thread(int pin_cpu);
+
+EXTERNC int redis_wrapper_set_lb(int lb);
+
+#undef EXTERNC
+
+#endif
