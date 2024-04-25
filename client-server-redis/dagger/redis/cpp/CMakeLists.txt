@@ -1,5 +1,7 @@
 PREPEND(PREP_SOURCES ${ROOT_DIR} ${SOURCES})
 
+# Find the relevant Redis Makefile
+
 # Generate RPC stubs
 SET(KVS_IDL_FILENAME ${CMAKE_CURRENT_SOURCE_DIR}/../kvs_client/kvs.dproto)
 execute_process(COMMAND python3 rpc_gen.py ${KVS_IDL_FILENAME} ${CMAKE_CURRENT_BINARY_DIR}
@@ -18,15 +20,24 @@ target_compile_definitions(dagger-redis PRIVATE PROFILE_LATENCY=1)
 target_link_libraries(dagger-redis ${FPGA_LIBS} ${LIBRARIES} -shared)
 
 # Build redis server
-SET(REDIS_MAKE_CMD CPPFLAGS="-I${CMAKE_CURRENT_SOURCE_DIR}/cpp"
-                       CPPFLAGS+="-I${CMAKE_CURRENT_BINARY_DIR}"
-                       CPPFLAGS+="-I${CMAKE_CURRENT_SOURCE_DIR}/../../src"
-                       LDFLAGS="-L${CMAKE_CURRENT_BINARY_DIR}"
-                       LIBS="-ldagger-redis"
-                       LIBS+="-lhugetlbfs"
-                       LIBS+="-levent"
-                       LIBS+="-pthread")
+message(STATUS "CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
+SET(REDIS_MAKE_CMD REDIS_CFLAGS="-I${CMAKE_CURRENT_SOURCE_DIR}/cpp"
+                   REDIS_CFLAGS+="-I${CMAKE_CURRENT_BINARY_DIR}"
+                   REDIS_CFLAGS+="-I${CMAKE_CURRENT_SOURCE_DIR}/redis/src"
+                   REDIS_CFLAGS+="-I${CMAKE_CURRENT_SOURCE_DIR}/../../src"
+                   REDIS_LDFLAGS="-L${CMAKE_CURRENT_BINARY_DIR}"
+                   LDFLAGS="-L${CMAKE_CURRENT_BINARY_DIR}"
+                   LIBS="-ldagger-redis"
+                   LIBS+="-lhugetlbfs"
+                   LIBS+="-levent"
+                   LIBS+="-pthread"
+                   MALLOC=libc)
+message(STATUS "REDIS_MAKE_CMD: ${REDIS_MAKE_CMD}")
+message(STATUS "Current Redis Build Directory: ${CMAKE_CURRENT_BINARY_DIR}")
+
+# Manually: change the redis makefile so that it includes dagger 
 
 add_custom_target(redis_server ALL
-                  COMMAND /usr/bin/make ${REDIS_MAKE_CMD}
-                  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/redis)
+                  /usr/bin/make -f "${CMAKE_CURRENT_SOURCE_DIR}/redis/src/Makefile" ${REDIS_MAKE_CMD}
+                  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/redis/src
+                )
